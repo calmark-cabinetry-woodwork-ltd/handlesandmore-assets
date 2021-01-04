@@ -9,3 +9,8 @@ body {
     max-width: 767px;
     margin: 0 auto;
 }
+
+span[class*="icon-"] {
+    font-size: 3em;
+    margin-right: 10px;
+}
