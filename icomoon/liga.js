@@ -25,7 +25,21 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
+            'remove': '&#xe90d;',
+            'add': '&#xe902;',
+            'clear': '&#xe903;',
+            'forward': '&#xe904;',
+            'chevron_left': '&#xe909;',
+            'chevron_right': '&#xe90a;',
+            'print': '&#xe905;',
+            'check': '&#xe906;',
+            'chevron_up': '&#xe90b;',
+            'chevron_down': '&#xe90c;',
+            'credit_card': '&#xe907;',
+            'payment': '&#xe907;',
+            'forward_message': '&#xe908;',
             'email': '&#xf003;',
+            'close': '&#xf00d;',
             'zoom_in': '&#xf00e;',
             'zoom_out': '&#xf010;',
             'trash': '&#xf014;',
@@ -47,18 +61,6 @@
             'facebook': '&#xf230;',
             'cash': '&#xe900;',
             'barcode': '&#xe901;',
-            'add': '&#xe902;',
-            'clear': '&#xe903;',
-            'forward': '&#xe904;',
-            'chevron_left': '&#xe909;',
-            'chevron_right': '&#xe90a;',
-            'print': '&#xe905;',
-            'check': '&#xe906;',
-            'chevron_up': '&#xe90b;',
-            'chevron_down': '&#xe90c;',
-            'credit_card': '&#xe907;',
-            'payment': '&#xe907;',
-            'forward_message': '&#xe908;',
           '0': 0
         };
         delete icons['0'];
