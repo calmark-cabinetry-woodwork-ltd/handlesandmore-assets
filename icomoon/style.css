@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?gaev0f');
-  src:  url('fonts/icomoon.eot?gaev0f#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?gaev0f') format('truetype'),
-    url('fonts/icomoon.woff?gaev0f') format('woff'),
-    url('fonts/icomoon.svg?gaev0f#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?1jv0st');
+  src:  url('fonts/icomoon.eot?1jv0st#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?1jv0st') format('truetype'),
+    url('fonts/icomoon.woff?1jv0st') format('woff'),
+    url('fonts/icomoon.svg?1jv0st#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -35,41 +35,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-remove:before {
-  content: "\e90d";
-}
 .icon-add:before {
-  content: "\e902";
+  content: "\f067";
 }
-.icon-delete:before {
-  content: "\e903";
-}
-.icon-forward:before {
-  content: "\e904";
-}
-.icon-chevron-left:before {
-  content: "\e909";
-}
-.icon-chevron-right:before {
-  content: "\e90a";
-}
-.icon-print:before {
-  content: "\e905";
-}
-.icon-update:before {
-  content: "\e906";
-}
-.icon-chevron-up:before {
-  content: "\e90b";
-}
-.icon-chevron-down:before {
-  content: "\e90c";
-}
-.icon-credit_card:before {
-  content: "\e907";
-}
-.icon-forward_to_inbox:before {
-  content: "\e908";
+.icon-remove:before {
+  content: "\f068";
 }
 .icon-email:before {
   content: "\f003";
@@ -166,4 +136,34 @@
 }
 .icon-barcode:before {
   content: "\e901";
+}
+.icon-delete:before {
+  content: "\e903";
+}
+.icon-forward:before {
+  content: "\e904";
+}
+.icon-chevron-left:before {
+  content: "\e909";
+}
+.icon-chevron-right:before {
+  content: "\e90a";
+}
+.icon-print:before {
+  content: "\e905";
+}
+.icon-update:before {
+  content: "\e906";
+}
+.icon-chevron-up:before {
+  content: "\e90b";
+}
+.icon-chevron-down:before {
+  content: "\e90c";
+}
+.icon-credit_card:before {
+  content: "\e907";
+}
+.icon-forward_to_inbox:before {
+  content: "\e908";
 }
