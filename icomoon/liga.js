@@ -25,7 +25,6 @@
     var icons;
     if (!supportsProperty('fontFeatureSettings')) {
         icons = {
-            'handles_and_more': '&#xe90e;',
             'add': '&#xe902;',
             'remove': '&#xe90d;',
             'clear': '&#xe903;',
