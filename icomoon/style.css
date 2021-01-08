@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?yvfgwr');
-  src:  url('fonts/icomoon.eot?yvfgwr#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?yvfgwr') format('truetype'),
-    url('fonts/icomoon.woff?yvfgwr') format('woff'),
-    url('fonts/icomoon.svg?yvfgwr#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?xq04x3');
+  src:  url('fonts/icomoon.eot?xq04x3#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?xq04x3') format('truetype'),
+    url('fonts/icomoon.woff?xq04x3') format('woff'),
+    url('fonts/icomoon.svg?xq04x3#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -35,18 +35,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-logo-responsive .path1:before {
+.icon-icon-responsive .path1:before {
   content: "\e90f";
   color: rgb(255, 255, 255);
 }
-.icon-logo-responsive .path2:before {
+.icon-icon-responsive .path2:before {
   content: "\e910";
-  margin-left: -1.2578125em;
+  margin-left: -1.7734375em;
+  color: rgb(255, 255, 255);
+}
+.icon-icon-responsive .path3:before {
+  content: "\e911";
+  margin-left: -1.7734375em;
   color: rgb(32, 31, 30);
 }
-.icon-logo-responsive .path3:before {
-  content: "\e911";
-  margin-left: -1.2578125em;
+.icon-icon-responsive .path4:before {
+  content: "\e912";
+  margin-left: -1.7734375em;
   color: rgb(32, 31, 30);
 }
 .icon-logo:before {
