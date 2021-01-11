@@ -27,6 +27,9 @@
         icons = {
             'add': '&#xe902;',
             'remove': '&#xe90d;',
+            'menu': '&#xe910;',
+            'search': '&#xe911;',
+            'settings': '&#xe912;',
             'clear': '&#xe903;',
             'forward': '&#xe904;',
             'chevron_left': '&#xe909;',
