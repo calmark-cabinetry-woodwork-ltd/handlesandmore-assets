@@ -1,0 +1,25 @@
+{
+  "name": "my-element",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "core-js": "^3.8.3",
+    "lit-element": "^2.4.0",
+    "regenerator-runtime": "^0.13.7",
+    "rollup": "^2.38.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-filesize": "^9.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "systemjs": "^6.8.3"
+  }
+}
