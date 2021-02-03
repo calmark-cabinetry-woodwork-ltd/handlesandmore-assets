@@ -10,7 +10,7 @@ class MyElement extends LitElement {
         `
     }
     render() {
-        return html`<p>Hello world!</p>`
+        return html`<p>Element Test</p>`
     }
 }
 
