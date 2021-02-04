@@ -92,9 +92,7 @@ class ShopSubcategoryList extends BaseElement {
         this.current = this.categories.find(c => c.url == stub)
         this.id = this.current.id
         this.subs = this.categories.filter(
-            c =>
-                c.id != this.current.id &&
-                c.path.slice(0).pop() == this.current.id
+            c => c.path.slice(1).shift() == this.current.id
         )
 
         this.requestUpdate()

@@ -9,7 +9,7 @@
 
     const loadScript = (src, b, c) => {
         var sc = src
-            ? createElement("script", { src })
+            ? createElement("script", { src: origin + src })
             : createElement("script", { innerHTML: b })
         sc.onload = src ? b : c
         append(sc)
@@ -17,7 +17,7 @@
     }
 
     const loadModule = src => {
-        var sc = createElement("script", { src, type: "module" })
+        var sc = createElement("script", { src: origin + src, type: "module" })
         append(sc)
     }
 
@@ -33,21 +33,18 @@
 
     try {
         new Function('import("")')
-        loadModule(origin + "/index.js")
+        loadModule("/index.js")
     } catch (err) {
         // Preload
-        preloadScript(origin + "/babel-polyfills-nomodule.js")
-        preloadScript(
-            origin + "/@webcomponents/webcomponentsjs/webcomponents-loader.js"
-        )
-        preloadScript(origin + "/index.nomodule.js")
+        preloadScript("/babel-polyfills-nomodule.js")
+        preloadScript("/@webcomponents/webcomponentsjs/webcomponents-loader.js")
+        preloadScript("/index.nomodule.js")
 
         // Add scripts in order
-        loadScript(origin + "/babel-polyfills-nomodule.js", function () {
+        loadScript("/babel-polyfills-nomodule.js", () => {
             loadScript(
-                origin +
-                    "/@webcomponents/webcomponentsjs/webcomponents-loader.js",
-                function () {
+                "/@webcomponents/webcomponentsjs/webcomponents-loader.js",
+                () => {
                     loadScript("/index.nomodule.js")
                 }
             )
