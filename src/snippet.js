@@ -1,25 +1,19 @@
-const append = e => document.head.appendChild(e)
+const doc = document
 
-const createElement = (t, p) => {
-    var e = document.createElement(t)
+const script = p => {
+    var e = doc.createElement("script")
     for (var prop in p) e[prop] = p[prop]
-    return e
+    doc.head.appendChild(e)
 }
-
-const domain = "https://assets.handlesandmore.ca"
 
 try {
     new Function('import("")')
-    append(
-        createElement("script", {
-            src: `${domain}/index.js`,
-            type: "module"
-        })
-    )
+    script({
+        src: "https://assets.handlesandmore.ca/index.js",
+        type: "module"
+    })
 } catch (err) {
-    append(
-        createElement("script", {
-            src: `${domain}/loader.js`
-        })
-    )
+    script({
+        src: "https://assets.handlesandmore.ca/loader.js"
+    })
 }
