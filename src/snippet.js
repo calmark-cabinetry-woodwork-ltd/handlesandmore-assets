@@ -1,4 +1,4 @@
-;(doc => {
+;((doc, origin) => {
     const script = p => {
         var e = doc.createElement("script")
         for (var prop in p) e[prop] = p[prop]
@@ -8,12 +8,12 @@
     try {
         new Function('import("")')
         script({
-            src: "https://assets.handlesandmore.ca/index.js",
+            src: origin + "/index.js",
             type: "module"
         })
     } catch (err) {
         script({
-            src: "https://assets.handlesandmore.ca/loader.js"
+            src: origin + "/loader.js"
         })
     }
-})(document)
+})(document, "https://assets.handlesandmore.ca")
