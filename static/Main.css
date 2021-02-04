@@ -16,3 +16,11 @@ span[class*="icon-"] {
     font-size: 3em;
     margin-right: 10px;
 }
+
+body.site {
+    max-width: 1140px;
+}
+
+.ui-main {
+    padding: 1rem;
+}
