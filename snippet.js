@@ -1,1 +1,1 @@
-!function(e){var t=function(t){var a=e.createElement("script");for(var n in t)a[n]=t[n];e.head.appendChild(a)};try{new Function('import("")'),t({src:"https://assets.handlesandmore.ca/index.js",type:"module"})}catch(e){t({src:"https://assets.handlesandmore.ca/loader.js"})}}(document);
+!function(e,n){var t=function(n){var t=e.createElement("script");for(var a in n)t[a]=n[a];e.head.appendChild(t)};try{new Function('import("")'),t({src:n+"/index.js",type:"module"})}catch(e){t({src:n+"/loader.js"})}}(document,"https://assets.handlesandmore.ca");
