@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Handles &amp; More Website Assets</title>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="/Main.css" />
+        <link rel="stylesheet" href="/icomoon/style.css" />
+        <link
+            href="//fonts.googleapis.com/css?family=Nunito%20Sans:300,400,600,700,900"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script src="/loader.js"></script>
+    </head>
+    <body class="site">
+        <h1>Handles &amp; More Website Assets</h1>
+
+        <div class="ui-main">
+            <shop-subcategory-list id="123"></shop-subcategory-list>
+        </div>
+    </body>
+    <script>
+        window.categoryIndex = [
+            {
+                id: 123,
+                title: "One",
+                url: "example",
+                description: "",
+                image:
+                    "https://via.placeholder.com/150/EEEEEE/222222/?text=ONE",
+                path: ["123"]
+            },
+            {
+                id: 456,
+                title: "Two",
+                url: "example\/two",
+                description: "Test Description",
+                image:
+                    "https://via.placeholder.com/150/EEEEEE/222222/?text=TWO",
+                path: ["456", "123"]
+            },
+            {
+                id: 789,
+                title: "A longer title for this one",
+                url: "example\/three",
+                description: "",
+                image:
+                    "https://via.placeholder.com/150/EEEEEE/222222/?text=THREE",
+                path: ["789", "123"]
+            }
+        ]
+    </script>
+</html>
