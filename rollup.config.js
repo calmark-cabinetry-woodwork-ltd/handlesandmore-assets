@@ -117,5 +117,13 @@ export default [
             sourcemap: true
         },
         plugins: [babel(babelConfig), terser(), filesize(filesizeConfig)]
+    },
+    {
+        input: "src/snippet.js",
+        output: {
+            file: "build/snippet.js",
+            format: "iife"
+        },
+        plugins: [babel(babelConfig), terser(), filesize(filesizeConfig)]
     }
 ]
