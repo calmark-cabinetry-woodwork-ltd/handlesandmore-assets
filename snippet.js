@@ -1,0 +1,1 @@
+!function(){"use strict";var t=function(t){return document.head.appendChild(t)},n=function(t,n){var r=document.createElement(t);for(var e in n)r[e]=n[e];return r};try{new Function('import("")'),t(n("script",{src:"/index.js",type:"module"}))}catch(r){t(n("script",{src:"/loader.js"}))}}();

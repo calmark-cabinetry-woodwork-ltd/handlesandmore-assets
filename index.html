@@ -45,5 +45,14 @@
             <span class="icon-logo"></span>
         </p>
         <my-element></my-element>
+
+        <textarea id="snippet"></textarea>
+        <script>
+            fetch('/snippet.js').then(l => {
+                l.text().then(t => {
+                    document.querySelector("#snippet").innerText = `<script>${t}</script>`
+                })
+            })
+        </script>
     </body>
 </html>
