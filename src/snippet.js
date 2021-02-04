@@ -6,9 +6,20 @@ const createElement = (t, p) => {
     return e
 }
 
+const domain = "https://assets.handlesandmore.ca"
+
 try {
     new Function('import("")')
-    append(createElement("script", { src: "/index.js", type: "module" }))
+    append(
+        createElement("script", {
+            src: `${domain}/index.js`,
+            type: "module"
+        })
+    )
 } catch (err) {
-    append(createElement("script", { src: "/loader.js" }))
+    append(
+        createElement("script", {
+            src: `${domain}/loader.js`
+        })
+    )
 }
