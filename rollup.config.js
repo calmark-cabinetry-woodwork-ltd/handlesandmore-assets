@@ -14,6 +14,10 @@ import resolve from "@rollup/plugin-node-resolve"
 import { terser } from "rollup-plugin-terser"
 import filesize from "rollup-plugin-filesize"
 import copy from "rollup-plugin-copy"
+import serve from "rollup-plugin-serve"
+import livereload from "rollup-plugin-livereload"
+
+const production = process.env.ENV == "production"
 
 const babelConfig = {
     babelrc: false,
@@ -74,7 +78,9 @@ export default [
             resolve(),
             copy(copyConfig),
             terser(),
-            filesize(filesizeConfig)
+            filesize(filesizeConfig),
+            !production && serve("build"),
+            !production && livereload("build")
         ]
     },
 

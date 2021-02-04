@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit-element"
 
-class MyElement extends LitElement {
+class BaseElement extends LitElement {
     static get styles() {
         return css`
             :host {
@@ -10,8 +10,8 @@ class MyElement extends LitElement {
         `
     }
     render() {
-        return html`<p>Element Test</p>`
+        return html`<p>Element</p>`
     }
 }
 
-customElements.define("my-element", MyElement)
+customElements.define("base-element", BaseElement)
