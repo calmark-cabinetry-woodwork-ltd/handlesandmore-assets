@@ -53,6 +53,10 @@ const copyConfig = {
             src: "index.html",
             dest: "build",
             rename: "index.html"
+        },
+        {
+            src: "CNAME",
+            dest: "build"
         }
     ]
 }
