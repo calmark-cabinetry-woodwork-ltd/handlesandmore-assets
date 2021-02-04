@@ -122,7 +122,8 @@ export default [
         input: "src/snippet.js",
         output: {
             file: "build/snippet.js",
-            format: "iife"
+            format: "iife",
+            strict: false
         },
         plugins: [babel(babelConfig), terser(), filesize(filesizeConfig)]
     }
