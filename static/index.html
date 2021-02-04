@@ -48,9 +48,11 @@
 
         <textarea id="snippet"></textarea>
         <script>
-            fetch('/snippet.js').then(l => {
+            fetch("/snippet.js").then(l => {
                 l.text().then(t => {
-                    document.querySelector("#snippet").innerText = `<script>${t}</script>`
+                    document.querySelector(
+                        "#snippet"
+                    ).innerText = `<script>${t}<\/script>`
                 })
             })
         </script>
