@@ -65,7 +65,8 @@ export default [
         output: {
             file: "build/loader.js",
             format: "iife",
-            sourcemap: true
+            sourcemap: true,
+            strict: false
         },
         plugins: [babel(babelConfig), terser(), filesize(filesizeConfig)]
     },
