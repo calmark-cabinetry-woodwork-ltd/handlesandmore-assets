@@ -39,7 +39,7 @@ class ShopSubcategoryList extends BaseElement {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
-                padding: 2rem 0 0;
+                margin: 1rem 0 0;
             }
             @media (min-width: 767px) {
                 .subs {
@@ -198,6 +198,8 @@ class ShopSubcategoryTile extends BaseElement {
             header {
                 font-size: 20px;
                 font-weight: 700;
+                padding: 0.5rem 0;
+                box-sizing: border-box;
             }
         `
     }
