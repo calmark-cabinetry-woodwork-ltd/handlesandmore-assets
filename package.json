@@ -10,10 +10,12 @@
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@material/mwc-slider": "^0.20.0",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
     "@webcomponents/webcomponentsjs": "^2.5.0",
+    "blackstone-ui": "https://github.com/andyvanee/bui.git",
     "core-js": "^3.8.3",
     "lit-element": "^2.4.0",
     "regenerator-runtime": "^0.13.7",
