@@ -11,6 +11,7 @@ export class ShopCategoryView extends BaseElement {
             }
             .filters {
                 grid-row: 2;
+                width: 100%;
             }
             .results {
                 display: grid;
