@@ -1293,7 +1293,7 @@ binary-extensions@^2.0.0:
 
 "blackstone-ui@https://github.com/andyvanee/bui.git":
   version "3.0.0"
-  resolved "https://github.com/andyvanee/bui.git#363467acab2291c01117a1ef4ed10a9a1a09842f"
+  resolved "https://github.com/andyvanee/bui.git#5da1ff052bfb459d27d4e2507c70c816037cd472"
   dependencies:
     "@fnando/sparkline" "^0.3.10"
     component-emitter "^1.3.0"

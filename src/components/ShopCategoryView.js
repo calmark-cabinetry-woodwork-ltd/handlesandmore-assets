@@ -12,9 +12,15 @@ export class ShopCategoryView extends BaseElement {
             .filters {
                 grid-row: 2;
             }
+            .results {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+                grid-column: span 4;
+            }
             @media (min-width: 767px) {
                 :host {
-                    grid-template-columns: 1fr 4fr;
+                    grid-template-columns: repeat(5, 1fr);
                 }
                 .filters {
                     grid-row: 1;
@@ -40,6 +46,17 @@ export class ShopCategoryView extends BaseElement {
         super()
         this.products = []
         this.filters = []
+        this.url = new URL("http://example.com")
+        this.on("selection", ev => {
+            const { id, selection } = ev.detail
+            const url = new URL(window.location)
+            url.searchParams.set(id, selection.join("|"))
+            for (const [k, v] of url.searchParams.entries()) {
+                if (!v) url.searchParams.delete(k)
+            }
+            history.pushState({}, null, url.toString())
+            didNavigate()
+        })
     }
 
     get endpoint() {
@@ -54,14 +71,27 @@ export class ShopCategoryView extends BaseElement {
         const slug = url.pathname.replace(/^\/|\/$/g, "")
         const category = this.categories.find(c => c.url == slug)
         if (!category) throw `Could not find category ${category}`
+
+        // Clear screen
         Object.assign(this, { url, products: [] })
+
+        // Fetch results
         const endpoint = new URL(`${this.endpoint}`, window.origin)
+        // mirror window search params
+        for (const [k, v] of url.searchParams.entries()) {
+            endpoint.searchParams.set(k, v)
+        }
+        // add category search param
         endpoint.searchParams.set("category", category.id)
+
         const res = await fetch(endpoint)
         const data = await res.json()
 
+        const currentUrl = new URL(window.location)
+
         const filters = (data.filters || []).map(f => {
-            f.selection = data.filter[f.id] || []
+            const param = currentUrl.searchParams.get(f._id) || ""
+            f.selection = param.split("|").filter(f => f)
             return f
         })
 
@@ -78,7 +108,7 @@ export class ShopCategoryView extends BaseElement {
 
     navigate() {
         const url = new URL(window.location)
-        if (url != this.url) this.fetch(url)
+        if (url.toString() != this.url.toString()) this.fetch(url)
     }
 
     firstUpdated() {

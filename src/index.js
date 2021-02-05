@@ -5,6 +5,8 @@ import { ShopCategoryView } from "./components/ShopCategoryView.js"
 import { ShopCategoryProduct } from "./components/ShopCategoryProduct.js"
 import { ShopCategoryFilter } from "./components/ShopCategoryFilter.js"
 import { didNavigate } from "./components/utils.js"
+import "blackstone-ui/presenters/form/controls/range-slider.js"
+import "blackstone-ui/presenters/form/controls/check-box.js"
 
 window.addEventListener("popstate", () => didNavigate())
 
