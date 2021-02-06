@@ -11,13 +11,11 @@ export class ShopCategoryView extends BaseElement {
             }
             .filters {
                 grid-row: 2;
-                width: 100%;
             }
             .results {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
-                grid-column: span 4;
             }
             @media (min-width: 767px) {
                 :host {
@@ -25,6 +23,10 @@ export class ShopCategoryView extends BaseElement {
                 }
                 .filters {
                     grid-row: 1;
+                }
+                .results {
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-column: span 4;
                 }
             }
         `

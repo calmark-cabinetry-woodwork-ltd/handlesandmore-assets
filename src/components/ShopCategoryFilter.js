@@ -6,7 +6,6 @@ export class ShopCategoryFilter extends BaseElement {
             :host {
                 display: block;
                 margin: 0 0 2rem;
-                width: 100%;
             }
             header {
                 position: relative;
