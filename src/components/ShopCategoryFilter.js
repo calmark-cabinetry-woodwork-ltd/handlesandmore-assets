@@ -48,7 +48,8 @@ export class ShopCategoryFilter extends BaseElement {
             display_name: { type: String },
             type: { type: String },
             values: { type: Array },
-            selection: { type: Array }
+            selection: { type: Array },
+            unit: { type: String }
         }
     }
 
@@ -84,7 +85,7 @@ export class ShopCategoryFilter extends BaseElement {
                               .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
-                              label="mm"
+                              .label=${this.unit}
                           ></shop-category-minmax>
                       `
                     : html``}
@@ -181,7 +182,8 @@ class ShopCategoryMinmax extends ShopControl {
             {
                 min: { type: Number },
                 max: { type: Number },
-                label: { type: String }
+                label: { type: String },
+                unit: { type: String }
             },
             ShopControl.properties
         )

@@ -84,6 +84,8 @@ export class ShopCategoryView extends BaseElement {
         }
         // add category search param
         endpoint.searchParams.set("category", category.id)
+        endpoint.searchParams.set("limit", url.searchParams.get("limit") || 16)
+        endpoint.searchParams.set("page", url.searchParams.get("page") || 1)
 
         const res = await fetch(endpoint)
         const data = await res.json()
@@ -92,6 +94,7 @@ export class ShopCategoryView extends BaseElement {
 
         const filters = (data.filters || []).map(f => {
             f.key = `filter[${f._id}]`
+            f.unit = f.unit || ""
             const param = currentUrl.searchParams.get(f.key) || ""
             f.selection = param.split("|").filter(f => f)
             return f
@@ -127,6 +130,7 @@ export class ShopCategoryView extends BaseElement {
                             .type=${f.type}
                             .values=${f.values}
                             .selection=${f.selection}
+                            .unit=${f.unit}
                         ></shop-category-filter>
                     `
                 )}
