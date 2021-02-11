@@ -7,6 +7,18 @@
     "filter": [],
     "filters": [
         {
+            "_id": "price",
+            "display_name": "Price",
+            "type": "MinMax",
+            "unit": "$",
+            "values": ["0", "150"],
+            "presets": [
+                {"name": "Under $5", "values": ["0", "5"]},
+                {"name": "Under $15", "values": ["0", "30"]},
+                {"name": "Any", "values": ["0", "150"]}
+            ]
+        },
+        {
             "_id": "abc",
             "display_name": "Type",
             "type": "Text",
