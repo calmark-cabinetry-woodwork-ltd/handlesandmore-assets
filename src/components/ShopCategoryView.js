@@ -74,7 +74,7 @@ export class ShopCategoryView extends BaseElement {
         if (!category) throw `Could not find category ${category}`
 
         // Clear screen
-        Object.assign(this, { url, products: [] })
+        Object.assign(this, { url, products: null })
 
         // Fetch results
         const endpoint = new URL(`${this.endpoint}`, window.origin)
@@ -136,23 +136,27 @@ export class ShopCategoryView extends BaseElement {
                 )}
             </div>
             <div class="results">
-                ${this.products && this.products.length
-                    ? html`
-                          ${this.products.map(
-                              p => html`
-                                  <shop-category-product
-                                      .priceExcl=${p.priceExcl}
-                                      .url=${p.url}
-                                      .title=${p.title}
-                                      .fulltitle=${p.fulltitle}
-                                      .image_url=${p.image_url}
-                                      .product_set=${p.product_set}
-                                      .variants=${p.variants}
-                                  ></shop-category-product>
-                              `
-                          )}
-                      `
-                    : html` <p>No results</p> `}
+                ${this.products === null
+                    ? html` <p>Loading</p> `
+                    : html`
+                          ${this.products.length
+                              ? html`
+                                    ${this.products.map(
+                                        p => html`
+                                            <shop-category-product
+                                                .priceExcl=${p.priceExcl}
+                                                .url=${p.url}
+                                                .title=${p.title}
+                                                .fulltitle=${p.fulltitle}
+                                                .image_url=${p.image_url}
+                                                .product_set=${p.product_set}
+                                                .variants=${p.variants}
+                                            ></shop-category-product>
+                                        `
+                                    )}
+                                `
+                              : html` <p>No results</p> `}
+                      `}
             </div>
         `
     }
