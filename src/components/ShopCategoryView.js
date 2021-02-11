@@ -8,6 +8,7 @@ export class ShopCategoryView extends BaseElement {
                 display: grid;
                 margin: 1rem 0 3rem;
                 gap: 1rem;
+                align-items: start;
             }
             .filters {
                 grid-row: 2;
@@ -17,6 +18,10 @@ export class ShopCategoryView extends BaseElement {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
             }
+            shop-category-pagination {
+                grid-column: span 2;
+            }
+
             @media (min-width: 767px) {
                 :host {
                     grid-template-columns: repeat(5, 1fr);
@@ -26,6 +31,9 @@ export class ShopCategoryView extends BaseElement {
                 }
                 .results {
                     grid-template-columns: repeat(4, 1fr);
+                    grid-column: span 4;
+                }
+                shop-category-pagination {
                     grid-column: span 4;
                 }
             }
@@ -55,6 +63,12 @@ export class ShopCategoryView extends BaseElement {
             for (const [k, v] of url.searchParams.entries()) {
                 if (!v) url.searchParams.delete(k)
             }
+            history.pushState({}, null, url.toString())
+            didNavigate()
+        })
+        this.on("page", ev => {
+            const url = new URL(window.location)
+            url.searchParams.set("page", ev.detail)
             history.pushState({}, null, url.toString())
             didNavigate()
         })
@@ -158,6 +172,11 @@ export class ShopCategoryView extends BaseElement {
                                 `
                               : html` <p>No results</p> `}
                       `}
+                <shop-category-pagination
+                    .page=${this.page}
+                    .limit=${this.limit}
+                    .count=${this.count}
+                ></shop-category-pagination>
             </div>
         `
     }
