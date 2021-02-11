@@ -1315,7 +1315,7 @@ main label {
                 --theme: transparent;
                 --color: transparent;
                 --textColor: #456;
-                padding: 0 0.25rem;
+                padding: 4px 0.25rem;
             }
             b-btn.active {
                 --theme: #ff4438;
@@ -1329,11 +1329,14 @@ main label {
             b-btn:before {
                 font-family: icomoon !important;
                 position: absolute;
-                top: 6px;
+                top: 9px;
                 left: 9px;
             }
             b-btn.next:before {
                 content: "\\e922";
+            }
+            b-btn.prev:before {
+                content: "\\e921";
             }
         `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){return[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s}}))}render(){if(!this.page||!this.limit)return O``;const t=this.pages;if(1==t.length)return O``;const e=t.find((t=>t.prev)),s=t.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return O`
             <b-btn-group>
