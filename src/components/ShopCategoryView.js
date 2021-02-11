@@ -35,8 +35,6 @@ export class ShopCategoryView extends BaseElement {
     static get properties() {
         return {
             url: { type: Object },
-            min: { type: Number },
-            max: { type: Number },
             page: { type: Number },
             limit: { type: Number },
             count: { type: Number },
@@ -100,13 +98,11 @@ export class ShopCategoryView extends BaseElement {
         })
 
         Object.assign(this, {
-            min: data.min,
-            max: data.max,
             page: data.page,
             limit: data.limit,
             count: data.count,
             filters: filters,
-            products: data.products
+            products: data.products || []
         })
     }
 
@@ -136,19 +132,23 @@ export class ShopCategoryView extends BaseElement {
                 )}
             </div>
             <div class="results">
-                ${this.products.map(
-                    p => html`
-                        <shop-category-product
-                            .priceExcl=${p.priceExcl}
-                            .url=${p.url}
-                            .title=${p.title}
-                            .fulltitle=${p.fulltitle}
-                            .image_url=${p.image_url}
-                            .product_set=${p.product_set}
-                            .variants=${p.variants}
-                        ></shop-category-product>
-                    `
-                )}
+                ${this.products && this.products.length
+                    ? html`
+                          ${this.products.map(
+                              p => html`
+                                  <shop-category-product
+                                      .priceExcl=${p.priceExcl}
+                                      .url=${p.url}
+                                      .title=${p.title}
+                                      .fulltitle=${p.fulltitle}
+                                      .image_url=${p.image_url}
+                                      .product_set=${p.product_set}
+                                      .variants=${p.variants}
+                                  ></shop-category-product>
+                              `
+                          )}
+                      `
+                    : html` <p>No results</p> `}
             </div>
         `
     }
