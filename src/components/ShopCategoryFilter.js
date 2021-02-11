@@ -199,16 +199,16 @@ class ShopCategoryMinmax extends ShopControl {
         )
     }
 
-    firstUpdated() {
+    render() {
         const vals = this.values.map(v => parseInt(v))
-        this.min = vals.reduce(
+        const min = vals.reduce(
             (curr, acc) => (curr < acc ? curr : acc),
             Infinity
         )
-        this.max = vals.reduce((curr, acc) => (curr > acc ? curr : acc), 0)
-    }
+        const max = vals.reduce((curr, acc) => (curr > acc ? curr : acc), 0)
+        if (this.min != min) this.min = min
+        if (this.max != max) this.max = max
 
-    render() {
         const selection = (
             (this.selection.length && this.selection) || [this.min, this.max]
         ).map(s => parseInt(s))
