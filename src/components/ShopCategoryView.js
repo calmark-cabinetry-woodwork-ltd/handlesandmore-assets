@@ -88,7 +88,13 @@ export class ShopCategoryView extends BaseElement {
         if (!category) throw `Could not find category ${category}`
 
         // Clear screen
-        Object.assign(this, { url, products: null })
+        Object.assign(this, {
+            url,
+            products: null,
+            page: 1,
+            limit: 16,
+            count: 0
+        })
 
         // Fetch results
         const endpoint = new URL(`${this.endpoint}`, window.origin)
