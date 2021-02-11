@@ -44,7 +44,7 @@ export class ShopCategoryFilter extends BaseElement {
     static get properties() {
         return {
             open: { type: Boolean },
-            id: { type: String },
+            key: { type: String },
             display_name: { type: String },
             type: { type: String },
             values: { type: Array },
@@ -72,7 +72,7 @@ export class ShopCategoryFilter extends BaseElement {
                 ${this.type == "Text"
                     ? html`
                           <shop-category-toggles
-                              .id=${this.id}
+                              .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
                           ></shop-category-toggles>
@@ -81,7 +81,7 @@ export class ShopCategoryFilter extends BaseElement {
                 ${this.type == "MinMax"
                     ? html`
                           <shop-category-minmax
-                              .id=${this.id}
+                              .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
                               label="mm"
@@ -96,7 +96,7 @@ export class ShopCategoryFilter extends BaseElement {
 class ShopControl extends BaseElement {
     static get properties() {
         return {
-            id: { type: String },
+            key: { type: String },
             values: { type: Array },
             selection: { type: Array }
         }
@@ -130,7 +130,7 @@ class ShopCategoryToggles extends ShopControl {
             const selection = value
                 ? this.selection.concat(v)
                 : this.selection.filter(s => s !== v)
-            this.trigger("selection", { id: this.id, selection })
+            this.trigger("selection", { key: this.key, selection })
         }
         return html`
             ${this.values.map(
@@ -202,11 +202,9 @@ class ShopCategoryMinmax extends ShopControl {
         ).map(s => parseInt(s))
 
         const updateSelection = selection => {
-            if (selection[0] == this.min && selection[1] == this.max) {
-                this.trigger("selection", { id: this.id, selection: [] })
-            } else {
-                this.trigger("selection", { id: this.id, selection })
-            }
+            const full = selection[0] == this.min && selection[1] == this.max
+            const s = full ? [] : selection
+            this.trigger("selection", { key: this.key, selection: s })
         }
 
         const sliderChange = ev => {

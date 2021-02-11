@@ -51,9 +51,9 @@ export class ShopCategoryView extends BaseElement {
         this.filters = []
         this.url = new URL("http://example.com")
         this.on("selection", ev => {
-            const { id, selection } = ev.detail
+            const { key, selection } = ev.detail
             const url = new URL(window.location)
-            url.searchParams.set(id, selection.join("|"))
+            url.searchParams.set(key, selection.join("|"))
             for (const [k, v] of url.searchParams.entries()) {
                 if (!v) url.searchParams.delete(k)
             }
@@ -93,7 +93,8 @@ export class ShopCategoryView extends BaseElement {
         const currentUrl = new URL(window.location)
 
         const filters = (data.filters || []).map(f => {
-            const param = currentUrl.searchParams.get(f._id) || ""
+            f.key = `filter[${f._id}]`
+            const param = currentUrl.searchParams.get(f.key) || ""
             f.selection = param.split("|").filter(f => f)
             return f
         })
@@ -125,7 +126,7 @@ export class ShopCategoryView extends BaseElement {
                 ${this.filters.map(
                     f => html`
                         <shop-category-filter
-                            .id=${f._id}
+                            .key=${f.key}
                             .display_name=${f.display_name}
                             .type=${f.type}
                             .values=${f.values}
