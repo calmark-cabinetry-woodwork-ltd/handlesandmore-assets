@@ -664,7 +664,7 @@ main label {
                     grid-column: span 4;
                 }
             }
-        `}static get properties(){return{url:{type:Object},page:{type:Number},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|"));for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}get categories(){return window.siteConfig.categoryIndex.slice(0)}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=this.categories.find((t=>t.url==e));if(!s)throw`Could not find category ${s}`;Object.assign(this,{url:t,products:[]});const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}navigate(){const t=new URL(window.location);t.toString()!=this.url.toString()&&this.fetch(t)}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate()}render(){return O`
+        `}static get properties(){return{url:{type:Object},page:{type:Number},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|"));for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}get categories(){return window.siteConfig.categoryIndex.slice(0)}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=this.categories.find((t=>t.url==e));if(!s)throw`Could not find category ${s}`;Object.assign(this,{url:t,products:null});const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}navigate(){const t=new URL(window.location);t.toString()!=this.url.toString()&&this.fetch(t)}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate()}render(){return O`
             <div class="filters">
                 ${this.filters.map((t=>O`
                         <shop-category-filter
@@ -678,19 +678,21 @@ main label {
                     `))}
             </div>
             <div class="results">
-                ${this.products&&this.products.length?O`
-                          ${this.products.map((t=>O`
-                                  <shop-category-product
-                                      .priceExcl=${t.priceExcl}
-                                      .url=${t.url}
-                                      .title=${t.title}
-                                      .fulltitle=${t.fulltitle}
-                                      .image_url=${t.image_url}
-                                      .product_set=${t.product_set}
-                                      .variants=${t.variants}
-                                  ></shop-category-product>
-                              `))}
-                      `:O` <p>No results</p> `}
+                ${null===this.products?O` <p>Loading</p> `:O`
+                          ${this.products.length?O`
+                                    ${this.products.map((t=>O`
+                                            <shop-category-product
+                                                .priceExcl=${t.priceExcl}
+                                                .url=${t.url}
+                                                .title=${t.title}
+                                                .fulltitle=${t.fulltitle}
+                                                .image_url=${t.image_url}
+                                                .product_set=${t.product_set}
+                                                .variants=${t.variants}
+                                            ></shop-category-product>
+                                        `))}
+                                `:O` <p>No results</p> `}
+                      `}
             </div>
         `}}),customElements.define("shop-category-product",class extends et{static get styles(){return Y`
             :host {
