@@ -49,7 +49,8 @@ export class ShopCategoryFilter extends BaseElement {
             type: { type: String },
             values: { type: Array },
             selection: { type: Array },
-            unit: { type: String }
+            unit: { type: String },
+            presets: { type: Array }
         }
     }
 
@@ -87,6 +88,15 @@ export class ShopCategoryFilter extends BaseElement {
                               .selection=${this.selection}
                               .label=${this.unit}
                           ></shop-category-minmax>
+                      `
+                    : html``}
+                ${this.presets && this.presets.length
+                    ? html`
+                          <shop-category-presets
+                              .key=${this.key}
+                              .selection=${this.selection}
+                              .presets=${this.presets}
+                          ></shop-category-presets>
                       `
                     : html``}
             </main>
@@ -258,3 +268,74 @@ class ShopCategoryMinmax extends ShopControl {
     }
 }
 customElements.define("shop-category-minmax", ShopCategoryMinmax)
+
+class ShopCategoryPresets extends BaseElement {
+    static get properties() {
+        return {
+            key: { type: String },
+            selection: { type: Array },
+            presets: { type: Array }
+        }
+    }
+    static get styles() {
+        return css`
+            :host {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+                margin: 1rem 0 2rem;
+            }
+            button {
+                background-color: #dcdad6;
+                color: #555;
+                box-shadow: none;
+                outline: none;
+                border: 1px solid #b7b6b5;
+                font-size: 0.8rem;
+                padding: 0.35em 0em;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+                transition: filter 200ms ease;
+                transition-timing-function: ease-in-out;
+                font-family: "Nunito Sans", sans-serif;
+                border-radius: 50px;
+                letter-spacing: 0.0625em;
+                text-transform: none;
+                text-decoration: none;
+                line-height: 2em;
+                font-weight: 400;
+                cursor: pointer;
+            }
+            button.active {
+                background-color: #ff4438;
+                border: 1px solid #ff4438;
+                color: white;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+        `
+    }
+    render() {
+        const isActive = preset => {
+            const nomatch = preset.values.find((v, i) => {
+                return v !== this.selection[i]
+            })
+            return nomatch ? "" : "active"
+        }
+        const update = preset => ev => {
+            // if active unset, else set
+            this.trigger("selection", {
+                key: this.key,
+                selection: preset.values
+            })
+        }
+        return html`
+            ${this.presets.map(
+                p => html`
+                    <button @click=${update(p)} class="${isActive(p)}">
+                        ${p.name}
+                    </button>
+                `
+            )}
+        `
+    }
+}
+customElements.define("shop-category-presets", ShopCategoryPresets)

@@ -131,6 +131,7 @@ export class ShopCategoryView extends BaseElement {
                             .values=${f.values}
                             .selection=${f.selection}
                             .unit=${f.unit}
+                            .presets=${f.presets}
                         ></shop-category-filter>
                     `
                 )}
