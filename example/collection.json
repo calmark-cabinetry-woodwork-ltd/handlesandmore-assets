@@ -1,6 +1,4 @@
 {
-    "min": 0,
-    "max": 150,
     "page": 1,
     "limit": 16,
     "count": 2,
@@ -11,11 +9,32 @@
             "display_name": "Price",
             "type": "MinMax",
             "unit": "$",
-            "values": ["0", "150"],
+            "values": [
+                "0",
+                "150"
+            ],
             "presets": [
-                {"name": "Under $5", "values": ["0", "5"]},
-                {"name": "Under $15", "values": ["0", "30"]},
-                {"name": "Any", "values": ["0", "150"]}
+                {
+                    "name": "Under $5",
+                    "values": [
+                        "0",
+                        "5"
+                    ]
+                },
+                {
+                    "name": "Under $15",
+                    "values": [
+                        "0",
+                        "30"
+                    ]
+                },
+                {
+                    "name": "Any",
+                    "values": [
+                        "0",
+                        "150"
+                    ]
+                }
             ]
         },
         {
