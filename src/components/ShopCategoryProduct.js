@@ -53,7 +53,8 @@ export class ShopCategoryProduct extends BaseElement {
         const sz = `${size}x${size}x1`
         components.push(sz)
         components.push(filename)
-        return components.join("/")
+        u.pathname = components.join("/")
+        return u.toString()
     }
 
     render() {
