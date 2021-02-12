@@ -46,27 +46,41 @@ export class ShopCategoryProduct extends BaseElement {
         return `$${x}`
     }
 
+    sized(url, size) {
+        const u = new URL(url)
+        const components = u.pathname.split("/")
+        const filename = components.pop()
+        const sz = `${size}x${size}x1`
+        components.push(sz)
+        components.push(filename)
+        return components.join("/")
+    }
+
     render() {
+        const img = this.sized(this.image_url, 400)
+
         return html`
             <a href="/${this.url}.html">
                 <div
                     class="product-image"
-                    style="background-image: url(${this.image_url})"
+                    style="background-image: url(${img})"
                 ></div>
             </a>
             ${this.variants.length
                 ? html`
                       <div class="variants">
-                          ${this.variants.slice(0, 5).map(
-                              v => html`
+                          ${this.variants.slice(0, 5).map(v => {
+                              const img = this.sized(v.image_url, 80)
+
+                              return html`
                                   <a href="/${v.url}.html" title=${v.title}>
                                       <div
                                           class="product-image"
-                                          style="background-image: url(${v.image_url})"
+                                          style="background-image: url(${img})"
                                       ></div>
                                   </a>
                               `
-                          )}
+                          })}
                       </div>
                   `
                 : html``}
