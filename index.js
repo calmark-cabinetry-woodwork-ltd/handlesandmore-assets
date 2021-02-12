@@ -1255,6 +1255,9 @@ main label {
                 text-transform: none;
                 cursor: pointer;
             }
+            header.selected {
+                color: #ff4438;
+            }
             main {
                 display: none;
             }
@@ -1275,8 +1278,8 @@ main label {
             .toggle.open:before {
                 content: "\\e920";
             }
-        `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=!0}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle";return O`
-            <header @click=${()=>this.open=!this.open}>
+        `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=window.innerWidth>767}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle",s=this.selection.length?"selected":"";return O`
+            <header class=${s} @click=${()=>this.open=!this.open}>
                 ${this.display_name}
                 <span class=${e}></span>
             </header>
