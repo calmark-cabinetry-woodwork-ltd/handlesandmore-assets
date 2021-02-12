@@ -139,7 +139,7 @@ export class ShopCategoryView extends BaseElement {
         }
         const rect = this.getBoundingClientRect()
         const shouldScroll =
-            scroll && this.scrollIntoView && rect && rect.y && rect.y > 0
+            scroll && this.scrollIntoView && rect && rect.y && rect.y < 0
         if (url.toString() != this.url.toString()) {
             await this.fetch(url)
             if (shouldScroll) {
