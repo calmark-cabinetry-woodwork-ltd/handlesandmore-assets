@@ -1,3 +1,4 @@
+import { version } from "./version.js"
 ;((doc, origin) => {
     const append = e => doc.head.appendChild(e)
 
@@ -33,19 +34,19 @@
 
     try {
         new Function('import("")')
-        loadModule("/index.js")
+        loadModule(`/index.js?${version}`)
     } catch (err) {
         // Preload
         preloadScript("/babel-polyfills-nomodule.js")
         preloadScript("/@webcomponents/webcomponentsjs/webcomponents-loader.js")
-        preloadScript("/index.nomodule.js")
+        preloadScript(`/index.nomodule.js?${version}`)
 
         // Add scripts in order
         loadScript("/babel-polyfills-nomodule.js", () => {
             loadScript(
                 "/@webcomponents/webcomponentsjs/webcomponents-loader.js",
                 () => {
-                    loadScript("/index.nomodule.js")
+                    loadScript(`/index.nomodule.js?${version}`)
                 }
             )
         })
