@@ -137,9 +137,12 @@ export class ShopCategoryView extends BaseElement {
             block: "start",
             inline: "nearest"
         }
+        const rect = this.getBoundingClientRect()
+        const shouldScroll =
+            scroll && this.scrollIntoView && rect && rect.y && rect.y > 0
         if (url.toString() != this.url.toString()) {
             await this.fetch(url)
-            if (scroll && this.scrollIntoView) {
+            if (shouldScroll) {
                 this.scrollIntoView(scrollOptions)
             }
         }
