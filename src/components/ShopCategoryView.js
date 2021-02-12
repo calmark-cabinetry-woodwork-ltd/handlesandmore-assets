@@ -130,14 +130,24 @@ export class ShopCategoryView extends BaseElement {
         })
     }
 
-    navigate() {
+    async navigate(scroll = true) {
         const url = new URL(window.location)
-        if (url.toString() != this.url.toString()) this.fetch(url)
+        const scrollOptions = {
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest"
+        }
+        if (url.toString() != this.url.toString()) {
+            await this.fetch(url)
+            if (scroll && this.scrollIntoView) {
+                this.scrollIntoView(scrollOptions)
+            }
+        }
     }
 
     firstUpdated() {
         document.addEventListener("didNavigate", () => this.navigate())
-        this.navigate()
+        this.navigate(false)
     }
 
     render() {
