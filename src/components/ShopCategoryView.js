@@ -60,6 +60,7 @@ export class ShopCategoryView extends BaseElement {
             const { key, selection } = ev.detail
             const url = new URL(window.location)
             url.searchParams.set(key, selection.join("|"))
+            url.searchParams.set("page", "1")
             for (const [k, v] of url.searchParams.entries()) {
                 if (!v) url.searchParams.delete(k)
             }
