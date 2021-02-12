@@ -326,10 +326,8 @@ class ShopCategoryPresets extends BaseElement {
         }
         const update = preset => ev => {
             // if active unset, else set
-            this.trigger("selection", {
-                key: this.key,
-                selection: preset.values
-            })
+            const selection = isActive(preset) == "active" ? [] : preset.values
+            this.trigger("selection", { key: this.key, selection })
         }
         return html`
             ${this.presets.map(
