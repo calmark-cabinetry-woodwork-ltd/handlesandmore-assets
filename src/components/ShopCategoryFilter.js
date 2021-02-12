@@ -18,6 +18,9 @@ export class ShopCategoryFilter extends BaseElement {
                 text-transform: none;
                 cursor: pointer;
             }
+            header.selected {
+                color: #ff4438;
+            }
             main {
                 display: none;
             }
@@ -56,7 +59,7 @@ export class ShopCategoryFilter extends BaseElement {
 
     constructor() {
         super()
-        this.open = true
+        this.open = window.innerWidth > 767
     }
 
     render() {
@@ -64,9 +67,10 @@ export class ShopCategoryFilter extends BaseElement {
         const toggleClass = this.open ? "toggle open" : "toggle"
 
         const toggleOpen = () => (this.open = !this.open)
+        const selectionClass = this.selection.length ? "selected" : ""
 
         return html`
-            <header @click=${toggleOpen}>
+            <header class=${selectionClass} @click=${toggleOpen}>
                 ${this.display_name}
                 <span class=${toggleClass}></span>
             </header>
