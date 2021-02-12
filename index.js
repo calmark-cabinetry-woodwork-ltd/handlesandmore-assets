@@ -266,7 +266,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 color: white;
                 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
-        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=t=>e=>{this.trigger("selection",{key:this.key,selection:t.values})};return O`
+        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>s=>{const i="active"==t(e)?[]:e.values;this.trigger("selection",{key:this.key,selection:i})};return O`
             ${this.presets.map((s=>O`
                     <button @click=${e(s)} class="${t(s)}">
                         ${s.name}
