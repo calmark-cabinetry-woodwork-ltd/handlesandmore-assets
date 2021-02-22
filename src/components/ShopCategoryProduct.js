@@ -47,6 +47,7 @@ export class ShopCategoryProduct extends BaseElement {
     }
 
     sized(url, size) {
+        if (!url) return ""
         const u = new URL(url)
         const components = u.pathname.split("/")
         const filename = components.pop()
