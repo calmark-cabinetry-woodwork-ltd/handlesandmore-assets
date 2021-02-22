@@ -1216,7 +1216,7 @@ main label {
                 color: #ff4438;
                 font-weight: 600;
             }
-        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400);return O`
+        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400);return O`
             <a href="/${this.url}.html">
                 <div
                     class="product-image"
