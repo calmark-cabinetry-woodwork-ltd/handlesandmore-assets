@@ -10,7 +10,7 @@
             rel="stylesheet"
             type="text/css"
         />
-        <script src="/loader.js"></script>
+        <script type="module" src="/index.js"></script>
     </head>
     <body class="site">
         <h1>Handles &amp; More Website Assets</h1>
@@ -23,35 +23,7 @@
     <script>
         window.siteConfig = {
             collectionEndpoint: "/example/collection.json",
-            categoryIndex: [
-                {
-                    id: 123,
-                    title: "One",
-                    url: "example",
-                    description: "",
-                    image:
-                        "https://via.placeholder.com/150/EEEEEE/222222/?text=ONE",
-                    path: ["123"]
-                },
-                {
-                    id: 456,
-                    title: "Two",
-                    url: "example\/two",
-                    description: "Test Description",
-                    image:
-                        "https://via.placeholder.com/150/EEEEEE/222222/?text=TWO",
-                    path: ["456", "123"]
-                },
-                {
-                    id: 789,
-                    title: "A longer title for this one",
-                    url: "example\/three",
-                    description: "",
-                    image:
-                        "https://via.placeholder.com/150/EEEEEE/222222/?text=THREE",
-                    path: ["789", "123"]
-                }
-            ]
+            categoryEndpoint: "/example/categories.json"
         }
     </script>
 </html>
