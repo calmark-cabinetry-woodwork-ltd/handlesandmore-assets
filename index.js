@@ -1236,7 +1236,7 @@ main label {
                       </div>
                   `:O``}
             <a href="/${this.url}.html">
-                <div>${this.title}</div>
+                <div>${this.fulltitle}</div>
                 <div class="price">${this.price}</div>
             </a>
         `}}),customElements.define("shop-category-filter",class extends et{static get styles(){return Y`
