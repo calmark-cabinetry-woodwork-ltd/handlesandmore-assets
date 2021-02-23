@@ -157,7 +157,7 @@ export class ShopCategoryView extends BaseElement {
     }
 
     render() {
-        if (category.type !== "category") {
+        if (this.type !== "category") {
             return html``
         }
 
