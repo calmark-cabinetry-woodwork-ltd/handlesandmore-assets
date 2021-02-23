@@ -1216,14 +1216,14 @@ main label {
                 color: #ff4438;
                 font-weight: 600;
             }
-        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400);return O`
+        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return O`
             <a href="/${this.url}.html">
                 <div
                     class="product-image"
                     style="background-image: url(${t})"
                 ></div>
             </a>
-            ${this.variants.length?O`
+            ${e?O``:O`
                       <div class="variants">
                           ${this.variants.slice(0,5).map((t=>{const e=this.sized(t.image_url,80);return O`
                                   <a href="/${t.url}.html" title=${t.title}>
@@ -1234,9 +1234,9 @@ main label {
                                   </a>
                               `}))}
                       </div>
-                  `:O``}
+                  `}
             <a href="/${this.url}.html">
-                <div>${this.fulltitle}</div>
+                <div>${e?this.title:this.fulltitle}</div>
                 <div class="price">${this.price}</div>
             </a>
         `}}),customElements.define("shop-category-filter",class extends et{static get styles(){return Y`
