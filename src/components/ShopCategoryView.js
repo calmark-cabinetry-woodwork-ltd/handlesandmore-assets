@@ -44,6 +44,7 @@ export class ShopCategoryView extends BaseElement {
         return {
             url: { type: Object },
             page: { type: Number },
+            title: { type: String },
             limit: { type: Number },
             count: { type: Number },
             filters: { type: Array },
@@ -58,6 +59,7 @@ export class ShopCategoryView extends BaseElement {
         this.filters = []
         this.url = new URL("http://example.com")
         this.type = ""
+        this.title = ""
         this.on("selection", ev => {
             const { key, selection } = ev.detail
             const url = new URL(window.location)
@@ -93,6 +95,7 @@ export class ShopCategoryView extends BaseElement {
             page: 1,
             limit: 16,
             count: 0,
+            title: category.title,
             type: category.type
         })
 
@@ -156,7 +159,18 @@ export class ShopCategoryView extends BaseElement {
         this.navigate(false)
     }
 
+    get h1() {
+        return document.querySelector(".page-title h1")
+    }
+
+    set h1(value) {
+        const h = this.h1
+        if (h) h.innerText = value
+    }
+
     render() {
+        this.h1 = this.title
+
         if (this.type !== "category") {
             return html``
         }
