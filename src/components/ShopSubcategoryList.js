@@ -64,7 +64,7 @@ export class ShopSubcategoryList extends BaseElement {
             .sort((a, b) => {
                 const asort = parseInt(a.sortOrder)
                 const bsort = parseInt(b.sortOrder)
-                return asort == bsort ? 0 : asort > bsort ? -1 : 1
+                return asort == bsort ? 0 : asort > bsort ? 1 : -1
             })
 
         this.requestUpdate()
