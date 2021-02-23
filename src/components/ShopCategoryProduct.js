@@ -61,6 +61,8 @@ export class ShopCategoryProduct extends BaseElement {
     render() {
         const img = this.sized(this.image_url, 400)
 
+        const singular = this.variants.length == 0
+
         return html`
             <a href="/${this.url}.html">
                 <div
@@ -68,8 +70,9 @@ export class ShopCategoryProduct extends BaseElement {
                     style="background-image: url(${img})"
                 ></div>
             </a>
-            ${this.variants.length
-                ? html`
+            ${singular
+                ? html``
+                : html`
                       <div class="variants">
                           ${this.variants.slice(0, 5).map(v => {
                               const img = this.sized(v.image_url, 80)
@@ -84,10 +87,9 @@ export class ShopCategoryProduct extends BaseElement {
                               `
                           })}
                       </div>
-                  `
-                : html``}
+                  `}
             <a href="/${this.url}.html">
-                <div>${this.fulltitle}</div>
+                <div>${singular ? this.title : this.fulltitle}</div>
                 <div class="price">${this.price}</div>
             </a>
         `
