@@ -64,7 +64,7 @@ export class ShopCategoryProduct extends BaseElement {
         const singular = this.variants.length == 0
 
         return html`
-            <a href="/${this.url}.html">
+            <a href="/${this.url}.html" title=${this.title}>
                 <div
                     class="product-image"
                     style="background-image: url(${img})"
