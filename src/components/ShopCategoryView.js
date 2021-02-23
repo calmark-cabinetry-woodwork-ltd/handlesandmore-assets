@@ -47,7 +47,8 @@ export class ShopCategoryView extends BaseElement {
             limit: { type: Number },
             count: { type: Number },
             filters: { type: Array },
-            products: { type: Array }
+            products: { type: Array },
+            type: { type: String }
         }
     }
 
@@ -56,6 +57,7 @@ export class ShopCategoryView extends BaseElement {
         this.products = []
         this.filters = []
         this.url = new URL("http://example.com")
+        this.type = ""
         this.on("selection", ev => {
             const { key, selection } = ev.detail
             const url = new URL(window.location)
@@ -90,8 +92,13 @@ export class ShopCategoryView extends BaseElement {
             products: null,
             page: 1,
             limit: 16,
-            count: 0
+            count: 0,
+            type: category.type
         })
+
+        if (category.type !== "category") {
+            return
+        }
 
         // Fetch results
         const endpoint = new URL(`${this.endpoint}`, window.origin)
@@ -150,6 +157,10 @@ export class ShopCategoryView extends BaseElement {
     }
 
     render() {
+        if (category.type !== "category") {
+            return html``
+        }
+
         return html`
             <div class="filters">
                 ${this.filters.map(
