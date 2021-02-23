@@ -1,5 +1,5 @@
 import { BaseElement, html, css } from "./BaseElement.js"
-import { didNavigate } from "./utils.js"
+import { didNavigate, categories } from "./utils.js"
 
 export class ShopSubcategoryList extends BaseElement {
     static get styles() {
@@ -46,10 +46,6 @@ export class ShopSubcategoryList extends BaseElement {
         }
     }
 
-    get categories() {
-        return window.siteConfig.categoryIndex.slice(0)
-    }
-
     get breadcrumbs() {
         return this.current.path
             .slice(0)
@@ -71,6 +67,7 @@ export class ShopSubcategoryList extends BaseElement {
     }
 
     async firstUpdated() {
+        this.categories = await categories
         this.navigate()
         document.addEventListener("didNavigate", () => this.navigate())
     }
@@ -129,7 +126,7 @@ export class ShopSubcategoryList extends BaseElement {
                             title=${sub.title}
                             url=${sub.url}
                             description=${sub.description}
-                            image=${sub.image}
+                            image=${sub.image_url}
                             path=${sub.path}
                         ></shop-subcategory-tile>
                     `

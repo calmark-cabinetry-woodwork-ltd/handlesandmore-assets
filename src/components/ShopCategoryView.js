@@ -1,5 +1,5 @@
 import { BaseElement, html, css } from "./BaseElement.js"
-import { didNavigate } from "./utils.js"
+import { didNavigate, categories } from "./utils.js"
 
 export class ShopCategoryView extends BaseElement {
     static get styles() {
@@ -79,13 +79,9 @@ export class ShopCategoryView extends BaseElement {
         return window.siteConfig.collectionEndpoint
     }
 
-    get categories() {
-        return window.siteConfig.categoryIndex.slice(0)
-    }
-
     async fetch(url) {
         const slug = url.pathname.replace(/^\/|\/$/g, "")
-        const category = this.categories.find(c => c.url == slug)
+        const category = (await categories).find(c => c.url == slug)
         if (!category) throw `Could not find category ${category}`
 
         // Clear screen

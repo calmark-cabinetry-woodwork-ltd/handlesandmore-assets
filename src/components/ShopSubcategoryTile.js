@@ -53,6 +53,20 @@ export class ShopSubcategoryTile extends BaseElement {
         this.root.querySelector("header").style.height = px
     }
 
+    get defaultImage() {
+        return `<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="550" height="550" fill="#c9c6c3"/>
+            <rect x="210" y="235" width="110" height="81" rx="4" fill="transparent" stroke="rgba(255,255,255,0.4)" stroke-width="10" />
+            <circle cx="244" cy="266" r="12" fill="rgba(255,255,255,0.4)"/>
+            <path d="M220 304Q226 282 248 292Q260 297 268 286C277 270,312 270,310 304Z" fill="rgba(255,255,255,0.4)"/>
+        </svg>`.replace(/\n\s+/gm, "")
+    }
+
+    get defaultImageBase64() {
+        const b64 = btoa(this.defaultImage)
+        return `data:image/svg+xml;base64,${b64}`
+    }
+
     render() {
         const nav = () => {
             history.pushState({}, this.title, `/${this.url}/`)
@@ -62,7 +76,9 @@ export class ShopSubcategoryTile extends BaseElement {
         return html`
             <a @click=${nav} class="tile">
                 <header>${this.title}</header>
-                <main><img src=${this.image} /></main>
+                <main>
+                    <img src=${this.image || this.defaultImageBase64} />
+                </main>
                 <footer></footer>
             </a>
         `

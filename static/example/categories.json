@@ -1,0 +1,48 @@
+{
+    "categories": [
+        {
+            "id": "123",
+            "path": [
+                "123"
+            ],
+            "type": "index",
+            "sortOrder": "1",
+            "url": "example",
+            "title": "One",
+            "fulltitle": "One",
+            "description": "",
+            "content": "",
+            "image_url": "https://via.placeholder.com/150/EEEEEE/222222/?text=ONE"
+        },
+        {
+            "id": "456",
+            "path": [
+                "456",
+                "123"
+            ],
+            "type": "category",
+            "sortOrder": "1",
+            "url": "example\/two",
+            "title": "Two",
+            "fulltitle": "Two",
+            "description": "Test Description",
+            "content": "",
+            "image_url": ""
+        },
+        {
+            "id": "789",
+            "path": [
+                "789",
+                "123"
+            ],
+            "type": "category",
+            "sortOrder": "2",
+            "url": "example\/three",
+            "title": "A longer title for this one",
+            "fulltitle": "A longer title for this one",
+            "description": "Test Description",
+            "content": "",
+            "image_url": "https://via.placeholder.com/150/EEEEEE/222222/?text=THREE"
+        }
+    ]
+}
