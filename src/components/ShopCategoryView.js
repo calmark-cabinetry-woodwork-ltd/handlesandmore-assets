@@ -101,7 +101,7 @@ export class ShopCategoryView extends BaseElement {
             endpoint.searchParams.set(k, v)
         }
         endpoint.searchParams.set("q", searchString)
-        endpoint.searchParams.set("category", null)
+        endpoint.searchParams.set("category", "")
         endpoint.searchParams.set("limit", url.searchParams.get("limit") || 16)
         endpoint.searchParams.set("page", url.searchParams.get("page") || 1)
         const res = await fetch(endpoint)
