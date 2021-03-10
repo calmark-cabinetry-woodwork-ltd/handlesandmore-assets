@@ -42,7 +42,8 @@ export class ShopSubcategoryList extends BaseElement {
         return {
             current: { type: Object },
             subs: { type: Array },
-            id: { type: String }
+            id: { type: String },
+            search: { type: String, reflect: true }
         }
     }
 
@@ -55,7 +56,7 @@ export class ShopSubcategoryList extends BaseElement {
             })
     }
 
-    navigate() {
+    navigate(init = false) {
         const stub = document.location.pathname.replace(/^\/|\/$/g, "")
         this.current = this.categories.find(c => c.url == stub)
         if (this.current) {
@@ -79,13 +80,14 @@ export class ShopSubcategoryList extends BaseElement {
                     return asort == bsort ? 0 : asort > bsort ? 1 : -1
                 })
         }
+        if (!init) this.search = ""
 
         this.requestUpdate()
     }
 
     async firstUpdated() {
         this.categories = await categories
-        this.navigate()
+        this.navigate(true)
         document.addEventListener("didNavigate", () => this.navigate())
     }
 
@@ -119,6 +121,7 @@ export class ShopSubcategoryList extends BaseElement {
         }
 
         if (!this.current) return
+        if (this.search) return
 
         setTimeout(() => this.fixHeaderHeights(), 80)
         setTimeout(() => this.fixHeaderHeights(), 500)
