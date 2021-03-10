@@ -83,6 +83,49 @@ export class ShopCategoryView extends BaseElement {
         return window.siteConfig.collectionEndpoint
     }
 
+    async search(url, searchString) {
+        // Clear screen
+        Object.assign(this, {
+            url,
+            products: null,
+            page: 1,
+            limit: 16,
+            count: 0,
+            title: "Search",
+            type: "category"
+        })
+        // Fetch results
+        const endpoint = new URL(`${this.endpoint}`, window.origin)
+        // mirror window search params
+        for (const [k, v] of url.searchParams.entries()) {
+            endpoint.searchParams.set(k, v)
+        }
+        endpoint.searchParams.set("q", searchString)
+        endpoint.searchParams.set("category", null)
+        endpoint.searchParams.set("limit", url.searchParams.get("limit") || 16)
+        endpoint.searchParams.set("page", url.searchParams.get("page") || 1)
+        const res = await fetch(endpoint)
+        const data = await res.json()
+
+        const currentUrl = new URL(window.location)
+
+        const filters = (data.filters || []).map(f => {
+            f.key = `filter[${f._id}]`
+            f.unit = f.unit || ""
+            const param = currentUrl.searchParams.get(f.key) || ""
+            f.selection = param.split("|").filter(f => f)
+            return f
+        })
+
+        Object.assign(this, {
+            page: data.page,
+            limit: data.limit,
+            count: data.count,
+            filters: filters,
+            products: data.products || []
+        })
+    }
+
     async fetch(url) {
         const slug = url.pathname.replace(/^\/|\/$/g, "")
         const category = (await categories).find(c => c.url == slug) || {
@@ -148,8 +191,14 @@ export class ShopCategoryView extends BaseElement {
         const rect = this.getBoundingClientRect()
         const shouldScroll =
             scroll && this.scrollIntoView && rect && rect.y && rect.y < 0
+        const searchString = this.getAttribute("search")
+
         if (url.toString() != this.url.toString()) {
-            await this.fetch(url)
+            if (searchString) {
+                await this.search(url, searchString)
+            } else {
+                await this.fetch(url)
+            }
             if (shouldScroll) {
                 this.scrollIntoView(scrollOptions)
             }
