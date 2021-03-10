@@ -58,14 +58,27 @@ export class ShopSubcategoryList extends BaseElement {
     navigate() {
         const stub = document.location.pathname.replace(/^\/|\/$/g, "")
         this.current = this.categories.find(c => c.url == stub)
-        this.id = this.current.id
-        this.subs = this.categories
-            .filter(c => c.path.slice(1).shift() == this.current.id)
-            .sort((a, b) => {
-                const asort = parseInt(a.sortOrder)
-                const bsort = parseInt(b.sortOrder)
-                return asort == bsort ? 0 : asort > bsort ? 1 : -1
-            })
+        if (this.current) {
+            this.id = this.current.id
+            this.subs = this.categories
+                .filter(c => c.path.slice(1).shift() == this.current.id)
+                .sort((a, b) => {
+                    const asort = parseInt(a.sortOrder)
+                    const bsort = parseInt(b.sortOrder)
+                    return asort == bsort ? 0 : asort > bsort ? 1 : -1
+                })
+        } else {
+            // Home / Search
+            this.current = { url: "", path: [] }
+            this.id = null
+            this.subs = this.categories
+                .filter(c => c.path.length == 1)
+                .sort((a, b) => {
+                    const asort = parseInt(a.sortOrder)
+                    const bsort = parseInt(b.sortOrder)
+                    return asort == bsort ? 0 : asort > bsort ? 1 : -1
+                })
+        }
 
         this.requestUpdate()
     }
