@@ -85,8 +85,10 @@ export class ShopCategoryView extends BaseElement {
 
     async fetch(url) {
         const slug = url.pathname.replace(/^\/|\/$/g, "")
-        const category = (await categories).find(c => c.url == slug)
-        if (!category) throw `Could not find category ${category}`
+        const category = (await categories).find(c => c.url == slug) || {
+            type: "index",
+            title: "Collection"
+        }
 
         // Clear screen
         Object.assign(this, {
