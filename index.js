@@ -91,7 +91,7 @@ class f{constructor(t,e,s){this.__parts=[],this.template=t,this.processor=e,this
      * Code distributed by Google as part of the polymer project is also
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
-     */const U=new
+     */const O=new
 /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -118,7 +118,7 @@ class{handleAttributeExpressions(t,e,s,i){const r=e[0];if("."===r){return new M(
      * Code distributed by Google as part of the polymer project is also
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
-     */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.3.0");const O=(t,...e)=>new w(t,e,"html",U)
+     */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.3.0");const U=(t,...e)=>new w(t,e,"html",O)
 /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -156,7 +156,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
      */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.4.0");const Y={};class tt extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(Array.isArray(t)){const e=(t,s)=>t.reduceRight(((t,s)=>Array.isArray(s)?e(s,t):(t.add(s),t)),s),s=e(t,new Set),i=[];s.forEach((t=>i.unshift(t))),this._styles=i}else this._styles=void 0===t?[]:[t];this._styles=this._styles.map((t=>{if(t instanceof CSSStyleSheet&&!G){const e=Array.prototype.slice.call(t.cssRules).reduce(((t,e)=>t+e.cssText),"");return new Q(String(e),K)}return t}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?G?this.renderRoot.adoptedStyleSheets=t.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map((t=>t.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==Y&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)})))}render(){return Y}}tt.finalized=!0,tt.render=(t,s,i)=>{if(!i||"object"!=typeof i||!i.scopeName)throw new Error("The `scopeName` option is required.");const r=i.scopeName,n=V.has(s),o=H&&11===s.nodeType&&!!s.host,a=o&&!q.has(r),l=a?document.createDocumentFragment():s;if(((t,s,i)=>{let r=V.get(s);void 0===r&&(e(s,s.firstChild),V.set(s,r=new $(Object.assign({templateFactory:z},i))),r.appendInto(s)),r.setValue(t),r.commit()})(t,l,Object.assign({templateFactory:I(r)},i)),a){const t=V.get(l);V.delete(l);const i=t.value instanceof f?t.value.template:void 0;B(r,l,i),e(s,s.firstChild),s.appendChild(l),V.set(s,t)}!n&&o&&window.ShadyCSS.styleElement(s.host)};class et extends tt{get root(){return this.shadowRoot}render(){return O`<p>Element</p>`}trigger(t,e={},s=!0,i=!0){const r=new CustomEvent(t,{detail:e,bubbles:s,composed:i});this.dispatchEvent(r)}on(t,e){this.addEventListener(t,e)}off(t,e){this.removeEventListener(t,e)}}const st=()=>{const t=new CustomEvent("didNavigate",{bubbles:!0,composed:!0});document.dispatchEvent(t)},it=(async()=>(await(await fetch(window.siteConfig.categoryEndpoint)).json()).categories)();class rt extends et{static get properties(){return{key:{type:String},values:{type:Array},selection:{type:Array}}}}customElements.define("shop-category-toggles",class extends rt{static get styles(){return Z`
+(window.litElementVersions||(window.litElementVersions=[])).push("2.4.0");const Y={};class tt extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(Array.isArray(t)){const e=(t,s)=>t.reduceRight(((t,s)=>Array.isArray(s)?e(s,t):(t.add(s),t)),s),s=e(t,new Set),i=[];s.forEach((t=>i.unshift(t))),this._styles=i}else this._styles=void 0===t?[]:[t];this._styles=this._styles.map((t=>{if(t instanceof CSSStyleSheet&&!G){const e=Array.prototype.slice.call(t.cssRules).reduce(((t,e)=>t+e.cssText),"");return new Q(String(e),K)}return t}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?G?this.renderRoot.adoptedStyleSheets=t.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map((t=>t.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==Y&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)})))}render(){return Y}}tt.finalized=!0,tt.render=(t,s,i)=>{if(!i||"object"!=typeof i||!i.scopeName)throw new Error("The `scopeName` option is required.");const r=i.scopeName,n=V.has(s),o=H&&11===s.nodeType&&!!s.host,a=o&&!q.has(r),l=a?document.createDocumentFragment():s;if(((t,s,i)=>{let r=V.get(s);void 0===r&&(e(s,s.firstChild),V.set(s,r=new $(Object.assign({templateFactory:z},i))),r.appendInto(s)),r.setValue(t),r.commit()})(t,l,Object.assign({templateFactory:I(r)},i)),a){const t=V.get(l);V.delete(l);const i=t.value instanceof f?t.value.template:void 0;B(r,l,i),e(s,s.firstChild),s.appendChild(l),V.set(s,t)}!n&&o&&window.ShadyCSS.styleElement(s.host)};class et extends tt{get root(){return this.shadowRoot}render(){return U`<p>Element</p>`}trigger(t,e={},s=!0,i=!0){const r=new CustomEvent(t,{detail:e,bubbles:s,composed:i});this.dispatchEvent(r)}on(t,e){this.addEventListener(t,e)}off(t,e){this.removeEventListener(t,e)}}const st=()=>{const t=new CustomEvent("didNavigate",{bubbles:!0,composed:!0});document.dispatchEvent(t)},it=(async()=>(await(await fetch(window.siteConfig.categoryEndpoint)).json()).categories)();class rt extends et{static get properties(){return{key:{type:String},values:{type:Array},selection:{type:Array}}}}customElements.define("shop-category-toggles",class extends rt{static get styles(){return Z`
             .label {
                 font-size: 0.75rem;
                 color: #313333;
@@ -167,8 +167,8 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 left: -5px;
                 width: 100%;
             }
-        `}constructor(){super(),this.values=[],this.selection=[]}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})};return O`
-            ${this.values.map((e=>O`
+        `}constructor(){super(),this.values=[],this.selection=[]}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})};return U`
+            ${this.values.map((e=>U`
                     <check-box
                         @change=${t(e)}
                         type="switch"
@@ -200,7 +200,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 width: 100%;
                 box-sizing: border-box;
             }
-        `}static get properties(){return Object.assign({min:{type:Number},max:{type:Number},label:{type:String},unit:{type:String}},rt.properties)}render(){const t=this.values.map((t=>parseInt(t))),e=t.reduce(((t,e)=>t<e?t:e),1/0),s=t.reduce(((t,e)=>t>e?t:e),0);this.min!=e&&(this.min=e),this.max!=s&&(this.max=s);const i=(this.selection.length&&this.selection||[this.min,this.max]).map((t=>parseInt(t))),r=t=>{const e=t[0]==this.min&&t[1]==this.max?[]:t;this.trigger("selection",{key:this.key,selection:e})},n=t=>e=>{let s=parseInt(e.target.value);s=s>this.max?this.max:s<this.min?this.min:s,i[t]=s,r(i)};return O`
+        `}static get properties(){return Object.assign({min:{type:Number},max:{type:Number},label:{type:String},unit:{type:String}},rt.properties)}render(){const t=this.values.map((t=>parseInt(t))),e=t.reduce(((t,e)=>t<e?t:e),1/0),s=t.reduce(((t,e)=>t>e?t:e),0);this.min!=e&&(this.min=e),this.max!=s&&(this.max=s);const i=(this.selection.length&&this.selection||[this.min,this.max]).map((t=>parseInt(t))),r=t=>{const e=t[0]==this.min&&t[1]==this.max?[]:t;this.trigger("selection",{key:this.key,selection:e})},n=t=>e=>{let s=parseInt(e.target.value);s=s>this.max?this.max:s<this.min?this.min:s,i[t]=s,r(i)};return U`
             <range-slider
                 range
                 step="1"
@@ -266,8 +266,8 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 color: white;
                 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
-        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>s=>{const i="active"==t(e)?[]:e.values;this.trigger("selection",{key:this.key,selection:i})};return O`
-            ${this.presets.map((s=>O`
+        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>s=>{const i="active"==t(e)?[]:e.values;this.trigger("selection",{key:this.key,selection:i})};return U`
+            ${this.presets.map((s=>U`
                     <button @click=${e(s)} class="${t(s)}">
                         ${s.name}
                     </button>
@@ -401,7 +401,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             justify-content: space-between;
             margin-top: .75em;
         }
-    `}_polishVal(t){return(t=parseFloat((Math.round(t/this.step)*this.step).toFixed(2)))<this.min&&(t=this.min),t>this.max&&(t=this.max),t}set value(t){let e=this.value,s=this.valMin,i=this.valMax;if("string"==typeof t&&(t=t.split(",").map((t=>parseFloat(t)))),Array.isArray(t)){if("number"!=typeof t[0]||"number"!=typeof t[1])return;return t.sort(((t,e)=>t-e)),this.range&&(this.valMin=this._polishVal(t[0])),this.valMax=this._polishVal(t[1]),void this.requestUpdate("value",e)}if("number"!=typeof t)return;t=this._polishVal(t);let r=Math.abs(this.valMin-t),n=Math.abs(this.valMax-t);if("max"==this._active&&t==this.valMin?(this.valMax=t,this.range&&(this._active="min")):"min"==this._active&&t==this.valMax?(this.valMin=t,this._active="max"):!this.range||r==n&&this.valMax>this.valMin&&"max"==this._active||n<r||t>this.valMax?(this.valMax=t,this._active="max"):(this.valMin=t,this.range&&(this._active="min")),this._mouseDown||(this._active=null),s==this.valMin&&i==this.valMax)return;this._didChange=!0;let o=this.parentElement&&"FORM-CONTROL"==this.parentElement.tagName?this.parentElement:this;this.range?(o.style.setProperty("--range-slider-min-val",`'${this.valMin}'`),o.style.setProperty("--range-slider-max-val",`'${this.valMax}'`)):o.style.setProperty("--range-slider-val",`'${this.valMax}'`),this.requestUpdate("value",e)}get value(){return this.range?[this.valMin,this.valMax]:this.valMax}connectedCallback(){super.connectedCallback(),this.addEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}get _len(){return this.max-this.min}get _minLeft(){return(this.valMin-this.min)/this._len*100}get _maxLeft(){return(this.valMax-this.min)/this._len*100}get _trackLength(){return this._maxLeft-this._minLeft}get atMin(){return(this.range?this.valMin:this.valMax)==this.min}get atMax(){return this.valMax==this.max}reset(){this.valMin=this.min,this.valMax=this.min,this.value=[this.valMin,this.valMax],this.update()}render(){return O`
+    `}_polishVal(t){return(t=parseFloat((Math.round(t/this.step)*this.step).toFixed(2)))<this.min&&(t=this.min),t>this.max&&(t=this.max),t}set value(t){let e=this.value,s=this.valMin,i=this.valMax;if("string"==typeof t&&(t=t.split(",").map((t=>parseFloat(t)))),Array.isArray(t)){if("number"!=typeof t[0]||"number"!=typeof t[1])return;return t.sort(((t,e)=>t-e)),this.range&&(this.valMin=this._polishVal(t[0])),this.valMax=this._polishVal(t[1]),void this.requestUpdate("value",e)}if("number"!=typeof t)return;t=this._polishVal(t);let r=Math.abs(this.valMin-t),n=Math.abs(this.valMax-t);if("max"==this._active&&t==this.valMin?(this.valMax=t,this.range&&(this._active="min")):"min"==this._active&&t==this.valMax?(this.valMin=t,this._active="max"):!this.range||r==n&&this.valMax>this.valMin&&"max"==this._active||n<r||t>this.valMax?(this.valMax=t,this._active="max"):(this.valMin=t,this.range&&(this._active="min")),this._mouseDown||(this._active=null),s==this.valMin&&i==this.valMax)return;this._didChange=!0;let o=this.parentElement&&"FORM-CONTROL"==this.parentElement.tagName?this.parentElement:this;this.range?(o.style.setProperty("--range-slider-min-val",`'${this.valMin}'`),o.style.setProperty("--range-slider-max-val",`'${this.valMax}'`)):o.style.setProperty("--range-slider-val",`'${this.valMax}'`),this.requestUpdate("value",e)}get value(){return this.range?[this.valMin,this.valMax]:this.valMax}connectedCallback(){super.connectedCallback(),this.addEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}get _len(){return this.max-this.min}get _minLeft(){return(this.valMin-this.min)/this._len*100}get _maxLeft(){return(this.valMax-this.min)/this._len*100}get _trackLength(){return this._maxLeft-this._minLeft}get atMin(){return(this.range?this.valMin:this.valMax)==this.min}get atMax(){return this.valMax==this.max}reset(){this.valMin=this.min,this.valMax=this.min,this.value=[this.valMin,this.valMax],this.update()}render(){return U`
         <rail></rail>
         <track style="left:${this._minLeft}%; width:${this._trackLength}%"></track>
         <thumb min ?active=${"min"==this._active} style="left:${this._minLeft}%">
@@ -638,8 +638,8 @@ main label {
                 column-count: 1 !important;
             }
         }
-	`}render(){return O`
-		${Array.from(ut.keys()).map((t=>O`
+	`}render(){return U`
+		${Array.from(ut.keys()).map((t=>U`
 			<div>
 				<b-icon name=${t}></b-icon> <small>${t}</small>
 			</div>
@@ -984,13 +984,13 @@ main label {
             animation-duration: 700ms;
             animation-fill-mode: both;
         }
-    `}render(){return O`
+    `}render(){return U`
         <div class="hover" part="hover"></div>
         <main part="main">
             <span>
                 <b-spinner></b-spinner>
                 <slot name="icon">
-                    ${this.icon?O`<b-icon part="icon" name="${this.icon}"></b-icon>`:""}
+                    ${this.icon?U`<b-icon part="icon" name="${this.icon}"></b-icon>`:""}
                 </slot>
             </span>
             <slot></slot>
@@ -1042,7 +1042,7 @@ main label {
             border-top: solid 1px rgba(0,0,0,.2);
             border-left: none;
         }
-    `}render(){return O`
+    `}render(){return U`
         <slot></slot>
     `}}),customElements.get("b-btn-group"),window.addEventListener("popstate",(()=>st())),customElements.define("base-element",et),customElements.define("shop-subcategory-list",class extends et{static get styles(){return Z`
             :host {
@@ -1076,17 +1076,17 @@ main label {
                 position: relative;
                 top: -1px;
             }
-        `}static get properties(){return{current:{type:Object},subs:{type:Array},id:{type:String}}}get breadcrumbs(){return this.current.path.slice(0).reverse().map((t=>this.categories.find((e=>e.id==t))))}navigate(){const t=document.location.pathname.replace(/^\/|\/$/g,"");this.current=this.categories.find((e=>e.url==t)),this.id=this.current.id,this.subs=this.categories.filter((t=>t.path.slice(1).shift()==this.current.id)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1})),this.requestUpdate()}async firstUpdated(){this.categories=await it,this.navigate(),document.addEventListener("didNavigate",(()=>this.navigate()))}fixHeaderHeights(){const t=[...this.root.querySelectorAll("shop-subcategory-tile")];t.map((t=>t.headerHeight=0));const e={};t.map((t=>{const s=t.headerPosition;return e[s.top]=e[s.top]||[],e[s.top].push(s.height),t})).map((t=>{const s=t.headerPosition,i=e[s.top].reduce(((t,e)=>e>t?e:t),0);t.headerHeight=i}))}render(){const t=(t,e)=>(t.preventDefault(),history.pushState({},this.title,e),st(),!1);if(this.current)return setTimeout((()=>this.fixHeaderHeights()),80),setTimeout((()=>this.fixHeaderHeights()),500),O`
+        `}static get properties(){return{current:{type:Object},subs:{type:Array},id:{type:String}}}get breadcrumbs(){return this.current.path.slice(0).reverse().map((t=>this.categories.find((e=>e.id==t))))}navigate(){const t=document.location.pathname.replace(/^\/|\/$/g,"");this.current=this.categories.find((e=>e.url==t)),this.current?(this.id=this.current.id,this.subs=this.categories.filter((t=>t.path.slice(1).shift()==this.current.id)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1}))):(this.current={url:"",path:[]},this.id=null,this.subs=this.categories.filter((t=>1==t.path.length)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1}))),this.requestUpdate()}async firstUpdated(){this.categories=await it,this.navigate(),document.addEventListener("didNavigate",(()=>this.navigate()))}fixHeaderHeights(){const t=[...this.root.querySelectorAll("shop-subcategory-tile")];t.map((t=>t.headerHeight=0));const e={};t.map((t=>{const s=t.headerPosition;return e[s.top]=e[s.top]||[],e[s.top].push(s.height),t})).map((t=>{const s=t.headerPosition,i=e[s.top].reduce(((t,e)=>e>t?e:t),0);t.headerHeight=i}))}render(){const t=(t,e)=>(t.preventDefault(),history.pushState({},this.title,e),st(),!1);if(this.current)return setTimeout((()=>this.fixHeaderHeights()),80),setTimeout((()=>this.fixHeaderHeights()),500),U`
             <div class="breadcrumbs">
                 <a href="/">Home</a>
-                ${this.breadcrumbs.map((e=>{const s=`/${e.url}/`;return O`
+                ${this.breadcrumbs.map((e=>{const s=`/${e.url}/`;return U`
                         <a @click=${e=>t(e,s)} href=${s}>
                             ${e.title}
                         </a>
                     `}))}
             </div>
             <div class="subs">
-                ${this.subs.map((t=>O`
+                ${this.subs.map((t=>U`
                         <shop-subcategory-tile
                             id=${t.id}
                             title=${t.title}
@@ -1116,7 +1116,7 @@ main label {
                 padding: 0.5rem 0;
                 box-sizing: border-box;
             }
-        `}get headerPosition(){const t=this.root.querySelector("header");return{top:t.offsetTop,height:t.offsetHeight}}get headerHeight(){return this.root.querySelector("header").offsetHeight}set headerHeight(t){const e=t?`${t}px`:"auto";this.root.querySelector("header").style.height=e}get defaultImage(){return'<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg">\n            <rect x="0" y="0" width="550" height="550" fill="#c9c6c3"/>\n            <rect x="210" y="235" width="110" height="81" rx="4" fill="transparent" stroke="rgba(255,255,255,0.4)" stroke-width="10" />\n            <circle cx="244" cy="266" r="12" fill="rgba(255,255,255,0.4)"/>\n            <path d="M220 304Q226 282 248 292Q260 297 268 286C277 270,312 270,310 304Z" fill="rgba(255,255,255,0.4)"/>\n        </svg>'.replace(/\n\s+/gm,"")}get defaultImageBase64(){return`data:image/svg+xml;base64,${btoa(this.defaultImage)}`}render(){return O`
+        `}get headerPosition(){const t=this.root.querySelector("header");return{top:t.offsetTop,height:t.offsetHeight}}get headerHeight(){return this.root.querySelector("header").offsetHeight}set headerHeight(t){const e=t?`${t}px`:"auto";this.root.querySelector("header").style.height=e}get defaultImage(){return'<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg">\n            <rect x="0" y="0" width="550" height="550" fill="#c9c6c3"/>\n            <rect x="210" y="235" width="110" height="81" rx="4" fill="transparent" stroke="rgba(255,255,255,0.4)" stroke-width="10" />\n            <circle cx="244" cy="266" r="12" fill="rgba(255,255,255,0.4)"/>\n            <path d="M220 304Q226 282 248 292Q260 297 268 286C277 270,312 270,310 304Z" fill="rgba(255,255,255,0.4)"/>\n        </svg>'.replace(/\n\s+/gm,"")}get defaultImageBase64(){return`data:image/svg+xml;base64,${btoa(this.defaultImage)}`}render(){return U`
             <a @click=${()=>{history.pushState({},this.title,`/${this.url}/`),st()}} class="tile">
                 <header>${this.title}</header>
                 <main>
@@ -1158,9 +1158,9 @@ main label {
                     grid-column: span 4;
                 }
             }
-        `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e));if(!s)throw`Could not find category ${s}`;if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type}),"category"!==s.type)return;const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0;e.toString()!=this.url.toString()&&(await this.fetch(e),r&&this.scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){return this.h1=this.title,"category"!==this.type?O``:O`
+        `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e));if(!s)throw`Could not find category ${s}`;if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type}),"category"!==s.type)return;const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0;e.toString()!=this.url.toString()&&(await this.fetch(e),r&&this.scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){return this.h1=this.title,"category"!==this.type?U``:U`
             <div class="filters">
-                ${this.filters.map((t=>O`
+                ${this.filters.map((t=>U`
                         <shop-category-filter
                             .key=${t.key}
                             .display_name=${t.display_name}
@@ -1173,9 +1173,9 @@ main label {
                     `))}
             </div>
             <div class="results">
-                ${null===this.products?O` <p>Loading</p> `:O`
-                          ${this.products.length?O`
-                                    ${this.products.map((t=>O`
+                ${null===this.products?U` <p>Loading</p> `:U`
+                          ${this.products.length?U`
+                                    ${this.products.map((t=>U`
                                             <shop-category-product
                                                 .priceExcl=${t.priceExcl}
                                                 .url=${t.url}
@@ -1186,7 +1186,7 @@ main label {
                                                 .variants=${t.variants}
                                             ></shop-category-product>
                                         `))}
-                                `:O` <p>No results</p> `}
+                                `:U` <p>No results</p> `}
                       `}
                 <shop-category-pagination
                     .page=${this.page}
@@ -1218,16 +1218,16 @@ main label {
                 color: #ff4438;
                 font-weight: 600;
             }
-        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return O`
+        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return U`
             <a href="/${this.url}.html" title=${this.title}>
                 <div
                     class="product-image"
                     style="background-image: url(${t})"
                 ></div>
             </a>
-            ${e?O``:O`
+            ${e?U``:U`
                       <div class="variants">
-                          ${this.variants.slice(0,5).map((t=>{const e=this.sized(t.image_url,80);return O`
+                          ${this.variants.slice(0,5).map((t=>{const e=this.sized(t.image_url,80);return U`
                                   <a href="/${t.url}.html" title=${t.title}>
                                       <div
                                           class="product-image"
@@ -1280,34 +1280,34 @@ main label {
             .toggle.open:before {
                 content: "\\e920";
             }
-        `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=window.innerWidth>767}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle",s=this.selection.length?"selected":"";return O`
+        `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=window.innerWidth>767}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle",s=this.selection.length?"selected":"";return U`
             <header class=${s} @click=${()=>this.open=!this.open}>
                 ${this.display_name}
                 <span class=${e}></span>
             </header>
             <main class=${t}>
-                ${"Text"==this.type?O`
+                ${"Text"==this.type?U`
                           <shop-category-toggles
                               .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
                           ></shop-category-toggles>
-                      `:O``}
-                ${"MinMax"==this.type?O`
+                      `:U``}
+                ${"MinMax"==this.type?U`
                           <shop-category-minmax
                               .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
                               .label=${this.unit}
                           ></shop-category-minmax>
-                      `:O``}
-                ${this.presets&&this.presets.length?O`
+                      `:U``}
+                ${this.presets&&this.presets.length?U`
                           <shop-category-presets
                               .key=${this.key}
                               .selection=${this.selection}
                               .presets=${this.presets}
                           ></shop-category-presets>
-                      `:O``}
+                      `:U``}
             </main>
         `}}),customElements.define("shop-category-pagination",class extends et{static get styles(){return Z`
             :host {
@@ -1343,14 +1343,14 @@ main label {
             b-btn.prev:before {
                 content: "\\e921";
             }
-        `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){return[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s}}))}render(){if(!this.page||!this.limit)return O``;const t=this.pages;if(1==t.length)return O``;const e=t.find((t=>t.prev)),s=t.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return O`
+        `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){return[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s}}))}render(){if(!this.page||!this.limit)return U``;const t=this.pages;if(1==t.length)return U``;const e=t.find((t=>t.prev)),s=t.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return U`
             <b-btn-group>
-                ${e?O`
+                ${e?U`
                           <b-btn class="prev" @click=${i(e.number)}
                               >&nbsp;</b-btn
                           >
-                      `:O``}
-                ${t.map((t=>O`
+                      `:U``}
+                ${t.map((t=>U`
                             <b-btn
                                 class=${t.current?"active":""}
                                 @click=${i(t.number)}
@@ -1358,11 +1358,11 @@ main label {
                                 ${t.number}
                             </b-btn>
                         `))}
-                ${s?O`
+                ${s?U`
                           <b-btn class="next" @click=${i(s.number)}
                               >&nbsp;</b-btn
                           >
-                      `:O``}
+                      `:U``}
             </b-btn-group>
         `}})}();
 //# sourceMappingURL=index.js.map
