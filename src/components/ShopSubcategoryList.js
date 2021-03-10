@@ -80,7 +80,6 @@ export class ShopSubcategoryList extends BaseElement {
                     return asort == bsort ? 0 : asort > bsort ? 1 : -1
                 })
         }
-        if (!init) this.search = ""
 
         this.requestUpdate()
     }

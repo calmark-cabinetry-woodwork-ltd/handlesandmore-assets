@@ -202,9 +202,6 @@ export class ShopCategoryView extends BaseElement {
             }
             if (shouldScroll) {
                 this.scrollIntoView(scrollOptions)
-            } else {
-                // "true" navigation
-                this.search = ""
             }
         }
     }
