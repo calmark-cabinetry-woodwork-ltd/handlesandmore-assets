@@ -1314,12 +1314,12 @@ main label {
             }
             main.open {
                 display: block;
-                margin: 1rem 0.5em 0;
+                margin: 0;
                 padding: 0 0 2rem;
             }
             .toggle {
                 position: absolute;
-                top: 0;
+                top: 1rem;
                 right: 0;
                 line-height: 1.5rem;
             }
@@ -1338,6 +1338,7 @@ main label {
                 main.open,
                 main {
                     margin: 0;
+                    padding: 0;
                 }
                 .toggle {
                     top: 0;
