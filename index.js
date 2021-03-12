@@ -1144,6 +1144,15 @@ main label {
                 grid-column: span 2;
             }
 
+            shop-category-filter {
+                display: none;
+                padding: 0 0.5rem;
+            }
+
+            .showfilter shop-category-filter {
+                display: block;
+            }
+
             .mobile-filter-toggle a {
                 display: block;
                 border: 2px solid #ff4438;
@@ -1157,6 +1166,7 @@ main label {
                 padding: 0.5em 0em;
                 text-align: center;
                 margin: 0 0 1rem;
+                border-radius: 50px;
             }
 
             .icon-ellipsis-v {
@@ -1170,6 +1180,10 @@ main label {
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 font-size: 1rem;
+            }
+
+            .icon-ellipsis-v:before {
+                content: "\e919";
             }
 
             @media (min-width: 767px) {
@@ -1190,11 +1204,15 @@ main label {
                 shop-category-pagination {
                     grid-column: span 4;
                 }
+                shop-category-filter {
+                    display: block;
+                    padding: 0;
+                }
             }
-        `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String},search:{type:String,reflect:!0}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e))||{type:"index",title:"Collection"};if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type}),"category"!==s.type)return;const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}async fetchSearch(t,e){Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:"Search",type:"category"});const s=new URL(`${this.endpoint}`,window.origin);for(const[e,i]of t.searchParams.entries())s.searchParams.set(e,i);s.searchParams.set("q",e),s.searchParams.set("category",""),s.searchParams.set("limit",t.searchParams.get("limit")||16),s.searchParams.set("page",t.searchParams.get("page")||1);const i=await fetch(s),r=await i.json(),n=new URL(window.location),o=(r.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=n.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:r.page,limit:r.limit,count:r.count,filters:o,products:r.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0,n=this.search;e.toString()!=this.url.toString()&&(n?await this.fetchSearch(e,n):await this.fetch(e),r&&this.scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){return this.h1=this.title,"category"!==this.type?V``:V`
-            <div class="filters">
+        `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String},search:{type:String,reflect:!0},showfilter:{type:Boolean}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.showfilter=window.innerWidth>767,this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e))||{type:"index",title:"Collection"};if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type}),"category"!==s.type)return;const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}async fetchSearch(t,e){Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:"Search",type:"category"});const s=new URL(`${this.endpoint}`,window.origin);for(const[e,i]of t.searchParams.entries())s.searchParams.set(e,i);s.searchParams.set("q",e),s.searchParams.set("category",""),s.searchParams.set("limit",t.searchParams.get("limit")||16),s.searchParams.set("page",t.searchParams.get("page")||1);const i=await fetch(s),r=await i.json(),n=new URL(window.location),o=(r.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=n.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:r.page,limit:r.limit,count:r.count,filters:o,products:r.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0,n=this.search;e.toString()!=this.url.toString()&&(n?await this.fetchSearch(e,n):await this.fetch(e),r&&this.scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){if(this.h1=this.title,"category"!==this.type)return V``;return V`
+            <div class="filters ${this.showfilter?"showfilter":""}">
                 <div class="mobile-filter-toggle">
-                    <a>
+                    <a href="#" @click=${t=>(t.preventDefault(),this.showfilter=!this.showfilter,!1)}>
                         Filter Results
                         <span class="icon-ellipsis-v"></span>
                     </a>
