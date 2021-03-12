@@ -76,7 +76,7 @@ export class ShopCategoryView extends BaseElement {
                 shop-category-filter {
                     display: block;
                     padding: 0;
-                    margin: 0 0 2rem;
+                    margin: 0;
                 }
                 .showfilter shop-category-filter {
                     background: transparent;

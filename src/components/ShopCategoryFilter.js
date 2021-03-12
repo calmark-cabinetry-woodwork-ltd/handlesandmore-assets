@@ -303,7 +303,7 @@ class ShopCategoryPresets extends BaseElement {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.5rem;
-                margin: 1rem 0 2rem;
+                margin: 1rem 0 1rem;
             }
             button {
                 background-color: #dcdad6;
