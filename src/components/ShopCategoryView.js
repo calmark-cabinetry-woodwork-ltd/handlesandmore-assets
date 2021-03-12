@@ -11,25 +11,58 @@ export class ShopCategoryView extends BaseElement {
                 align-items: start;
             }
             .filters {
-                grid-row: 2;
+                grid-row: 1 / auto;
             }
             .results {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
+                grid-row: 2 / auto;
             }
             shop-category-pagination {
                 grid-column: span 2;
             }
 
+            .mobile-filter-toggle a {
+                display: block;
+                border: 2px solid #ff4438;
+                color: #ff4438;
+                letter-spacing: 0.0625em;
+                text-transform: none;
+                text-decoration: none;
+                line-height: 2em;
+                font-weight: 400;
+                cursor: pointer;
+                padding: 0.5em 0em;
+                text-align: center;
+                margin: 0 0 1rem;
+            }
+
+            .icon-ellipsis-v {
+                font-family: icomoon !important;
+                speak: never;
+                font-style: normal;
+                font-weight: 400;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 1rem;
+            }
+
             @media (min-width: 767px) {
+                .mobile-filter-toggle {
+                    display: none;
+                }
                 :host {
                     grid-template-columns: repeat(5, 1fr);
                 }
                 .filters {
-                    grid-row: 1;
+                    grid-row: 2 / auto;
                 }
                 .results {
+                    grid-row: 1 / auto;
                     grid-template-columns: repeat(4, 1fr);
                     grid-column: span 4;
                 }
@@ -229,6 +262,12 @@ export class ShopCategoryView extends BaseElement {
 
         return html`
             <div class="filters">
+                <div class="mobile-filter-toggle">
+                    <a>
+                        Filter Results
+                        <span class="icon-ellipsis-v"></span>
+                    </a>
+                </div>
                 ${this.filters.map(
                     f => html`
                         <shop-category-filter
