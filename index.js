@@ -1146,7 +1146,7 @@ main label {
 
             shop-category-filter {
                 display: none;
-                padding: 0.55rem;
+                padding: 0 1rem;
                 margin: 0 0 5px;
             }
 
@@ -1184,7 +1184,7 @@ main label {
                     grid-template-columns: repeat(5, 1fr);
                 }
                 .filters {
-                    grid-row: 2 / auto;
+                    grid-row: 1 / auto;
                 }
                 .results {
                     grid-row: 1 / auto;
@@ -1198,6 +1198,9 @@ main label {
                     display: block;
                     padding: 0;
                     margin: 0 0 2rem;
+                }
+                .showfilter shop-category-filter {
+                    background: transparent;
                 }
             }
         `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String},search:{type:String,reflect:!0},showfilter:{type:Boolean}}}constructor(){super(),this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.showfilter=window.innerWidth>767,this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e))||{type:"index",title:"Collection"};if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type}),"category"!==s.type)return;const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("category",s.id),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}async fetchSearch(t,e){Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:"Search",type:"category"});const s=new URL(`${this.endpoint}`,window.origin);for(const[e,i]of t.searchParams.entries())s.searchParams.set(e,i);s.searchParams.set("q",e),s.searchParams.set("category",""),s.searchParams.set("limit",t.searchParams.get("limit")||16),s.searchParams.set("page",t.searchParams.get("page")||1);const i=await fetch(s),r=await i.json(),n=new URL(window.location),o=(r.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=n.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:r.page,limit:r.limit,count:r.count,filters:o,products:r.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0,n=this.search;e.toString()!=this.url.toString()&&(n?await this.fetchSearch(e,n):await this.fetch(e),r&&this.scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){if(this.h1=this.title,"category"!==this.type)return V``;return V`
@@ -1301,6 +1304,7 @@ main label {
                 letter-spacing: 0.05em;
                 text-transform: none;
                 cursor: pointer;
+                padding: 1rem 0;
             }
             header.selected {
                 color: #ff4438;
@@ -1310,12 +1314,8 @@ main label {
             }
             main.open {
                 display: block;
-                margin: 0.65rem 0.35em 0;
-            }
-            @media (min-width: 767px) {
-                main.open {
-                    margin: 0;
-                }
+                margin: 1rem 0.5em 0;
+                padding: 0 0 2rem;
             }
             .toggle {
                 position: absolute;
@@ -1330,6 +1330,18 @@ main label {
             }
             .toggle.open:before {
                 content: "\\e920";
+            }
+            @media (min-width: 767px) {
+                header {
+                    padding: 0;
+                }
+                main.open,
+                main {
+                    margin: 0;
+                }
+                .toggle {
+                    top: 0;
+                }
             }
         `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=window.innerWidth>767}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle",s=this.selection.length?"selected":"";return V`
             <header class=${s} @click=${()=>this.open=!this.open}>
