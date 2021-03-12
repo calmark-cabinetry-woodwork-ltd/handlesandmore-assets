@@ -23,6 +23,15 @@ export class ShopCategoryView extends BaseElement {
                 grid-column: span 2;
             }
 
+            shop-category-filter {
+                display: none;
+                padding: 0 0.5rem;
+            }
+
+            .showfilter shop-category-filter {
+                display: block;
+            }
+
             .mobile-filter-toggle a {
                 display: block;
                 border: 2px solid #ff4438;
@@ -36,6 +45,7 @@ export class ShopCategoryView extends BaseElement {
                 padding: 0.5em 0em;
                 text-align: center;
                 margin: 0 0 1rem;
+                border-radius: 50px;
             }
 
             .icon-ellipsis-v {
@@ -49,6 +59,10 @@ export class ShopCategoryView extends BaseElement {
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 font-size: 1rem;
+            }
+
+            .icon-ellipsis-v:before {
+                content: "\e919";
             }
 
             @media (min-width: 767px) {
@@ -69,6 +83,10 @@ export class ShopCategoryView extends BaseElement {
                 shop-category-pagination {
                     grid-column: span 4;
                 }
+                shop-category-filter {
+                    display: block;
+                    padding: 0;
+                }
             }
         `
     }
@@ -83,7 +101,8 @@ export class ShopCategoryView extends BaseElement {
             filters: { type: Array },
             products: { type: Array },
             type: { type: String },
-            search: { type: String, reflect: true }
+            search: { type: String, reflect: true },
+            showfilter: { type: Boolean }
         }
     }
 
@@ -94,6 +113,7 @@ export class ShopCategoryView extends BaseElement {
         this.url = new URL("http://example.com")
         this.type = ""
         this.title = ""
+        this.showfilter = window.innerWidth > 767
         this.on("selection", ev => {
             const { key, selection } = ev.detail
             const url = new URL(window.location)
@@ -260,10 +280,16 @@ export class ShopCategoryView extends BaseElement {
             return html``
         }
 
+        const toggleFilters = ev => {
+            ev.preventDefault()
+            this.showfilter = !this.showfilter
+            return false
+        }
+
         return html`
-            <div class="filters">
+            <div class="filters ${this.showfilter ? "showfilter" : ""}">
                 <div class="mobile-filter-toggle">
-                    <a>
+                    <a href="#" @click=${toggleFilters}>
                         Filter Results
                         <span class="icon-ellipsis-v"></span>
                     </a>
