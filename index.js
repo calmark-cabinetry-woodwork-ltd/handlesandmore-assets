@@ -238,7 +238,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.5rem;
-                margin: 1rem 0 2rem;
+                margin: 1rem 0 1rem;
             }
             button {
                 background-color: #dcdad6;
@@ -1197,7 +1197,7 @@ main label {
                 shop-category-filter {
                     display: block;
                     padding: 0;
-                    margin: 0 0 2rem;
+                    margin: 0;
                 }
                 .showfilter shop-category-filter {
                     background: transparent;
