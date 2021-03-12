@@ -25,11 +25,14 @@ export class ShopCategoryView extends BaseElement {
 
             shop-category-filter {
                 display: none;
-                padding: 0 0.5rem;
+                padding: 0.55rem;
+                margin: 0 0 5px;
             }
 
             .showfilter shop-category-filter {
                 display: block;
+                background: rgba(255, 255, 255, 0.7);
+                border-radius: 3px;
             }
 
             .mobile-filter-toggle a {
@@ -47,22 +50,9 @@ export class ShopCategoryView extends BaseElement {
                 margin: 0 0 1rem;
                 border-radius: 50px;
             }
-
-            .icon-ellipsis-v {
-                font-family: icomoon !important;
-                speak: never;
-                font-style: normal;
-                font-weight: 400;
-                font-variant: normal;
-                text-transform: none;
-                line-height: 1;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-                font-size: 1rem;
-            }
-
-            .icon-ellipsis-v:before {
-                content: "\e919";
+            .showfilter .mobile-filter-toggle a {
+                color: white;
+                background-color: #ff4438;
             }
 
             @media (min-width: 767px) {
@@ -86,6 +76,7 @@ export class ShopCategoryView extends BaseElement {
                 shop-category-filter {
                     display: block;
                     padding: 0;
+                    margin: 0 0 2rem;
                 }
             }
         `
