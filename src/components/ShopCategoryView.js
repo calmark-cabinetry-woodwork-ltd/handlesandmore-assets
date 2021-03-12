@@ -280,10 +280,7 @@ export class ShopCategoryView extends BaseElement {
         return html`
             <div class="filters ${this.showfilter ? "showfilter" : ""}">
                 <div class="mobile-filter-toggle">
-                    <a href="#" @click=${toggleFilters}>
-                        Filter Results
-                        <span class="icon-ellipsis-v"></span>
-                    </a>
+                    <a href="#" @click=${toggleFilters}>Filter Results</a>
                 </div>
                 ${this.filters.map(
                     f => html`

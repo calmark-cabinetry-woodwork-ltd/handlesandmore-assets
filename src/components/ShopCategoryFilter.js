@@ -26,6 +26,12 @@ export class ShopCategoryFilter extends BaseElement {
             }
             main.open {
                 display: block;
+                margin: 0.65rem 0.35em 0;
+            }
+            @media (min-width: 767px) {
+                main.open {
+                    margin: 0;
+                }
             }
             .toggle {
                 position: absolute;
