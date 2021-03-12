@@ -17,6 +17,7 @@ export class ShopCategoryFilter extends BaseElement {
                 letter-spacing: 0.05em;
                 text-transform: none;
                 cursor: pointer;
+                padding: 1rem 0;
             }
             header.selected {
                 color: #ff4438;
@@ -26,12 +27,8 @@ export class ShopCategoryFilter extends BaseElement {
             }
             main.open {
                 display: block;
-                margin: 0.65rem 0.35em 0;
-            }
-            @media (min-width: 767px) {
-                main.open {
-                    margin: 0;
-                }
+                margin: 1rem 0.5em 0;
+                padding: 0 0 2rem;
             }
             .toggle {
                 position: absolute;
@@ -46,6 +43,18 @@ export class ShopCategoryFilter extends BaseElement {
             }
             .toggle.open:before {
                 content: "\\e920";
+            }
+            @media (min-width: 767px) {
+                header {
+                    padding: 0;
+                }
+                main.open,
+                main {
+                    margin: 0;
+                }
+                .toggle {
+                    top: 0;
+                }
             }
         `
     }

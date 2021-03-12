@@ -25,7 +25,7 @@ export class ShopCategoryView extends BaseElement {
 
             shop-category-filter {
                 display: none;
-                padding: 0.55rem;
+                padding: 0 1rem;
                 margin: 0 0 5px;
             }
 
@@ -63,7 +63,7 @@ export class ShopCategoryView extends BaseElement {
                     grid-template-columns: repeat(5, 1fr);
                 }
                 .filters {
-                    grid-row: 2 / auto;
+                    grid-row: 1 / auto;
                 }
                 .results {
                     grid-row: 1 / auto;
@@ -77,6 +77,9 @@ export class ShopCategoryView extends BaseElement {
                     display: block;
                     padding: 0;
                     margin: 0 0 2rem;
+                }
+                .showfilter shop-category-filter {
+                    background: transparent;
                 }
             }
         `
