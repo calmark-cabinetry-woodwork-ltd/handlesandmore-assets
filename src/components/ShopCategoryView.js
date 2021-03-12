@@ -248,7 +248,9 @@ export class ShopCategoryView extends BaseElement {
                 await this.fetch(url)
             }
             if (shouldScroll) {
-                this.querySelector(".results").scrollIntoView(scrollOptions)
+                this.root
+                    .querySelector(".results")
+                    .scrollIntoView(scrollOptions)
             }
         }
     }
