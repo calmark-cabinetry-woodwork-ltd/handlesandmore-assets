@@ -1203,7 +1203,7 @@ main label {
                 shop-category-filter {
                     display: block;
                     padding: 0;
-                    margin: 0;
+                    margin: 0 0 1rem;
                 }
                 .showfilter shop-category-filter {
                     background: transparent;
