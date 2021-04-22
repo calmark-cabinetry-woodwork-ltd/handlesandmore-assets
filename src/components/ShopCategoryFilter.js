@@ -155,6 +155,10 @@ class ShopCategoryToggles extends ShopControl {
         this.selection = []
     }
 
+    get $wrapper() {
+        return this.root.querySelector(".wrapper")
+    }
+
     render() {
         const update = v => ev => {
             const value = ev.detail.value
@@ -163,19 +167,26 @@ class ShopCategoryToggles extends ShopControl {
                 : this.selection.filter(s => s !== v)
             this.trigger("selection", { key: this.key, selection })
         }
+
+        setTimeout(() => {
+            console.log(this.$wrapper)
+        }, 100)
+
         return html`
-            ${this.values.map(
-                v => html`
-                    <check-box
-                        @change=${update(v)}
-                        type="switch"
-                        label=${v}
-                        .value=${this.selection.includes(v)}
-                    >
-                        <span class="label" slot="label">${v}</span>
-                    </check-box>
-                `
-            )}
+            <div class="wrapper">
+                ${this.values.map(
+                    v => html`
+                        <check-box
+                            @change=${update(v)}
+                            type="switch"
+                            label=${v}
+                            .value=${this.selection.includes(v)}
+                        >
+                            <span class="label" slot="label">${v}</span>
+                        </check-box>
+                    `
+                )}
+            </div>
         `
     }
 }
