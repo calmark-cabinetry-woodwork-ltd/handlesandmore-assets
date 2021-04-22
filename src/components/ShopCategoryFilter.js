@@ -147,6 +147,10 @@ class ShopCategoryToggles extends ShopControl {
                 left: -5px;
                 width: 100%;
             }
+            .wrapper.tall {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
         `
     }
     constructor() {
@@ -168,12 +172,11 @@ class ShopCategoryToggles extends ShopControl {
             this.trigger("selection", { key: this.key, selection })
         }
 
-        setTimeout(() => {
-            console.log(this.$wrapper)
-        }, 100)
+        const wrapperClass =
+            this.values.length > 20 ? "wrapper tall" : "wrapper"
 
         return html`
-            <div class="wrapper">
+            <div class=${wrapperClass}>
                 ${this.values.map(
                     v => html`
                         <check-box
