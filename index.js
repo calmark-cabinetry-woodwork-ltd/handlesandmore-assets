@@ -167,8 +167,12 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 left: -5px;
                 width: 100%;
             }
-        `}constructor(){super(),this.values=[],this.selection=[]}get $wrapper(){return this.root.querySelector(".wrapper")}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})};return setTimeout((()=>{console.log(this.$wrapper)}),100),V`
-            <div class="wrapper">
+            .wrapper.tall {
+                max-height: 300px;
+                overflow-y: scroll;
+            }
+        `}constructor(){super(),this.values=[],this.selection=[]}get $wrapper(){return this.root.querySelector(".wrapper")}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})},e=this.values.length>20?"wrapper tall":"wrapper";return V`
+            <div class=${e}>
                 ${this.values.map((e=>V`
                         <check-box
                             @change=${t(e)}
