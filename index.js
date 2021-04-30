@@ -91,7 +91,7 @@ class v{constructor(t,e,s){this.__parts=[],this.template=t,this.processor=e,this
      * Code distributed by Google as part of the polymer project is also
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
-     */const U=new
+     */const V=new
 /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -118,7 +118,7 @@ class{handleAttributeExpressions(t,e,s,i){const r=e[0];if("."===r){return new P(
      * Code distributed by Google as part of the polymer project is also
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
-     */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.3.0");const V=(t,...e)=>new w(t,e,"html",U)
+     */"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.3.0");const U=(t,...e)=>new w(t,e,"html",V)
 /**
      * @license
      * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -131,7 +131,7 @@ class{handleAttributeExpressions(t,e,s,i){const r=e[0];if("."===r){return new P(
      * Code distributed by Google as part of the polymer project is also
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
-     */,R=(t,e)=>`${t}--${e}`;let H=!0;void 0===window.ShadyCSS?H=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),H=!1);const I=t=>e=>{const i=R(e.type,t);let r=L.get(i);void 0===r&&(r={stringsArray:new WeakMap,keyString:new Map},L.set(i,r));let n=r.stringsArray.get(e.strings);if(void 0!==n)return n;const a=e.strings.join(s);if(n=r.keyString.get(a),void 0===n){const s=e.getTemplateElement();H&&window.ShadyCSS.prepareTemplateDom(s,t),n=new o(e,s),r.keyString.set(a,n)}return r.stringsArray.set(e.strings,n),n},j=["html","svg"],q=new Set,B=(t,e,s)=>{q.add(t);const i=s?s.element:document.createElement("template"),r=e.querySelectorAll("style"),{length:n}=r;if(0===n)return void window.ShadyCSS.prepareTemplateStyles(i,t);const o=document.createElement("style");for(let t=0;t<n;t++){const e=r[t];e.parentNode.removeChild(e),o.textContent+=e.textContent}(t=>{j.forEach((e=>{const s=L.get(R(e,t));void 0!==s&&s.keyString.forEach((t=>{const{element:{content:e}}=t,s=new Set;Array.from(e.querySelectorAll("style")).forEach((t=>{s.add(t)})),d(t,s)}))}))})(t);const a=i.content;s?function(t,e,s=null){const{element:{content:i},parts:r}=t;if(null==s)return void i.appendChild(e);const n=document.createTreeWalker(i,133,null,!1);let o=u(r),a=0,l=-1;for(;n.nextNode();)for(l++,n.currentNode===s&&(a=p(e),s.parentNode.insertBefore(e,s));-1!==o&&r[o].index===l;){if(a>0){for(;-1!==o;)r[o].index+=a,o=u(r,o);return}o=u(r,o)}}(s,o,a.firstChild):a.insertBefore(o,a.firstChild),window.ShadyCSS.prepareTemplateStyles(i,t);const l=a.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==l)e.insertBefore(l.cloneNode(!0),e.firstChild);else if(s){a.insertBefore(o,a.firstChild);const t=new Set;t.add(o),d(s,t)}};window.JSCompiler_renameProperty=(t,e)=>t;const F={toAttribute(t,e){switch(e){case Boolean:return t?"":null;case Object:case Array:return null==t?t:JSON.stringify(t)}return t},fromAttribute(t,e){switch(e){case Boolean:return null!==t;case Number:return null===t?null:Number(t);case Object:case Array:return JSON.parse(t)}return t}},W=(t,e)=>e!==t&&(e==e||t==t),D={attribute:!0,type:String,converter:F,reflect:!1,hasChanged:W},J="finalized";class X extends HTMLElement{constructor(){super(),this.initialize()}static get observedAttributes(){this.finalize();const t=[];return this._classProperties.forEach(((e,s)=>{const i=this._attributeNameForProperty(s,e);void 0!==i&&(this._attributeToPropertyMap.set(i,s),t.push(i))})),t}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const t=Object.getPrototypeOf(this)._classProperties;void 0!==t&&t.forEach(((t,e)=>this._classProperties.set(e,t)))}}static createProperty(t,e=D){if(this._ensureClassProperties(),this._classProperties.set(t,e),e.noAccessor||this.prototype.hasOwnProperty(t))return;const s="symbol"==typeof t?Symbol():`__${t}`,i=this.getPropertyDescriptor(t,s,e);void 0!==i&&Object.defineProperty(this.prototype,t,i)}static getPropertyDescriptor(t,e,s){return{get(){return this[e]},set(i){const r=this[t];this[e]=i,this.requestUpdateInternal(t,r,s)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this._classProperties&&this._classProperties.get(t)||D}static finalize(){const t=Object.getPrototypeOf(this);if(t.hasOwnProperty(J)||t.finalize(),this.finalized=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const t=this.properties,e=[...Object.getOwnPropertyNames(t),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(t):[]];for(const s of e)this.createProperty(s,t[s])}}static _attributeNameForProperty(t,e){const s=e.attribute;return!1===s?void 0:"string"==typeof s?s:"string"==typeof t?t.toLowerCase():void 0}static _valueHasChanged(t,e,s=W){return s(t,e)}static _propertyValueFromAttribute(t,e){const s=e.type,i=e.converter||F,r="function"==typeof i?i:i.fromAttribute;return r?r(t,s):t}static _propertyValueToAttribute(t,e){if(void 0===e.reflect)return;const s=e.type,i=e.converter;return(i&&i.toAttribute||F.toAttribute)(t,s)}initialize(){this._updateState=0,this._updatePromise=new Promise((t=>this._enableUpdatingResolver=t)),this._changedProperties=new Map,this._saveInstanceProperties(),this.requestUpdateInternal()}_saveInstanceProperties(){this.constructor._classProperties.forEach(((t,e)=>{if(this.hasOwnProperty(e)){const t=this[e];delete this[e],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(e,t)}}))}_applyInstanceProperties(){this._instanceProperties.forEach(((t,e)=>this[e]=t)),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(t,e,s){e!==s&&this._attributeToProperty(t,s)}_propertyToAttribute(t,e,s=D){const i=this.constructor,r=i._attributeNameForProperty(t,s);if(void 0!==r){const t=i._propertyValueToAttribute(e,s);if(void 0===t)return;this._updateState=8|this._updateState,null==t?this.removeAttribute(r):this.setAttribute(r,t),this._updateState=-9&this._updateState}}_attributeToProperty(t,e){if(8&this._updateState)return;const s=this.constructor,i=s._attributeToPropertyMap.get(t);if(void 0!==i){const t=s.getPropertyOptions(i);this._updateState=16|this._updateState,this[i]=s._propertyValueFromAttribute(e,t),this._updateState=-17&this._updateState}}requestUpdateInternal(t,e,s){let i=!0;if(void 0!==t){const r=this.constructor;s=s||r.getPropertyOptions(t),r._valueHasChanged(this[t],e,s.hasChanged)?(this._changedProperties.has(t)||this._changedProperties.set(t,e),!0!==s.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(t,s))):i=!1}!this._hasRequestedUpdate&&i&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(t,e){return this.requestUpdateInternal(t,e),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(t){}const t=this.performUpdate();return null!=t&&await t,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){if(!this._hasRequestedUpdate)return;this._instanceProperties&&this._applyInstanceProperties();let t=!1;const e=this._changedProperties;try{t=this.shouldUpdate(e),t?this.update(e):this._markUpdated()}catch(e){throw t=!1,this._markUpdated(),e}t&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(e)),this.updated(e))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(t){return!0}update(t){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach(((t,e)=>this._propertyToAttribute(e,this[e],t))),this._reflectingProperties=void 0),this._markUpdated()}updated(t){}firstUpdated(t){}}X.finalized=!0;
+     */,R=(t,e)=>`${t}--${e}`;let I=!0;void 0===window.ShadyCSS?I=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),I=!1);const H=t=>e=>{const i=R(e.type,t);let r=L.get(i);void 0===r&&(r={stringsArray:new WeakMap,keyString:new Map},L.set(i,r));let n=r.stringsArray.get(e.strings);if(void 0!==n)return n;const a=e.strings.join(s);if(n=r.keyString.get(a),void 0===n){const s=e.getTemplateElement();I&&window.ShadyCSS.prepareTemplateDom(s,t),n=new o(e,s),r.keyString.set(a,n)}return r.stringsArray.set(e.strings,n),n},j=["html","svg"],q=new Set,B=(t,e,s)=>{q.add(t);const i=s?s.element:document.createElement("template"),r=e.querySelectorAll("style"),{length:n}=r;if(0===n)return void window.ShadyCSS.prepareTemplateStyles(i,t);const o=document.createElement("style");for(let t=0;t<n;t++){const e=r[t];e.parentNode.removeChild(e),o.textContent+=e.textContent}(t=>{j.forEach((e=>{const s=L.get(R(e,t));void 0!==s&&s.keyString.forEach((t=>{const{element:{content:e}}=t,s=new Set;Array.from(e.querySelectorAll("style")).forEach((t=>{s.add(t)})),d(t,s)}))}))})(t);const a=i.content;s?function(t,e,s=null){const{element:{content:i},parts:r}=t;if(null==s)return void i.appendChild(e);const n=document.createTreeWalker(i,133,null,!1);let o=u(r),a=0,l=-1;for(;n.nextNode();)for(l++,n.currentNode===s&&(a=p(e),s.parentNode.insertBefore(e,s));-1!==o&&r[o].index===l;){if(a>0){for(;-1!==o;)r[o].index+=a,o=u(r,o);return}o=u(r,o)}}(s,o,a.firstChild):a.insertBefore(o,a.firstChild),window.ShadyCSS.prepareTemplateStyles(i,t);const l=a.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==l)e.insertBefore(l.cloneNode(!0),e.firstChild);else if(s){a.insertBefore(o,a.firstChild);const t=new Set;t.add(o),d(s,t)}};window.JSCompiler_renameProperty=(t,e)=>t;const F={toAttribute(t,e){switch(e){case Boolean:return t?"":null;case Object:case Array:return null==t?t:JSON.stringify(t)}return t},fromAttribute(t,e){switch(e){case Boolean:return null!==t;case Number:return null===t?null:Number(t);case Object:case Array:return JSON.parse(t)}return t}},W=(t,e)=>e!==t&&(e==e||t==t),D={attribute:!0,type:String,converter:F,reflect:!1,hasChanged:W},J="finalized";class X extends HTMLElement{constructor(){super(),this.initialize()}static get observedAttributes(){this.finalize();const t=[];return this._classProperties.forEach(((e,s)=>{const i=this._attributeNameForProperty(s,e);void 0!==i&&(this._attributeToPropertyMap.set(i,s),t.push(i))})),t}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const t=Object.getPrototypeOf(this)._classProperties;void 0!==t&&t.forEach(((t,e)=>this._classProperties.set(e,t)))}}static createProperty(t,e=D){if(this._ensureClassProperties(),this._classProperties.set(t,e),e.noAccessor||this.prototype.hasOwnProperty(t))return;const s="symbol"==typeof t?Symbol():`__${t}`,i=this.getPropertyDescriptor(t,s,e);void 0!==i&&Object.defineProperty(this.prototype,t,i)}static getPropertyDescriptor(t,e,s){return{get(){return this[e]},set(i){const r=this[t];this[e]=i,this.requestUpdateInternal(t,r,s)},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this._classProperties&&this._classProperties.get(t)||D}static finalize(){const t=Object.getPrototypeOf(this);if(t.hasOwnProperty(J)||t.finalize(),this.finalized=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const t=this.properties,e=[...Object.getOwnPropertyNames(t),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(t):[]];for(const s of e)this.createProperty(s,t[s])}}static _attributeNameForProperty(t,e){const s=e.attribute;return!1===s?void 0:"string"==typeof s?s:"string"==typeof t?t.toLowerCase():void 0}static _valueHasChanged(t,e,s=W){return s(t,e)}static _propertyValueFromAttribute(t,e){const s=e.type,i=e.converter||F,r="function"==typeof i?i:i.fromAttribute;return r?r(t,s):t}static _propertyValueToAttribute(t,e){if(void 0===e.reflect)return;const s=e.type,i=e.converter;return(i&&i.toAttribute||F.toAttribute)(t,s)}initialize(){this._updateState=0,this._updatePromise=new Promise((t=>this._enableUpdatingResolver=t)),this._changedProperties=new Map,this._saveInstanceProperties(),this.requestUpdateInternal()}_saveInstanceProperties(){this.constructor._classProperties.forEach(((t,e)=>{if(this.hasOwnProperty(e)){const t=this[e];delete this[e],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(e,t)}}))}_applyInstanceProperties(){this._instanceProperties.forEach(((t,e)=>this[e]=t)),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(t,e,s){e!==s&&this._attributeToProperty(t,s)}_propertyToAttribute(t,e,s=D){const i=this.constructor,r=i._attributeNameForProperty(t,s);if(void 0!==r){const t=i._propertyValueToAttribute(e,s);if(void 0===t)return;this._updateState=8|this._updateState,null==t?this.removeAttribute(r):this.setAttribute(r,t),this._updateState=-9&this._updateState}}_attributeToProperty(t,e){if(8&this._updateState)return;const s=this.constructor,i=s._attributeToPropertyMap.get(t);if(void 0!==i){const t=s.getPropertyOptions(i);this._updateState=16|this._updateState,this[i]=s._propertyValueFromAttribute(e,t),this._updateState=-17&this._updateState}}requestUpdateInternal(t,e,s){let i=!0;if(void 0!==t){const r=this.constructor;s=s||r.getPropertyOptions(t),r._valueHasChanged(this[t],e,s.hasChanged)?(this._changedProperties.has(t)||this._changedProperties.set(t,e),!0!==s.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(t,s))):i=!1}!this._hasRequestedUpdate&&i&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(t,e){return this.requestUpdateInternal(t,e),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(t){}const t=this.performUpdate();return null!=t&&await t,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){if(!this._hasRequestedUpdate)return;this._instanceProperties&&this._applyInstanceProperties();let t=!1;const e=this._changedProperties;try{t=this.shouldUpdate(e),t?this.update(e):this._markUpdated()}catch(e){throw t=!1,this._markUpdated(),e}t&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(e)),this.updated(e))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this._updatePromise}shouldUpdate(t){return!0}update(t){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach(((t,e)=>this._propertyToAttribute(e,this[e],t))),this._reflectingProperties=void 0),this._markUpdated()}updated(t){}firstUpdated(t){}}X.finalized=!0;
 /**
     @license
     Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -156,7 +156,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
      * subject to an additional IP rights grant found at
      * http://polymer.github.io/PATENTS.txt
      */
-(window.litElementVersions||(window.litElementVersions=[])).push("2.4.0");const Y={};class tt extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(Array.isArray(t)){const e=(t,s)=>t.reduceRight(((t,s)=>Array.isArray(s)?e(s,t):(t.add(s),t)),s),s=e(t,new Set),i=[];s.forEach((t=>i.unshift(t))),this._styles=i}else this._styles=void 0===t?[]:[t];this._styles=this._styles.map((t=>{if(t instanceof CSSStyleSheet&&!G){const e=Array.prototype.slice.call(t.cssRules).reduce(((t,e)=>t+e.cssText),"");return new Q(String(e),K)}return t}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?G?this.renderRoot.adoptedStyleSheets=t.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map((t=>t.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==Y&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)})))}render(){return Y}}tt.finalized=!0,tt.render=(t,s,i)=>{if(!i||"object"!=typeof i||!i.scopeName)throw new Error("The `scopeName` option is required.");const r=i.scopeName,n=O.has(s),o=H&&11===s.nodeType&&!!s.host,a=o&&!q.has(r),l=a?document.createDocumentFragment():s;if(((t,s,i)=>{let r=O.get(s);void 0===r&&(e(s,s.firstChild),O.set(s,r=new C(Object.assign({templateFactory:z},i))),r.appendInto(s)),r.setValue(t),r.commit()})(t,l,Object.assign({templateFactory:I(r)},i)),a){const t=O.get(l);O.delete(l);const i=t.value instanceof v?t.value.template:void 0;B(r,l,i),e(s,s.firstChild),s.appendChild(l),O.set(s,t)}!n&&o&&window.ShadyCSS.styleElement(s.host)};class et extends tt{get root(){return this.shadowRoot}render(){return V`<p>Element</p>`}trigger(t,e={},s=!0,i=!0){const r=new CustomEvent(t,{detail:e,bubbles:s,composed:i});this.dispatchEvent(r)}on(t,e){this.addEventListener(t,e)}off(t,e){this.removeEventListener(t,e)}}const st=()=>{const t=new CustomEvent("didNavigate",{bubbles:!0,composed:!0});document.dispatchEvent(t)},it=(async()=>(await(await fetch(window.siteConfig.categoryEndpoint)).json()).categories)();class rt extends et{static get properties(){return{key:{type:String},values:{type:Array},selection:{type:Array}}}}customElements.define("shop-category-toggles",class extends rt{static get styles(){return Z`
+(window.litElementVersions||(window.litElementVersions=[])).push("2.4.0");const Y={};class tt extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(Array.isArray(t)){const e=(t,s)=>t.reduceRight(((t,s)=>Array.isArray(s)?e(s,t):(t.add(s),t)),s),s=e(t,new Set),i=[];s.forEach((t=>i.unshift(t))),this._styles=i}else this._styles=void 0===t?[]:[t];this._styles=this._styles.map((t=>{if(t instanceof CSSStyleSheet&&!G){const e=Array.prototype.slice.call(t.cssRules).reduce(((t,e)=>t+e.cssText),"");return new Q(String(e),K)}return t}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?G?this.renderRoot.adoptedStyleSheets=t.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map((t=>t.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==Y&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)})))}render(){return Y}}tt.finalized=!0,tt.render=(t,s,i)=>{if(!i||"object"!=typeof i||!i.scopeName)throw new Error("The `scopeName` option is required.");const r=i.scopeName,n=O.has(s),o=I&&11===s.nodeType&&!!s.host,a=o&&!q.has(r),l=a?document.createDocumentFragment():s;if(((t,s,i)=>{let r=O.get(s);void 0===r&&(e(s,s.firstChild),O.set(s,r=new C(Object.assign({templateFactory:z},i))),r.appendInto(s)),r.setValue(t),r.commit()})(t,l,Object.assign({templateFactory:H(r)},i)),a){const t=O.get(l);O.delete(l);const i=t.value instanceof v?t.value.template:void 0;B(r,l,i),e(s,s.firstChild),s.appendChild(l),O.set(s,t)}!n&&o&&window.ShadyCSS.styleElement(s.host)};class et extends tt{get root(){return this.shadowRoot}render(){return U`<p>Element</p>`}trigger(t,e={},s=!0,i=!0){const r=new CustomEvent(t,{detail:e,bubbles:s,composed:i});this.dispatchEvent(r)}on(t,e){this.addEventListener(t,e)}off(t,e){this.removeEventListener(t,e)}}const st=()=>{const t=new CustomEvent("didNavigate",{bubbles:!0,composed:!0});document.dispatchEvent(t)},it=(async()=>(await(await fetch(window.siteConfig.categoryEndpoint)).json()).categories)();class rt extends et{static get properties(){return{key:{type:String},values:{type:Array},selection:{type:Array}}}}customElements.define("shop-category-toggles",class extends rt{static get styles(){return Z`
             .label {
                 font-size: 0.75rem;
                 color: #313333;
@@ -171,9 +171,9 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 max-height: 300px;
                 overflow-y: scroll;
             }
-        `}constructor(){super(),this.values=[],this.selection=[]}get $wrapper(){return this.root.querySelector(".wrapper")}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})},e=this.values.length>20?"wrapper tall":"wrapper";return V`
+        `}constructor(){super(),this.values=[],this.selection=[]}get $wrapper(){return this.root.querySelector(".wrapper")}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})},e=this.values.length>20?"wrapper tall":"wrapper";return U`
             <div class=${e}>
-                ${this.values.map((e=>V`
+                ${this.values.map((e=>U`
                         <check-box
                             @change=${t(e)}
                             type="switch"
@@ -206,7 +206,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 width: 100%;
                 box-sizing: border-box;
             }
-        `}static get properties(){return Object.assign({min:{type:Number},max:{type:Number},label:{type:String},unit:{type:String}},rt.properties)}render(){const t=this.values.map((t=>parseInt(t))),e=t.reduce(((t,e)=>t<e?t:e),1/0),s=t.reduce(((t,e)=>t>e?t:e),0);this.min!=e&&(this.min=e),this.max!=s&&(this.max=s);const i=(this.selection.length&&this.selection||[this.min,this.max]).map((t=>parseInt(t))),r=t=>{const e=t[0]==this.min&&t[1]==this.max?[]:t;this.trigger("selection",{key:this.key,selection:e})},n=t=>e=>{let s=parseInt(e.target.value);s=s>this.max?this.max:s<this.min?this.min:s,i[t]=s,r(i)};return V`
+        `}static get properties(){return Object.assign({min:{type:Number},max:{type:Number},label:{type:String},unit:{type:String}},rt.properties)}render(){const t=this.values.map((t=>parseInt(t))),e=t.reduce(((t,e)=>t<e?t:e),1/0),s=t.reduce(((t,e)=>t>e?t:e),0);this.min!=e&&(this.min=e),this.max!=s&&(this.max=s);const i=(this.selection.length&&this.selection||[this.min,this.max]).map((t=>parseInt(t))),r=t=>{const e=t[0]==this.min&&t[1]==this.max?[]:t;this.trigger("selection",{key:this.key,selection:e})},n=t=>e=>{let s=parseInt(e.target.value);s=s>this.max?this.max:s<this.min?this.min:s,i[t]=s,r(i)};return U`
             <range-slider
                 range
                 step="1"
@@ -272,8 +272,8 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 color: white;
                 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
-        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>s=>{const i="active"==t(e)?[]:e.values;this.trigger("selection",{key:this.key,selection:i})};return V`
-            ${this.presets.map((s=>V`
+        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>s=>{const i="active"==t(e)?[]:e.values;this.trigger("selection",{key:this.key,selection:i})};return U`
+            ${this.presets.map((s=>U`
                     <button @click=${e(s)} class="${t(s)}">
                         ${s.name}
                     </button>
@@ -407,7 +407,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             justify-content: space-between;
             margin-top: .75em;
         }
-    `}_polishVal(t){return(t=parseFloat((Math.round(t/this.step)*this.step).toFixed(2)))<this.min&&(t=this.min),t>this.max&&(t=this.max),t}set value(t){let e=this.value,s=this.valMin,i=this.valMax;if("string"==typeof t&&(t=t.split(",").map((t=>parseFloat(t)))),Array.isArray(t)){if("number"!=typeof t[0]||"number"!=typeof t[1])return;return t.sort(((t,e)=>t-e)),this.range&&(this.valMin=this._polishVal(t[0])),this.valMax=this._polishVal(t[1]),void this.requestUpdate("value",e)}if("number"!=typeof t)return;t=this._polishVal(t);let r=Math.abs(this.valMin-t),n=Math.abs(this.valMax-t);if("max"==this._active&&t==this.valMin?(this.valMax=t,this.range&&(this._active="min")):"min"==this._active&&t==this.valMax?(this.valMin=t,this._active="max"):!this.range||r==n&&this.valMax>this.valMin&&"max"==this._active||n<r||t>this.valMax?(this.valMax=t,this._active="max"):(this.valMin=t,this.range&&(this._active="min")),this._mouseDown||(this._active=null),s==this.valMin&&i==this.valMax)return;this._didChange=!0;let o=this.parentElement&&"FORM-CONTROL"==this.parentElement.tagName?this.parentElement:this;this.range?(o.style.setProperty("--range-slider-min-val",`'${this.valMin}'`),o.style.setProperty("--range-slider-max-val",`'${this.valMax}'`)):o.style.setProperty("--range-slider-val",`'${this.valMax}'`),this.requestUpdate("value",e)}get value(){return this.range?[this.valMin,this.valMax]:this.valMax}connectedCallback(){super.connectedCallback(),this.addEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}get _len(){return this.max-this.min}get _minLeft(){return(this.valMin-this.min)/this._len*100}get _maxLeft(){return(this.valMax-this.min)/this._len*100}get _trackLength(){return this._maxLeft-this._minLeft}get atMin(){return(this.range?this.valMin:this.valMax)==this.min}get atMax(){return this.valMax==this.max}reset(){this.valMin=this.min,this.valMax=this.min,this.value=[this.valMin,this.valMax],this.update()}render(){return V`
+    `}_polishVal(t){return(t=parseFloat((Math.round(t/this.step)*this.step).toFixed(2)))<this.min&&(t=this.min),t>this.max&&(t=this.max),t}set value(t){let e=this.value,s=this.valMin,i=this.valMax;if("string"==typeof t&&(t=t.split(",").map((t=>parseFloat(t)))),Array.isArray(t)){if("number"!=typeof t[0]||"number"!=typeof t[1])return;return t.sort(((t,e)=>t-e)),this.range&&(this.valMin=this._polishVal(t[0])),this.valMax=this._polishVal(t[1]),void this.requestUpdate("value",e)}if("number"!=typeof t)return;t=this._polishVal(t);let r=Math.abs(this.valMin-t),n=Math.abs(this.valMax-t);if("max"==this._active&&t==this.valMin?(this.valMax=t,this.range&&(this._active="min")):"min"==this._active&&t==this.valMax?(this.valMin=t,this._active="max"):!this.range||r==n&&this.valMax>this.valMin&&"max"==this._active||n<r||t>this.valMax?(this.valMax=t,this._active="max"):(this.valMin=t,this.range&&(this._active="min")),this._mouseDown||(this._active=null),s==this.valMin&&i==this.valMax)return;this._didChange=!0;let o=this.parentElement&&"FORM-CONTROL"==this.parentElement.tagName?this.parentElement:this;this.range?(o.style.setProperty("--range-slider-min-val",`'${this.valMin}'`),o.style.setProperty("--range-slider-max-val",`'${this.valMax}'`)):o.style.setProperty("--range-slider-val",`'${this.valMax}'`),this.requestUpdate("value",e)}get value(){return this.range?[this.valMin,this.valMax]:this.valMax}connectedCallback(){super.connectedCallback(),this.addEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener(at.isMobile?"touchstart":"mousedown",this.mouseDown,!0)}get _len(){return this.max-this.min}get _minLeft(){return(this.valMin-this.min)/this._len*100}get _maxLeft(){return(this.valMax-this.min)/this._len*100}get _trackLength(){return this._maxLeft-this._minLeft}get atMin(){return(this.range?this.valMin:this.valMax)==this.min}get atMax(){return this.valMax==this.max}reset(){this.valMin=this.min,this.valMax=this.min,this.value=[this.valMin,this.valMax],this.update()}render(){return U`
         <rail></rail>
         <track style="left:${this._minLeft}%; width:${this._trackLength}%"></track>
         <thumb min ?active=${"min"==this._active} style="left:${this._minLeft}%">
@@ -644,8 +644,8 @@ main label {
                 column-count: 1 !important;
             }
         }
-	`}render(){return V`
-		${Array.from(ut.keys()).map((t=>V`
+	`}render(){return U`
+		${Array.from(ut.keys()).map((t=>U`
 			<div>
 				<b-icon name=${t}></b-icon> <small>${t}</small>
 			</div>
@@ -990,13 +990,13 @@ main label {
             animation-duration: 700ms;
             animation-fill-mode: both;
         }
-    `}render(){return V`
+    `}render(){return U`
         <div class="hover" part="hover"></div>
         <main part="main">
             <span>
                 <b-spinner></b-spinner>
                 <slot name="icon">
-                    ${this.icon?V`<b-icon part="icon" name="${this.icon}"></b-icon>`:""}
+                    ${this.icon?U`<b-icon part="icon" name="${this.icon}"></b-icon>`:""}
                 </slot>
             </span>
             <slot></slot>
@@ -1048,7 +1048,7 @@ main label {
             border-top: solid 1px rgba(0,0,0,.2);
             border-left: none;
         }
-    `}render(){return V`
+    `}render(){return U`
         <slot></slot>
     `}}),customElements.get("b-btn-group"),window.addEventListener("popstate",(()=>st())),customElements.define("base-element",et),customElements.define("shop-subcategory-list",class extends et{static get styles(){return Z`
             :host {
@@ -1082,17 +1082,17 @@ main label {
                 position: relative;
                 top: -1px;
             }
-        `}static get properties(){return{current:{type:Object},subs:{type:Array},id:{type:String},search:{type:String,reflect:!0}}}get breadcrumbs(){return this.current.path.slice(0).reverse().map((t=>this.categories.find((e=>e.id==t))))}navigate(t=!1){const e=document.location.pathname.replace(/^\/|\/$/g,"");this.current=this.categories.find((t=>t.url==e)),this.current?(this.id=this.current.id,this.subs=this.categories.filter((t=>t.path.slice(1).shift()==this.current.id)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1}))):(this.current={url:"",path:[]},this.id=null,this.subs=this.categories.filter((t=>1==t.path.length)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1}))),this.requestUpdate()}async firstUpdated(){this.categories=await it,this.navigate(!0),document.addEventListener("didNavigate",(()=>this.navigate()))}fixHeaderHeights(){const t=[...this.root.querySelectorAll("shop-subcategory-tile")];t.map((t=>t.headerHeight=0));const e={};t.map((t=>{const s=t.headerPosition;return e[s.top]=e[s.top]||[],e[s.top].push(s.height),t})).map((t=>{const s=t.headerPosition,i=e[s.top].reduce(((t,e)=>e>t?e:t),0);t.headerHeight=i}))}render(){const t=(t,e)=>(t.preventDefault(),history.pushState({},this.title,e),st(),!1);if(this.current&&!this.search)return setTimeout((()=>this.fixHeaderHeights()),80),setTimeout((()=>this.fixHeaderHeights()),500),V`
+        `}static get properties(){return{current:{type:Object},subs:{type:Array},id:{type:String},search:{type:String,reflect:!0}}}get breadcrumbs(){return this.current.path.slice(0).reverse().map((t=>this.categories.find((e=>e.id==t))))}navigate(t=!1){const e=document.location.pathname.replace(/^\/|\/$/g,""),s=this.categories.find((t=>t.url==e));s?Object.assign(this,{current:s,id:s.id,subs:this.categories.filter((t=>t.path.slice(1).shift()==this.current.id)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1}))}):Object.assign(this,{current:{url:"",path:[]},id:null,subs:this.categories.filter((t=>1==t.path.length)).sort(((t,e)=>{const s=parseInt(t.sortOrder),i=parseInt(e.sortOrder);return s==i?0:s>i?1:-1}))})}async firstUpdated(){this.categories=await it,this.navigate(!0),document.addEventListener("didNavigate",(()=>this.navigate()))}fixHeaderHeights(){const t=[...this.root.querySelectorAll("shop-subcategory-tile")];t.map((t=>t.headerHeight=0));const e={};t.map((t=>{const s=t.headerPosition;return e[s.top]=e[s.top]||[],e[s.top].push(s.height),t})).map((t=>{const s=t.headerPosition,i=e[s.top].reduce(((t,e)=>e>t?e:t),0);t.headerHeight=i}))}render(){const t=(t,e)=>(t.preventDefault(),history.pushState({},this.title,e),st(),!1);if(this.current&&!this.search)return setTimeout((()=>this.fixHeaderHeights()),80),setTimeout((()=>this.fixHeaderHeights()),500),U`
             <div class="breadcrumbs">
                 <a href="/">Home</a>
-                ${this.breadcrumbs.map((e=>{const s=`/${e.url}/`;return V`
+                ${this.breadcrumbs.map((e=>{const s=`/${e.url}/`;return U`
                         <a @click=${e=>t(e,s)} href=${s}>
                             ${e.title}
                         </a>
                     `}))}
             </div>
             <div class="subs">
-                ${this.subs.map((t=>V`
+                ${this.subs.map((t=>U`
                         <shop-subcategory-tile
                             id=${t.id}
                             title=${t.title}
@@ -1122,7 +1122,7 @@ main label {
                 padding: 0.5rem 0;
                 box-sizing: border-box;
             }
-        `}get headerPosition(){const t=this.root.querySelector("header");return{top:t.offsetTop,height:t.offsetHeight}}get headerHeight(){return this.root.querySelector("header").offsetHeight}set headerHeight(t){const e=t?`${t}px`:"auto";this.root.querySelector("header").style.height=e}get defaultImage(){return'<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg">\n            <rect x="0" y="0" width="550" height="550" fill="#c9c6c3"/>\n            <rect x="210" y="235" width="110" height="81" rx="4" fill="transparent" stroke="rgba(255,255,255,0.4)" stroke-width="10" />\n            <circle cx="244" cy="266" r="12" fill="rgba(255,255,255,0.4)"/>\n            <path d="M220 304Q226 282 248 292Q260 297 268 286C277 270,312 270,310 304Z" fill="rgba(255,255,255,0.4)"/>\n        </svg>'.replace(/\n\s+/gm,"")}get defaultImageBase64(){return`data:image/svg+xml;base64,${btoa(this.defaultImage)}`}render(){return V`
+        `}get headerPosition(){const t=this.root.querySelector("header");return{top:t.offsetTop,height:t.offsetHeight}}get headerHeight(){return this.root.querySelector("header").offsetHeight}set headerHeight(t){const e=t?`${t}px`:"auto";this.root.querySelector("header").style.height=e}get defaultImage(){return'<svg viewBox="0 0 550 550" xmlns="http://www.w3.org/2000/svg">\n            <rect x="0" y="0" width="550" height="550" fill="#c9c6c3"/>\n            <rect x="210" y="235" width="110" height="81" rx="4" fill="transparent" stroke="rgba(255,255,255,0.4)" stroke-width="10" />\n            <circle cx="244" cy="266" r="12" fill="rgba(255,255,255,0.4)"/>\n            <path d="M220 304Q226 282 248 292Q260 297 268 286C277 270,312 270,310 304Z" fill="rgba(255,255,255,0.4)"/>\n        </svg>'.replace(/\n\s+/gm,"")}get defaultImageBase64(){return`data:image/svg+xml;base64,${btoa(this.defaultImage)}`}render(){return U`
             <a @click=${()=>{history.pushState({},this.title,`/${this.url}/`),st()}} class="tile">
                 <header>${this.title}</header>
                 <main>
@@ -1209,12 +1209,12 @@ main label {
                     background: transparent;
                 }
             }
-        `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String},search:{type:String,reflect:!0},showfilter:{type:Boolean},resultId:{type:Number}}}constructor(){super(),this.resultId=0,this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.showfilter=window.innerWidth>767,this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e))||{type:"index",title:"Collection"},i=this.resultId+1;if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type,resultId:i}),"category"!==s.type)return;const r=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())r.searchParams.set(e,s);r.searchParams.set("category",s.id),r.searchParams.set("limit",t.searchParams.get("limit")||16),r.searchParams.set("page",t.searchParams.get("page")||1);const n=await fetch(r),o=await n.json(),a=new URL(window.location),l=(o.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=a.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));i==this.resultId&&Object.assign(this,{page:o.page,limit:o.limit,count:o.count,filters:l,products:o.products||[]})}async fetchSearch(t,e){Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:"Search",type:"category"});const s=new URL(`${this.endpoint}`,window.origin);for(const[e,i]of t.searchParams.entries())s.searchParams.set(e,i);s.searchParams.set("q",e),s.searchParams.set("category",""),s.searchParams.set("limit",t.searchParams.get("limit")||16),s.searchParams.set("page",t.searchParams.get("page")||1);const i=await fetch(s),r=await i.json(),n=new URL(window.location),o=(r.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=n.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));Object.assign(this,{page:r.page,limit:r.limit,count:r.count,filters:o,products:r.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0,n=this.search;e.toString()!=this.url.toString()&&(n?await this.fetchSearch(e,n):await this.fetch(e),r&&this.root.querySelector(".results").scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){if(this.h1=this.title,"category"!==this.type)return V``;return V`
+        `}static get properties(){return{url:{type:Object},page:{type:Number},title:{type:String},limit:{type:Number},count:{type:Number},filters:{type:Array},products:{type:Array},type:{type:String},search:{type:String,reflect:!0},showfilter:{type:Boolean},resultId:{type:Number}}}constructor(){super(),this.resultId=0,this.products=[],this.filters=[],this.url=new URL("http://example.com"),this.type="",this.title="",this.showfilter=window.innerWidth>767,this.on("selection",(t=>{const{key:e,selection:s}=t.detail,i=new URL(window.location);i.searchParams.set(e,s.join("|")),i.searchParams.set("page","1");for(const[t,e]of i.searchParams.entries())e||i.searchParams.delete(t);history.pushState({},null,i.toString()),st()})),this.on("page",(t=>{const e=new URL(window.location);e.searchParams.set("page",t.detail),history.pushState({},null,e.toString()),st()}))}get endpoint(){return window.siteConfig.collectionEndpoint}async fetch(t){const e=t.pathname.replace(/^\/|\/$/g,""),s=(await it).find((t=>t.url==e))||{type:"index",title:"Collection"},i=this.resultId+1;if(Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:s.title,type:s.type,resultId:i}),"category"!==s.type)return;const r=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())r.searchParams.set(e,s);r.searchParams.set("category",s.id),r.searchParams.set("limit",t.searchParams.get("limit")||16),r.searchParams.set("page",t.searchParams.get("page")||1);const n=await fetch(r),o=await n.json(),a=new URL(window.location),l=(o.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=a.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));console.log(i,this.resultId),i==this.resultId&&Object.assign(this,{page:o.page,limit:o.limit,count:o.count,filters:l,products:o.products||[]})}async fetchSearch(t,e){const s=this.resultId+1;Object.assign(this,{url:t,products:null,page:1,limit:16,count:0,title:"Search",type:"category",resultId:s});const i=new URL(`${this.endpoint}`,window.origin);for(const[e,s]of t.searchParams.entries())i.searchParams.set(e,s);i.searchParams.set("q",e),i.searchParams.set("category",""),i.searchParams.set("limit",t.searchParams.get("limit")||16),i.searchParams.set("page",t.searchParams.get("page")||1);const r=await fetch(i),n=await r.json(),o=new URL(window.location),a=(n.filters||[]).map((t=>{t.key=`filter[${t._id}]`,t.unit=t.unit||"";const e=o.searchParams.get(t.key)||"";return t.selection=e.split("|").filter((t=>t)),t}));console.log(s,this.resultId),s==this.resultId&&Object.assign(this,{page:n.page,limit:n.limit,count:n.count,filters:a,products:n.products||[]})}async navigate(t=!0){const e=new URL(window.location),s={behavior:"smooth",block:"start",inline:"nearest"},i=this.getBoundingClientRect(),r=t&&this.scrollIntoView&&i&&i.y&&i.y<0,n=this.search;e.toString()!=this.url.toString()&&(n?await this.fetchSearch(e,n):await this.fetch(e),r&&this.root.querySelector(".results").scrollIntoView(s))}firstUpdated(){document.addEventListener("didNavigate",(()=>this.navigate())),this.navigate(!1)}get h1(){return document.querySelector(".page-title h1")}set h1(t){const e=this.h1;e&&(e.innerText=t)}render(){if(this.h1=this.title,"category"!==this.type)return U``;return U`
             <div class="filters ${this.showfilter?"showfilter":""}">
                 <div class="mobile-filter-toggle">
                     <a href="#" @click=${t=>(t.preventDefault(),this.showfilter=!this.showfilter,!1)}>Filter Results</a>
                 </div>
-                ${this.filters.map((t=>V`
+                ${this.filters.map((t=>U`
                         <shop-category-filter
                             .key=${t.key}
                             .display_name=${t.display_name}
@@ -1227,9 +1227,9 @@ main label {
                     `))}
             </div>
             <div class="results">
-                ${null===this.products?V` <p>Loading</p> `:V`
-                          ${this.products.length?V`
-                                    ${this.products.map((t=>V`
+                ${null===this.products?U` <p>Loading</p> `:U`
+                          ${this.products.length?U`
+                                    ${this.products.map((t=>U`
                                             <shop-category-product
                                                 .priceExcl=${t.priceExcl}
                                                 .url=${t.url}
@@ -1240,7 +1240,7 @@ main label {
                                                 .variants=${t.variants}
                                             ></shop-category-product>
                                         `))}
-                                `:V` <p>No results</p> `}
+                                `:U` <p>No results</p> `}
                       `}
                 <shop-category-pagination
                     .page=${this.page}
@@ -1272,16 +1272,16 @@ main label {
                 color: #ff4438;
                 font-weight: 600;
             }
-        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return V`
+        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const s=new URL(t),i=s.pathname.split("/"),r=i.pop(),n=`${e}x${e}x1`;return i.push(n),i.push(r),s.pathname=i.join("/"),s.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return U`
             <a href="/${this.url}.html" title=${this.title}>
                 <div
                     class="product-image"
                     style="background-image: url(${t})"
                 ></div>
             </a>
-            ${e?V``:V`
+            ${e?U``:U`
                       <div class="variants">
-                          ${this.variants.slice(0,5).map((t=>{const e=this.sized(t.image_url,80);return V`
+                          ${this.variants.slice(0,5).map((t=>{const e=this.sized(t.image_url,80);return U`
                                   <a href="/${t.url}.html" title=${t.title}>
                                       <div
                                           class="product-image"
@@ -1350,34 +1350,34 @@ main label {
                     top: 0;
                 }
             }
-        `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=window.innerWidth>767}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle",s=this.selection.length?"selected":"";return V`
+        `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}constructor(){super(),this.open=window.innerWidth>767}render(){const t=this.open?"open":"",e=this.open?"toggle open":"toggle",s=this.selection.length?"selected":"";return U`
             <header class=${s} @click=${()=>this.open=!this.open}>
                 ${this.display_name}
                 <span class=${e}></span>
             </header>
             <main class=${t}>
-                ${"Text"==this.type?V`
+                ${"Text"==this.type?U`
                           <shop-category-toggles
                               .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
                           ></shop-category-toggles>
-                      `:V``}
-                ${"MinMax"==this.type?V`
+                      `:U``}
+                ${"MinMax"==this.type?U`
                           <shop-category-minmax
                               .key=${this.key}
                               .values=${this.values}
                               .selection=${this.selection}
                               .label=${this.unit}
                           ></shop-category-minmax>
-                      `:V``}
-                ${this.presets&&this.presets.length?V`
+                      `:U``}
+                ${this.presets&&this.presets.length?U`
                           <shop-category-presets
                               .key=${this.key}
                               .selection=${this.selection}
                               .presets=${this.presets}
                           ></shop-category-presets>
-                      `:V``}
+                      `:U``}
             </main>
         `}}),customElements.define("shop-category-pagination",class extends et{static get styles(){return Z`
             :host {
@@ -1413,14 +1413,14 @@ main label {
             b-btn.prev:before {
                 content: "\\e921";
             }
-        `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){return[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s}}))}render(){if(!this.page||!this.limit)return V``;const t=this.pages;if(1==t.length)return V``;const e=t.find((t=>t.prev)),s=t.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return V`
+        `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){return[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s}}))}render(){if(!this.page||!this.limit)return U``;const t=this.pages;if(1==t.length)return U``;const e=t.find((t=>t.prev)),s=t.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return U`
             <b-btn-group>
-                ${e?V`
+                ${e?U`
                           <b-btn class="prev" @click=${i(e.number)}
                               >&nbsp;</b-btn
                           >
-                      `:V``}
-                ${t.map((t=>V`
+                      `:U``}
+                ${t.map((t=>U`
                             <b-btn
                                 class=${t.current?"active":""}
                                 @click=${i(t.number)}
@@ -1428,11 +1428,11 @@ main label {
                                 ${t.number}
                             </b-btn>
                         `))}
-                ${s?V`
+                ${s?U`
                           <b-btn class="next" @click=${i(s.number)}
                               >&nbsp;</b-btn
                           >
-                      `:V``}
+                      `:U``}
             </b-btn-group>
         `}})}();
 //# sourceMappingURL=index.js.map
