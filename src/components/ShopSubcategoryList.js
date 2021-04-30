@@ -64,7 +64,7 @@ export class ShopSubcategoryList extends BaseElement {
                 current,
                 id: current.id,
                 subs: this.categories
-                    .filter(c => c.path.slice(1).shift() == this.current.id)
+                    .filter(c => c.path.slice(1).shift() == current.id)
                     .sort((a, b) => {
                         const asort = parseInt(a.sortOrder)
                         const bsort = parseInt(b.sortOrder)
