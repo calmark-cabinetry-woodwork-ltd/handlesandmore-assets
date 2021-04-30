@@ -176,6 +176,7 @@ export class ShopCategoryView extends BaseElement {
             this.currentFetch = aFetch(endpoint)
             const res = await this.currentFetch.ready
             const data = await res.json()
+            this.currentFetch = null
 
             const currentUrl = new URL(window.location)
 
