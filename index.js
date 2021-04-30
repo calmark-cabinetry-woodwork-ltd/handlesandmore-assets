@@ -171,7 +171,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 max-height: 300px;
                 overflow-y: scroll;
             }
-        `}constructor(){super(),this.values=[],this.selection=[]}get $wrapper(){return this.root.querySelector(".wrapper")}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s})},e=this.values.length>20?"wrapper tall":"wrapper";return U`
+        `}constructor(){super(),this.values=[],this.selection=[]}get $wrapper(){return this.root.querySelector(".wrapper")}render(){const t=t=>e=>{const s=e.detail.value?this.selection.concat(t):this.selection.filter((e=>e!==t));this.trigger("selection",{key:this.key,selection:s}),this.selection=s},e=this.values.length>20?"wrapper tall":"wrapper";return U`
             <div class=${e}>
                 ${this.values.map((e=>U`
                         <check-box
