@@ -182,6 +182,7 @@ export class ShopCategoryView extends BaseElement {
             return f
         })
 
+        console.log(resultId, this.resultId)
         if (resultId == this.resultId) {
             Object.assign(this, {
                 page: data.page,
@@ -194,6 +195,8 @@ export class ShopCategoryView extends BaseElement {
     }
 
     async fetchSearch(url, searchString) {
+        const resultId = this.resultId + 1
+
         // Clear screen
         Object.assign(this, {
             url,
@@ -202,8 +205,10 @@ export class ShopCategoryView extends BaseElement {
             limit: 16,
             count: 0,
             title: "Search",
-            type: "category"
+            type: "category",
+            resultId
         })
+
         // Fetch results
         const endpoint = new URL(`${this.endpoint}`, window.origin)
         // mirror window search params
@@ -227,13 +232,16 @@ export class ShopCategoryView extends BaseElement {
             return f
         })
 
-        Object.assign(this, {
-            page: data.page,
-            limit: data.limit,
-            count: data.count,
-            filters: filters,
-            products: data.products || []
-        })
+        console.log(resultId, this.resultId)
+        if (resultId == this.resultId) {
+            Object.assign(this, {
+                page: data.page,
+                limit: data.limit,
+                count: data.count,
+                filters: filters,
+                products: data.products || []
+            })
+        }
     }
 
     async navigate(scroll = true) {
