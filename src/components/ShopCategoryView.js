@@ -96,12 +96,14 @@ export class ShopCategoryView extends BaseElement {
             products: { type: Array },
             type: { type: String },
             search: { type: String, reflect: true },
-            showfilter: { type: Boolean }
+            showfilter: { type: Boolean },
+            resultId: { type: Number } // ensure well ordered fetch
         }
     }
 
     constructor() {
         super()
+        this.resultId = 0
         this.products = []
         this.filters = []
         this.url = new URL("http://example.com")
@@ -138,6 +140,8 @@ export class ShopCategoryView extends BaseElement {
             title: "Collection"
         }
 
+        const resultId = this.resultId + 1
+
         // Clear screen
         Object.assign(this, {
             url,
@@ -146,7 +150,8 @@ export class ShopCategoryView extends BaseElement {
             limit: 16,
             count: 0,
             title: category.title,
-            type: category.type
+            type: category.type,
+            resultId
         })
 
         if (category.type !== "category") {
@@ -177,13 +182,15 @@ export class ShopCategoryView extends BaseElement {
             return f
         })
 
-        Object.assign(this, {
-            page: data.page,
-            limit: data.limit,
-            count: data.count,
-            filters: filters,
-            products: data.products || []
-        })
+        if (resultId == this.resultId) {
+            Object.assign(this, {
+                page: data.page,
+                limit: data.limit,
+                count: data.count,
+                filters: filters,
+                products: data.products || []
+            })
+        }
     }
 
     async fetchSearch(url, searchString) {
