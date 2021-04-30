@@ -170,6 +170,7 @@ class ShopCategoryToggles extends ShopControl {
                 ? this.selection.concat(v)
                 : this.selection.filter(s => s !== v)
             this.trigger("selection", { key: this.key, selection })
+            this.selection = selection // cannot wait for async fetch to update this.selection
         }
 
         const wrapperClass =
