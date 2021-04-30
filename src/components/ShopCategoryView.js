@@ -1,5 +1,5 @@
 import { BaseElement, html, css } from "./BaseElement.js"
-import { didNavigate, categories } from "./utils.js"
+import { didNavigate, categories, aFetch } from "./utils.js"
 
 export class ShopCategoryView extends BaseElement {
     static get styles() {
@@ -110,6 +110,7 @@ export class ShopCategoryView extends BaseElement {
         this.type = ""
         this.title = ""
         this.showfilter = window.innerWidth > 767
+        this.currentFetch = null
         this.on("selection", ev => {
             const { key, selection } = ev.detail
             const url = new URL(window.location)
@@ -134,6 +135,8 @@ export class ShopCategoryView extends BaseElement {
     }
 
     async fetch(url) {
+        if (this.currentFetch) this.currentFetch.abort()
+
         const slug = url.pathname.replace(/^\/|\/$/g, "")
         const category = (await categories).find(c => c.url == slug) || {
             type: "index",
@@ -169,28 +172,37 @@ export class ShopCategoryView extends BaseElement {
         endpoint.searchParams.set("limit", url.searchParams.get("limit") || 16)
         endpoint.searchParams.set("page", url.searchParams.get("page") || 1)
 
-        const res = await fetch(endpoint)
-        const data = await res.json()
+        try {
+            this.currentFetch = aFetch(endpoint)
+            const res = await this.currentFetch.ready
+            const data = await res.json()
 
-        const currentUrl = new URL(window.location)
+            const currentUrl = new URL(window.location)
 
-        const filters = (data.filters || []).map(f => {
-            f.key = `filter[${f._id}]`
-            f.unit = f.unit || ""
-            const param = currentUrl.searchParams.get(f.key) || ""
-            f.selection = param.split("|").filter(f => f)
-            return f
-        })
-
-        console.log(resultId, this.resultId)
-        if (resultId == this.resultId) {
-            Object.assign(this, {
-                page: data.page,
-                limit: data.limit,
-                count: data.count,
-                filters: filters,
-                products: data.products || []
+            const filters = (data.filters || []).map(f => {
+                f.key = `filter[${f._id}]`
+                f.unit = f.unit || ""
+                const param = currentUrl.searchParams.get(f.key) || ""
+                f.selection = param.split("|").filter(f => f)
+                return f
             })
+
+            console.log(resultId, this.resultId)
+            if (resultId == this.resultId) {
+                Object.assign(this, {
+                    page: data.page,
+                    limit: data.limit,
+                    count: data.count,
+                    filters: filters,
+                    products: data.products || []
+                })
+            }
+        } catch (e) {
+            if (e.name == "AbortError") {
+                console.log(`Fetch cancelled ${endpoint}`)
+            } else {
+                throw e
+            }
         }
     }
 
