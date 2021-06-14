@@ -265,7 +265,7 @@ class ShopCategoryMinmax extends ShopControl {
     }
 
     render() {
-        const vals = this.values.map(v => parseInt(v))
+        const vals = this.values.map(v => parseFloat(v))
         const min = vals.reduce(
             (curr, acc) => (curr < acc ? curr : acc),
             Infinity
@@ -276,7 +276,7 @@ class ShopCategoryMinmax extends ShopControl {
 
         const selection = (
             (this.selection.length && this.selection) || [this.min, this.max]
-        ).map(s => parseInt(s))
+        ).map(s => parseFloat(s))
 
         const updateSelection = selection => {
             const full = selection[0] == this.min && selection[1] == this.max
