@@ -89,7 +89,7 @@ export class ShopCategoryProduct extends BaseElement {
                       </div>
                   `}
             <a href="/${this.url}.html">
-                <div>${singular ? this.title : this.fulltitle}</div>
+                <div>${this.fulltitle}</div>
                 <div class="price">${this.price}</div>
             </a>
         `
