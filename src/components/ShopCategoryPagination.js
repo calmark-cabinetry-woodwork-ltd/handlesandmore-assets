@@ -52,6 +52,7 @@ export class ShopCategoryPagination extends BaseElement {
     }
 
     get pages() {
+        const output = {}
         const pages = [...new Array(this.pageCount)].map((_, index) => {
             const number = index + 1
             return {
@@ -59,18 +60,30 @@ export class ShopCategoryPagination extends BaseElement {
                 index,
                 current: number == this.page,
                 next: this.page + 1 == number,
-                prev: this.page - 1 == number
+                prev: this.page - 1 == number,
+                showInPagination: [-2, -1, 0, 1, 2].includes(this.page - number)
             }
         })
-        return pages
+
+        if (this.pageCount > 8) {
+            output.limitStart = this.page > 2
+            output.limitEnd = this.pageCount - this.page > 2
+            output.limitPages = true
+            output.entries = pages.filter(p => p.showInPagination)
+        } else {
+            output.limitPages = false
+            output.entries = pages
+        }
+
+        return output
     }
 
     render() {
         if (!(this.page && this.limit)) return html``
         const pages = this.pages
         if (pages.length == 1) return html``
-        const prev = pages.find(p => p.prev)
-        const next = pages.find(p => p.next)
+        const prev = pages.entries.find(p => p.prev)
+        const next = pages.entries.find(p => p.next)
         const nav = page => ev => {
             this.trigger("page", page)
         }
@@ -83,7 +96,10 @@ export class ShopCategoryPagination extends BaseElement {
                           >
                       `
                     : html``}
-                ${pages.map(
+                ${pages.limitPages && pages.limitStart
+                    ? html` <b-btn>&hellip;</b-btn> `
+                    : html``}
+                ${pages.entries.map(
                     p =>
                         html`
                             <b-btn
@@ -94,6 +110,9 @@ export class ShopCategoryPagination extends BaseElement {
                             </b-btn>
                         `
                 )}
+                ${pages.limitPages && pages.limitEnd
+                    ? html` <b-btn>&hellip;</b-btn> `
+                    : html``}
                 ${next
                     ? html`
                           <b-btn class="next" @click=${nav(next.number)}
