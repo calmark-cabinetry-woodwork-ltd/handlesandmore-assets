@@ -1413,7 +1413,7 @@ main label {
             b-btn.prev:before {
                 content: "\\e921";
             }
-        `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){const t={},e=[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s,showInPagination:[-2,-1,0,1,2].includes(this.page-s)}}));return this.pageCount>8?(t.limitStart=this.page>2,t.limitEnd=this.pageCount-this.page>2,t.limitPages=!0,t.entries=e.filter((t=>t.showInPagination))):(t.limitPages=!1,t.entries=e),t}render(){if(!this.page||!this.limit)return U``;const t=this.pages;if(1==t.length)return U``;const e=t.entries.find((t=>t.prev)),s=t.entries.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return U`
+        `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){const t={},e=[...new Array(this.pageCount)].map(((t,e)=>{const s=e+1;return{number:s,index:e,current:s==this.page,next:this.page+1==s,prev:this.page-1==s,showInPagination:[-2,-1,0,1,2].includes(this.page-s)}}));return this.pageCount>8?(t.limitStart=this.page>3,t.limitEnd=this.pageCount-this.page>2,t.limitPages=!0,t.entries=e.filter((t=>t.showInPagination))):(t.limitPages=!1,t.entries=e),t}render(){if(!this.page||!this.limit)return U``;const t=this.pages;if(1==t.length)return U``;const e=t.entries.find((t=>t.prev)),s=t.entries.find((t=>t.next)),i=t=>e=>{this.trigger("page",t)};return U`
             <b-btn-group>
                 ${e?U`
                           <b-btn class="prev" @click=${i(e.number)}
