@@ -5,6 +5,16 @@ class BaseElement extends LitElement {
         return this.shadowRoot
     }
 
+    static getOption(key) {
+        const val = window.localStorage.getItem(key) || null
+        return val ? JSON.parse(val) : null
+    }
+
+    static setOption(key, value) {
+        const val = value ? JSON.stringify(value) : null
+        window.localStorage.setItem(key, val)
+    }
+
     render() {
         return html`<p>Element</p>`
     }

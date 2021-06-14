@@ -1,5 +1,19 @@
 import { BaseElement, html, css } from "./BaseElement.js"
 
+const toImp = val => {
+    if (Array.isArray(val)) {
+        return val.map(v => toImp(v))
+    }
+    return Math.round((parseFloat(val) / 25.4) * 16) / 16
+}
+
+const toMM = val => {
+    if (Array.isArray(val)) {
+        return val.map(v => toMM(v))
+    }
+    return Math.round(parseFloat(val) * 25.5 * 10) / 10
+}
+
 export class ShopCategoryFilter extends BaseElement {
     static get styles() {
         return css`
@@ -107,6 +121,7 @@ export class ShopCategoryFilter extends BaseElement {
                               .values=${this.values}
                               .selection=${this.selection}
                               .label=${this.unit}
+                              .unit=${this.unit}
                           ></shop-category-minmax>
                       `
                     : html``}
@@ -131,6 +146,9 @@ class ShopControl extends BaseElement {
             values: { type: Array },
             selection: { type: Array }
         }
+    }
+    get filterid() {
+        return this.key.replace(/.*\[(.*)\].*/, "$1")
     }
 }
 
@@ -220,15 +238,27 @@ class ShopCategoryMinmax extends ShopControl {
                 width: 100%;
                 box-sizing: border-box;
             }
+            .display-unit {
+                display: none;
+            }
+            .display-unit.active {
+                display: block;
+            }
         `
     }
+
+    get autoconvert() {
+        return `${this.label}`.toLowerCase() == "mm"
+    }
+
     static get properties() {
         return Object.assign(
             {
                 min: { type: Number },
                 max: { type: Number },
                 label: { type: String },
-                unit: { type: String }
+                unit: { type: String },
+                displayUnit: { type: String }
             },
             ShopControl.properties
         )
@@ -258,47 +288,125 @@ class ShopCategoryMinmax extends ShopControl {
             const selection = ev.detail.value
             updateSelection(selection)
         }
+        const impSliderChange = ev => {
+            const selection = ev.detail.value
+            updateSelection(toMM(selection))
+        }
 
         const inputChange = i => ev => {
-            let val = parseInt(ev.target.value)
+            let val = parseFloat(ev.target.value)
             val = val > this.max ? this.max : val < this.min ? this.min : val
             selection[i] = val
             updateSelection(selection)
         }
 
+        const impInputChange = i => ev => {
+            let val = toMM(ev.target.value)
+            val = val > this.max ? this.max : val < this.min ? this.min : val
+            selection[i] = val
+            updateSelection(selection)
+        }
+
+        const { key, autoconvert, filterid } = this
+
+        const displayUnit =
+            BaseElement.getOption(`${filterid}-unit`) || this.unit
+        const displayDefault = displayUnit == this.unit
+        console.log({ key, autoconvert, filterid, displayDefault })
+
+        const setUnit = ev => {
+            const { value } = ev.detail
+            const unit = value ? this.unit : "alt"
+            BaseElement.setOption(`${filterid}-unit`, unit)
+            this.displayUnit = unit
+        }
+
         return html`
-            <range-slider
-                range
-                step="1"
-                min=${this.min}
-                max=${this.max}
-                .value=${selection}
-                style="width: 100%"
-                @change=${sliderChange}
-            ></range-slider>
-            <div class="input-min-max">
-                <div>
-                    <input
-                        @change=${inputChange(0)}
-                        type="number"
-                        min=${this.min}
-                        max=${selection[1]}
-                        .value=${selection[0]}
-                    />
-                    ${this.label}
-                </div>
-                <span></span>
-                <div>
-                    <input
-                        @change=${inputChange(1)}
-                        type="number"
-                        min=${selection[0]}
-                        max=${this.max}
-                        .value=${selection[1]}
-                    />
-                    ${this.label}
+            <div class="display-unit ${displayDefault ? "active" : ""}">
+                <range-slider
+                    range
+                    step="1"
+                    min=${this.min}
+                    max=${this.max}
+                    .value=${selection}
+                    style="width: 100%"
+                    @change=${sliderChange}
+                ></range-slider>
+                <div class="input-min-max">
+                    <div>
+                        <input
+                            @change=${inputChange(0)}
+                            type="number"
+                            min=${this.min}
+                            max=${selection[1]}
+                            .value=${selection[0]}
+                        />
+                        ${this.label}
+                    </div>
+                    <span></span>
+                    <div>
+                        <input
+                            @change=${inputChange(1)}
+                            type="number"
+                            min=${selection[0]}
+                            max=${this.max}
+                            .value=${selection[1]}
+                        />
+                        ${this.label}
+                    </div>
                 </div>
             </div>
+
+            ${autoconvert
+                ? html`
+                      <div
+                          class="display-unit ${displayDefault ? "" : "active"}"
+                      >
+                          <range-slider
+                              range
+                              step="0.0625"
+                              min=${toImp(this.min)}
+                              max=${toImp(this.max)}
+                              .value=${toImp(selection)}
+                              style="width: 100%"
+                              @change=${impSliderChange}
+                          ></range-slider>
+                          <div class="input-min-max">
+                              <div>
+                                  <input
+                                      @change=${impInputChange(0)}
+                                      type="number"
+                                      min=${toImp(this.min)}
+                                      max=${toImp(selection[1])}
+                                      step="0.0625"
+                                      .value=${toImp(selection[0])}
+                                  />
+                                  in
+                              </div>
+                              <span></span>
+                              <div>
+                                  <input
+                                      @change=${impInputChange(1)}
+                                      type="number"
+                                      min=${toImp(selection[0])}
+                                      max=${toImp(this.max)}
+                                      step="0.0625"
+                                      .value=${toImp(selection[1])}
+                                  />
+                                  in
+                              </div>
+                          </div>
+                      </div>
+                      <check-box
+                          @change=${setUnit}
+                          type="switch"
+                          label="Metric"
+                          .value=${displayDefault}
+                      >
+                          <span class="label" slot="label">Metric</span>
+                      </check-box>
+                  `
+                : html``}
         `
     }
 }

@@ -43,6 +43,7 @@
             "_id": "60073c8531663467c70002df",
             "display_name": "Overall Length",
             "type": "MinMax",
+            "unit": "mm",
             "values": [
                 "38 mm",
                 "1800 mm"
