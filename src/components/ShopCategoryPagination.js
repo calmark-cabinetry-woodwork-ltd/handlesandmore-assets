@@ -66,7 +66,7 @@ export class ShopCategoryPagination extends BaseElement {
         })
 
         if (this.pageCount > 8) {
-            output.limitStart = this.page > 2
+            output.limitStart = this.page > 3
             output.limitEnd = this.pageCount - this.page > 2
             output.limitPages = true
             output.entries = pages.filter(p => p.showInPagination)
