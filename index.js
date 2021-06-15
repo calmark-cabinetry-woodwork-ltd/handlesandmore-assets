@@ -1397,35 +1397,23 @@ main label {
             .preset-display-unit {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                border: 1px solid rgb(183, 182, 181);
-                border-radius: 50px;
-                box-shadow: rgb(0 0 0 / 5%) 0px 3px 5px;
                 line-height: 1.65em;
-                margin-top: 0.5rem;
+                gap: 4px;
             }
             .preset-display-unit > div {
                 display: block;
                 text-align: center;
                 padding: 0.35em 0em;
-                border: 1px solid rgb(183, 182, 181);
+                border-style: solid;
+                border-color: #bbb;
                 font-size: 0.8rem;
                 cursor: pointer;
-                border-width: 0 1px 0 0;
-                background-color: rgb(220, 218, 214);
-            }
-            .preset-display-unit > div:first-child {
-                border-top-left-radius: 50px;
-                border-bottom-left-radius: 50px;
-            }
-            .preset-display-unit > div:last-child {
-                border-top-right-radius: 50px;
-                border-bottom-right-radius: 50px;
-                border-width: 0;
+                border-width: 0px 0px 2px;
             }
             .preset-display-unit.unit-mm .mm,
             .preset-display-unit.unit-in .in {
-                background-color: var(--fc-theme);
-                color: white;
+                border-bottom-color: var(--fc-theme);
+                font-weight: bold;
             }
             @media (min-width: 767px) {
                 header {
