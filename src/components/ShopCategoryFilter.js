@@ -58,6 +58,39 @@ export class ShopCategoryFilter extends BaseElement {
             .toggle.open:before {
                 content: "\\e920";
             }
+            .preset-display-unit {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border: 1px solid rgb(183, 182, 181);
+                border-radius: 50px;
+                box-shadow: rgb(0 0 0 / 5%) 0px 3px 5px;
+                line-height: 1.65em;
+                margin-top: 0.5rem;
+            }
+            .preset-display-unit > div {
+                display: block;
+                text-align: center;
+                padding: 0.35em 0em;
+                border: 1px solid rgb(183, 182, 181);
+                font-size: 0.8rem;
+                cursor: pointer;
+                border-width: 0 1px 0 0;
+                background-color: rgb(220, 218, 214);
+            }
+            .preset-display-unit > div:first-child {
+                border-top-left-radius: 50px;
+                border-bottom-left-radius: 50px;
+            }
+            .preset-display-unit > div:last-child {
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+                border-width: 0;
+            }
+            .preset-display-unit.unit-mm .mm,
+            .preset-display-unit.unit-in .in {
+                background-color: var(--fc-theme);
+                color: white;
+            }
             @media (min-width: 767px) {
                 header {
                     padding: 0;
@@ -87,17 +120,43 @@ export class ShopCategoryFilter extends BaseElement {
         }
     }
 
+    get filterid() {
+        return this.key.replace(/.*\[(.*)\].*/, "$1")
+    }
+
     constructor() {
         super()
         this.open = window.innerWidth > 767
     }
 
     render() {
+        const { filterid } = this
+        const settingid = `${filterid}-unit`
+        const displayUnit = BaseElement.getOption(settingid) || this.unit
+        const displayDefault = displayUnit == this.unit
+
         const mainClass = this.open ? "open" : ""
         const toggleClass = this.open ? "toggle open" : "toggle"
 
         const toggleOpen = () => (this.open = !this.open)
         const selectionClass = this.selection.length ? "selected" : ""
+
+        const imperialPresets = (this.presets || []).filter(p =>
+            /\d+\s*in$/i.exec(p.name)
+        )
+        const metricPresets = (this.presets || []).filter(p =>
+            /\d+\s*mm$/i.exec(p.name)
+        )
+        const showUnitPresets =
+            imperialPresets.length + metricPresets.length > 0
+
+        const presetDisplayUnit = displayDefault ? "unit-mm" : "unit-in"
+
+        const setUnit = unit => ev => {
+            BaseElement.setOption(settingid, unit)
+            this.unit = unit == "alt" ? "in" : "mm"
+            this.requestUpdate()
+        }
 
         return html`
             <header class=${selectionClass} @click=${toggleOpen}>
@@ -116,22 +175,43 @@ export class ShopCategoryFilter extends BaseElement {
                     : html``}
                 ${this.type == "MinMax"
                     ? html`
-                          <shop-category-minmax
-                              .key=${this.key}
-                              .values=${this.values}
-                              .selection=${this.selection}
-                              .label=${this.unit}
-                              .unit=${this.unit}
-                          ></shop-category-minmax>
-                      `
-                    : html``}
-                ${this.presets && this.presets.length
-                    ? html`
-                          <shop-category-presets
-                              .key=${this.key}
-                              .selection=${this.selection}
-                              .presets=${this.presets}
-                          ></shop-category-presets>
+                          ${showUnitPresets
+                              ? html`
+                                    <div
+                                        class="preset-display-unit ${presetDisplayUnit}"
+                                    >
+                                        <div @click=${setUnit("")} class="mm">
+                                            Metric
+                                        </div>
+                                        <div
+                                            @click=${setUnit("alt")}
+                                            class="in"
+                                        >
+                                            Imperial
+                                        </div>
+                                    </div>
+                                    <shop-category-presets
+                                        .key=${this.key}
+                                        .selection=${this.selection}
+                                        .presets=${displayDefault
+                                            ? metricPresets
+                                            : imperialPresets}
+                                    ></shop-category-presets>
+                                `
+                              : html`
+                                    <shop-category-minmax
+                                        .key=${this.key}
+                                        .values=${this.values}
+                                        .selection=${this.selection}
+                                        .label=${this.unit}
+                                        .unit=${this.unit}
+                                    ></shop-category-minmax>
+                                    <shop-category-presets
+                                        .key=${this.key}
+                                        .selection=${this.selection}
+                                        .presets=${this.presets}
+                                    ></shop-category-presets>
+                                `}
                       `
                     : html``}
             </main>
@@ -309,15 +389,14 @@ class ShopCategoryMinmax extends ShopControl {
 
         const { key, autoconvert, filterid } = this
 
-        const displayUnit =
-            BaseElement.getOption(`${filterid}-unit`) || this.unit
+        const settingid = `${filterid}-unit`
+        const displayUnit = BaseElement.getOption(settingid) || this.unit
         const displayDefault = displayUnit == this.unit
-        console.log({ key, autoconvert, filterid, displayDefault })
 
         const setUnit = ev => {
             const { value } = ev.detail
             const unit = value ? this.unit : "alt"
-            BaseElement.setOption(`${filterid}-unit`, unit)
+            BaseElement.setOption(settingid, unit)
             this.displayUnit = unit
         }
 
