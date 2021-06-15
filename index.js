@@ -296,7 +296,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                           <span class="label" slot="label">Metric</span>
                       </check-box>
                   `:V``}
-        `}});customElements.define("shop-category-presets",class extends et{static get properties(){return{key:{type:String},selection:{type:Array},presets:{type:Array}}}static get styles(){return Z`
+        `}});customElements.define("shop-category-presets",class extends et{static get properties(){return{key:{type:String},selection:{type:Array},presets:{type:Array},mcat:{type:String}}}static get styles(){return Z`
             :host {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -329,7 +329,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 color: white;
                 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             }
-        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>i=>{const s="active"==t(e)?[]:e.values;this.trigger("selection",{key:this.key,selection:s})};return V`
+        `}render(){const t=t=>t.values.find(((t,e)=>t!==this.selection[e]))?"":"active",e=e=>i=>{const s="active"==t(e)?[]:e.values;s.length&&this.mcat&&((t,e,i=null)=>{window.gtag("event","click",{event_category:t,event_label:e,value:i})})("measurement",this.mcat),this.trigger("selection",{key:this.key,selection:s})};return V`
             ${this.presets.map((i=>V`
                     <button @click=${e(i)} class="${t(i)}">
                         ${i.name}
@@ -1459,6 +1459,7 @@ main label {
                                     <shop-category-presets
                                         .key=${this.key}
                                         .selection=${this.selection}
+                                        .mcat=${i?"metric":"imperial"}
                                         .presets=${i?a:o}
                                     ></shop-category-presets>
                                 `:V`
