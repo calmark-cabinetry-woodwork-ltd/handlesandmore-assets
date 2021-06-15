@@ -1,6 +1,11 @@
 export const didNavigate = () => {
     const e = new CustomEvent("didNavigate", { bubbles: true, composed: true })
     document.dispatchEvent(e)
+    window.gtag("event", "page_view", {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname
+    })
 }
 
 export const categories = (async () => {
