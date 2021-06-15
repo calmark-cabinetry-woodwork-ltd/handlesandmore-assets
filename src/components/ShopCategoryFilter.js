@@ -1,4 +1,5 @@
 import { BaseElement, html, css } from "./BaseElement.js"
+import { clickTrack } from "./utils.js"
 
 const toImp = val => {
     if (Array.isArray(val)) {
@@ -181,6 +182,9 @@ export class ShopCategoryFilter extends BaseElement {
                                     <shop-category-presets
                                         .key=${this.key}
                                         .selection=${this.selection}
+                                        .mcat=${displayDefault
+                                            ? "metric"
+                                            : "imperial"}
                                         .presets=${displayDefault
                                             ? metricPresets
                                             : imperialPresets}
@@ -484,7 +488,8 @@ class ShopCategoryPresets extends BaseElement {
         return {
             key: { type: String },
             selection: { type: Array },
-            presets: { type: Array }
+            presets: { type: Array },
+            mcat: { type: String }
         }
     }
     static get styles() {
@@ -533,6 +538,8 @@ class ShopCategoryPresets extends BaseElement {
         const update = preset => ev => {
             // if active unset, else set
             const selection = isActive(preset) == "active" ? [] : preset.values
+            if (selection.length && this.mcat)
+                clickTrack("measurement", this.mcat)
             this.trigger("selection", { key: this.key, selection })
         }
         return html`

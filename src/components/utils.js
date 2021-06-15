@@ -8,6 +8,10 @@ export const didNavigate = () => {
     })
 }
 
+export const clickTrack = (event_category, event_label, value = null) => {
+    window.gtag("event", "click", { event_category, event_label, value })
+}
+
 export const categories = (async () => {
     return (await (await fetch(window.siteConfig.categoryEndpoint)).json())
         .categories
