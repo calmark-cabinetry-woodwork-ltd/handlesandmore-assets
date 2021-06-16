@@ -346,7 +346,8 @@ class ShopCategoryMinmax extends ShopControl {
             }
             check-box {
                 position: relative;
-                left: -5px;
+                left: -10px;
+                left: calc(-5px - 0.5rem);
                 width: 100%;
             }
             .label span {
