@@ -164,7 +164,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             }
             check-box {
                 position: relative;
-                left: -5px;
+                left: -8px;
                 width: 100%;
             }
             .wrapper.tall {
@@ -245,7 +245,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             }
             check-box {
                 position: relative;
-                left: -5px;
+                left: -8px;
                 width: 100%;
             }
             .label span {
