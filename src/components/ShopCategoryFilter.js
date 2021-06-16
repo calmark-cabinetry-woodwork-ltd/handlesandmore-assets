@@ -510,7 +510,6 @@ class ShopCategoryMinmax extends ShopControl {
                       <check-box
                           @change=${setUnit}
                           type="switch"
-                          label="Metric"
                           .value=${displayDefault}
                       >
                           <span class="label" slot="label">
