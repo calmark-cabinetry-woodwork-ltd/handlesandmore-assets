@@ -295,7 +295,7 @@ class ShopCategoryMinmax extends ShopControl {
                     border-bottom-color: #313333;
                 }
                 50% {
-                    background-color: white;
+                    background-color: #efedea;
                 }
                 100% {
                     background-color: #dcdad6;
@@ -324,7 +324,8 @@ class ShopCategoryMinmax extends ShopControl {
             }
             .input-min-max div:focus-within {
                 animation-name: inputfocus;
-                animation-duration: 0.5s;
+                animation-duration: 0.3s;
+                border-bottom-color: #ff4438;
             }
             input {
                 width: 100%;
