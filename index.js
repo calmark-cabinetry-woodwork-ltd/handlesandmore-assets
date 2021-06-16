@@ -157,7 +157,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
      * http://polymer.github.io/PATENTS.txt
      */
 (window.litElementVersions||(window.litElementVersions=[])).push("2.4.0");const Y={};class tt extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const t=this.getStyles();if(Array.isArray(t)){const e=(t,i)=>t.reduceRight(((t,i)=>Array.isArray(i)?e(i,t):(t.add(i),t)),i),i=e(t,new Set),s=[];i.forEach((t=>s.unshift(t))),this._styles=s}else this._styles=void 0===t?[]:[t];this._styles=this._styles.map((t=>{if(t instanceof CSSStyleSheet&&!G){const e=Array.prototype.slice.call(t.cssRules).reduce(((t,e)=>t+e.cssText),"");return new Q(String(e),K)}return t}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const t=this.constructor._styles;0!==t.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?G?this.renderRoot.adoptedStyleSheets=t.map((t=>t instanceof CSSStyleSheet?t:t.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(t.map((t=>t.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(t){const e=this.render();super.update(t),e!==Y&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((t=>{const e=document.createElement("style");e.textContent=t.cssText,this.renderRoot.appendChild(e)})))}render(){return Y}}tt.finalized=!0,tt.render=(t,i,s)=>{if(!s||"object"!=typeof s||!s.scopeName)throw new Error("The `scopeName` option is required.");const r=s.scopeName,n=O.has(i),o=R&&11===i.nodeType&&!!i.host,a=o&&!j.has(r),l=a?document.createDocumentFragment():i;if(((t,i,s)=>{let r=O.get(i);void 0===r&&(e(i,i.firstChild),O.set(i,r=new C(Object.assign({templateFactory:z},s))),r.appendInto(i)),r.setValue(t),r.commit()})(t,l,Object.assign({templateFactory:H(r)},s)),a){const t=O.get(l);O.delete(l);const s=t.value instanceof f?t.value.template:void 0;q(r,l,s),e(i,i.firstChild),i.appendChild(l),O.set(i,t)}!n&&o&&window.ShadyCSS.styleElement(i.host)};class et extends tt{get root(){return this.shadowRoot}static getOption(t){const e=window.localStorage.getItem(t)||null;return e?JSON.parse(e):null}static setOption(t,e){const i=e?JSON.stringify(e):null;window.localStorage.setItem(t,i)}render(){return V`<p>Element</p>`}trigger(t,e={},i=!0,s=!0){const r=new CustomEvent(t,{detail:e,bubbles:i,composed:s});this.dispatchEvent(r)}on(t,e){this.addEventListener(t,e)}off(t,e){this.removeEventListener(t,e)}}const it=()=>{const t=new CustomEvent("didNavigate",{bubbles:!0,composed:!0});document.dispatchEvent(t),window.gtag("event","page_view",{page_title:document.title,page_location:window.location.href,page_path:window.location.pathname})},st=(async()=>(await(await fetch(window.siteConfig.categoryEndpoint)).json()).categories)();const rt=t=>Array.isArray(t)?t.map((t=>rt(t))):Math.round(parseFloat(t)/25.4*16)/16,nt=t=>Array.isArray(t)?t.map((t=>nt(t))):Math.round(25.5*parseFloat(t)*10)/10;class ot extends et{static get properties(){return{key:{type:String},values:{type:Array},selection:{type:Array}}}get filterid(){return this.key.replace(/.*\[(.*)\].*/,"$1")}}customElements.define("shop-category-toggles",class extends ot{static get styles(){return Z`
-            .label {
+            .label span {
                 font-size: 0.75rem;
                 color: #313333;
                 line-height: 1.8;
@@ -180,7 +180,9 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                             label=${e}
                             .value=${this.selection.includes(e)}
                         >
-                            <span class="label" slot="label">${e}</span>
+                            <span class="label" slot="label">
+                                <span>${e}</span>
+                            </span>
                         </check-box>
                     `))}
             </div>
@@ -243,7 +245,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                 left: -5px;
                 width: 100%;
             }
-            .label {
+            .label span {
                 font-size: 0.75rem;
                 color: #313333;
                 line-height: 1.8;
@@ -329,7 +331,9 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                           label="Metric"
                           .value=${d}
                       >
-                          <span class="label" slot="label">Metric</span>
+                          <span class="label" slot="label">
+                              <span>Metric</span>
+                          </span>
                       </check-box>
                   `:V``}
         `}});customElements.define("shop-category-presets",class extends et{static get properties(){return{key:{type:String},selection:{type:Array},presets:{type:Array},mcat:{type:String}}}static get styles(){return Z`
