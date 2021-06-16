@@ -342,6 +342,16 @@ class ShopCategoryMinmax extends ShopControl {
             .display-unit.active {
                 display: block;
             }
+            check-box {
+                position: relative;
+                left: -5px;
+                width: 100%;
+            }
+            .label {
+                font-size: 0.75rem;
+                color: #313333;
+                line-height: 1.8;
+            }
         `
     }
 
