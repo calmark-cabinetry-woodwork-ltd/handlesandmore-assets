@@ -293,7 +293,10 @@ class ShopCategoryMinmax extends ShopControl {
         return css`
             :host {
                 display: block;
-                padding: 0 0.5rem;
+                padding: 0;
+            }
+            .range-slider-wrapper {
+                padding: 0 8px 3px;
             }
             .input-min-max {
                 display: grid;
@@ -433,15 +436,17 @@ class ShopCategoryMinmax extends ShopControl {
 
         return html`
             <div class="display-unit ${displayDefault ? "active" : ""}">
-                <range-slider
-                    range
-                    step="1"
-                    min=${this.min}
-                    max=${this.max}
-                    .value=${selection}
-                    style="width: 100%"
-                    @change=${sliderChange}
-                ></range-slider>
+                <div class="range-slider-wrapper">
+                    <range-slider
+                        range
+                        step="1"
+                        min=${this.min}
+                        max=${this.max}
+                        .value=${selection}
+                        style="width: 100%"
+                        @change=${sliderChange}
+                    ></range-slider>
+                </div>
                 <div class="input-min-max">
                     <div>
                         <input
@@ -472,15 +477,17 @@ class ShopCategoryMinmax extends ShopControl {
                       <div
                           class="display-unit ${displayDefault ? "" : "active"}"
                       >
-                          <range-slider
-                              range
-                              step="0.0625"
-                              min=${toImp(this.min)}
-                              max=${toImp(this.max)}
-                              .value=${toImp(selection)}
-                              style="width: 100%"
-                              @change=${impSliderChange}
-                          ></range-slider>
+                          <div class="range-slider-wrapper">
+                              <range-slider
+                                  range
+                                  step="0.0625"
+                                  min=${toImp(this.min)}
+                                  max=${toImp(this.max)}
+                                  .value=${toImp(selection)}
+                                  style="width: 100%"
+                                  @change=${impSliderChange}
+                              ></range-slider>
+                          </div>
                           <div class="input-min-max">
                               <div>
                                   <input
