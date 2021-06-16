@@ -196,7 +196,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             }
             .input-min-max div {
                 display: grid;
-                grid-template-columns: 1fr 24px;
+                grid-template-columns: 1fr auto;
                 font-size: 0.85rem;
                 align-items: baseline;
                 opacity: 0.8;
@@ -242,7 +242,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                             max=${s[1]}
                             .value=${s[0]}
                         />
-                        ${this.label}
+                        <span> ${this.label} </span>
                     </div>
                     <span></span>
                     <div>
@@ -253,7 +253,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                             max=${this.max}
                             .value=${s[1]}
                         />
-                        ${this.label}
+                        <span> ${this.label} </span>
                     </div>
                 </div>
             </div>
