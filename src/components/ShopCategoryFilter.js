@@ -304,15 +304,13 @@ class ShopCategoryMinmax extends ShopControl {
                 font-size: 0.85rem;
                 align-items: baseline;
                 opacity: 0.8;
-                color: rgb(49, 51, 51);
-                background-color: rgb(158, 158, 158);
-                border-bottom: 2px solid rgb(49, 51, 51);
+                color: #313333;
+                background-color: #dcdad6;
+                border-bottom: 2px solid #313333;
                 padding: 3px;
             }
             .input-min-max div:focus-within {
-                color: #313333;
-                background-color: rgb(220, 218, 214);
-                border-bottom: 2px solid rgb(255, 68, 56);
+                border-bottom-color: #ff4438;
             }
             input {
                 width: 100%;
@@ -320,6 +318,7 @@ class ShopCategoryMinmax extends ShopControl {
                 background-color: transparent;
                 border: none;
                 outline: none;
+                font-size: 0.8rem;
             }
             .display-unit {
                 display: none;
