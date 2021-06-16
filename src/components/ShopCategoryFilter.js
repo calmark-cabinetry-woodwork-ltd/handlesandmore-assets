@@ -227,7 +227,7 @@ class ShopControl extends BaseElement {
 class ShopCategoryToggles extends ShopControl {
     static get styles() {
         return css`
-            .label {
+            .label span {
                 font-size: 0.75rem;
                 color: #313333;
                 line-height: 1.8;
@@ -276,7 +276,9 @@ class ShopCategoryToggles extends ShopControl {
                             label=${v}
                             .value=${this.selection.includes(v)}
                         >
-                            <span class="label" slot="label">${v}</span>
+                            <span class="label" slot="label">
+                                <span>${v}</span>
+                            </span>
                         </check-box>
                     `
                 )}
@@ -347,7 +349,7 @@ class ShopCategoryMinmax extends ShopControl {
                 left: -5px;
                 width: 100%;
             }
-            .label {
+            .label span {
                 font-size: 0.75rem;
                 color: #313333;
                 line-height: 1.8;
@@ -510,7 +512,9 @@ class ShopCategoryMinmax extends ShopControl {
                           label="Metric"
                           .value=${displayDefault}
                       >
-                          <span class="label" slot="label">Metric</span>
+                          <span class="label" slot="label">
+                              <span>Metric</span>
+                          </span>
                       </check-box>
                   `
                 : html``}
