@@ -311,7 +311,7 @@ class ShopCategoryMinmax extends ShopControl {
             }
             .input-min-max div:focus-within {
                 color: #313333;
-                background-color: rgb(158, 158, 158);
+                background-color: rgb(220, 218, 214);
                 border-bottom: 2px solid rgb(255, 68, 56);
             }
             input {
@@ -319,6 +319,7 @@ class ShopCategoryMinmax extends ShopControl {
                 box-sizing: border-box;
                 background-color: transparent;
                 border: none;
+                outline: none;
             }
             .display-unit {
                 display: none;
