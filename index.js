@@ -191,7 +191,8 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                     border-bottom-color: #313333;
                 }
                 50% {
-                    background-color: #efedea;
+                    background-color: #dcdad644;
+                    border-bottom-color: #313333;
                 }
                 100% {
                     background-color: #dcdad6;
