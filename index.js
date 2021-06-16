@@ -329,7 +329,6 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
                       <check-box
                           @change=${t=>{const{value:e}=t.detail,i=e?this.unit:"alt";et.setOption(h,i),this.displayUnit=i}}
                           type="switch"
-                          label="Metric"
                           .value=${d}
                       >
                           <span class="label" slot="label">
