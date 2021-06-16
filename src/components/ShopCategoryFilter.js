@@ -289,6 +289,19 @@ customElements.define("shop-category-toggles", ShopCategoryToggles)
 class ShopCategoryMinmax extends ShopControl {
     static get styles() {
         return css`
+            @keyframes inputfocus {
+                0% {
+                    background-color: #dcdad6;
+                    border-bottom-color: #313333;
+                }
+                50% {
+                    background-color: white;
+                }
+                100% {
+                    background-color: #dcdad6;
+                    border-bottom-color: #ff4438;
+                }
+            }
             :host {
                 display: block;
                 padding: 0 0.5rem;
@@ -310,7 +323,8 @@ class ShopCategoryMinmax extends ShopControl {
                 padding: 3px;
             }
             .input-min-max div:focus-within {
-                border-bottom-color: #ff4438;
+                animation-name: inputfocus;
+                animation-duration: 0.5s;
             }
             input {
                 width: 100%;
