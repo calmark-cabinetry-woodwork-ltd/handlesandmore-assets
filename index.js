@@ -238,6 +238,16 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             .display-unit.active {
                 display: block;
             }
+            check-box {
+                position: relative;
+                left: -5px;
+                width: 100%;
+            }
+            .label {
+                font-size: 0.75rem;
+                color: #313333;
+                line-height: 1.8;
+            }
         `}get autoconvert(){return"mm"==`${this.label}`.toLowerCase()}static get properties(){return Object.assign({min:{type:Number},max:{type:Number},label:{type:String},unit:{type:String},displayUnit:{type:String}},ot.properties)}render(){const t=this.values.map((t=>parseFloat(t))),e=t.reduce(((t,e)=>t<e?t:e),1/0),i=t.reduce(((t,e)=>t>e?t:e),0);this.min!=e&&(this.min=e),this.max!=i&&(this.max=i);const s=(this.selection.length&&this.selection||[this.min,this.max]).map((t=>parseFloat(t))),r=t=>{const e=t[0]==this.min&&t[1]==this.max?[]:t;this.trigger("selection",{key:this.key,selection:e})},n=t=>e=>{let i=parseFloat(e.target.value);i=i>this.max?this.max:i<this.min?this.min:i,s[t]=i,r(s)},o=t=>e=>{let i=nt(e.target.value);i=i>this.max?this.max:i<this.min?this.min:i,s[t]=i,r(s)},{key:a,autoconvert:l,filterid:c}=this,h=`${c}-unit`,d=(et.getOption(h)||this.unit)==this.unit;return V`
             <div class="display-unit ${d?"active":""}">
                 <range-slider
