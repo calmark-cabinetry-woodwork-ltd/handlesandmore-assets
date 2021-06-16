@@ -291,16 +291,19 @@ class ShopCategoryMinmax extends ShopControl {
         return css`
             @keyframes inputfocus {
                 0% {
-                    background-color: #dcdad6;
                     border-bottom-color: #313333;
+                    border-bottom-width: 1px;
+                    padding-bottom: 3px;
                 }
                 50% {
-                    background-color: #dcdad644;
                     border-bottom-color: #313333;
+                    border-bottom-width: 1px;
+                    padding-bottom: 3px;
                 }
                 100% {
-                    background-color: #dcdad6;
                     border-bottom-color: #ff4438;
+                    border-bottom-width: 2px;
+                    padding-bottom: 2px;
                 }
             }
             :host {
@@ -327,6 +330,8 @@ class ShopCategoryMinmax extends ShopControl {
                 animation-name: inputfocus;
                 animation-duration: 0.3s;
                 border-bottom-color: #ff4438;
+                border-bottom-width: 2px;
+                padding-bottom: 2px;
             }
             input {
                 width: 100%;
