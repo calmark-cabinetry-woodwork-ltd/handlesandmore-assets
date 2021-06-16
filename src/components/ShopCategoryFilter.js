@@ -300,7 +300,7 @@ class ShopCategoryMinmax extends ShopControl {
             }
             .input-min-max div {
                 display: grid;
-                grid-template-columns: 1fr 24px;
+                grid-template-columns: 1fr auto;
                 font-size: 0.85rem;
                 align-items: baseline;
                 opacity: 0.8;
@@ -422,7 +422,7 @@ class ShopCategoryMinmax extends ShopControl {
                             max=${selection[1]}
                             .value=${selection[0]}
                         />
-                        ${this.label}
+                        <span> ${this.label} </span>
                     </div>
                     <span></span>
                     <div>
@@ -433,7 +433,7 @@ class ShopCategoryMinmax extends ShopControl {
                             max=${this.max}
                             .value=${selection[1]}
                         />
-                        ${this.label}
+                        <span> ${this.label} </span>
                     </div>
                 </div>
             </div>
