@@ -191,7 +191,7 @@ const G=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
             }
             .input-min-max {
                 display: grid;
-                grid-template-columns: 80px 1fr 80px;
+                grid-template-columns: 1fr 10px 1fr;
                 gap: 0;
             }
             .input-min-max div {
