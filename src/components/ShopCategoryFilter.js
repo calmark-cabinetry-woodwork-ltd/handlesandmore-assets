@@ -295,7 +295,8 @@ class ShopCategoryMinmax extends ShopControl {
                     border-bottom-color: #313333;
                 }
                 50% {
-                    background-color: #efedea;
+                    background-color: #dcdad644;
+                    border-bottom-color: #313333;
                 }
                 100% {
                     background-color: #dcdad6;
