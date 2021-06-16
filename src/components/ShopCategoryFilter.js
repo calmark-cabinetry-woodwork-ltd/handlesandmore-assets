@@ -234,7 +234,7 @@ class ShopCategoryToggles extends ShopControl {
             }
             check-box {
                 position: relative;
-                left: -5px;
+                left: -8px;
                 width: 100%;
             }
             .wrapper.tall {
@@ -349,7 +349,7 @@ class ShopCategoryMinmax extends ShopControl {
             }
             check-box {
                 position: relative;
-                left: -5px;
+                left: -8px;
                 width: 100%;
             }
             .label span {
