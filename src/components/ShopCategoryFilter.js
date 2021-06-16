@@ -320,7 +320,8 @@ class ShopCategoryMinmax extends ShopControl {
                 bottom: -1px;
                 left: 0px;
                 right: 0px;
-                transition: bottom 0.1s ease, background-color 0.1s ease;
+                transition: bottom 0.1s ease 0.1s,
+                    background-color 0.1s ease 0.1s;
             }
             .input-min-max div:focus-within:after {
                 bottom: 0px;
