@@ -289,23 +289,6 @@ customElements.define("shop-category-toggles", ShopCategoryToggles)
 class ShopCategoryMinmax extends ShopControl {
     static get styles() {
         return css`
-            @keyframes inputfocus {
-                0% {
-                    border-bottom-color: #313333;
-                    border-bottom-width: 1px;
-                    padding-bottom: 3px;
-                }
-                50% {
-                    border-bottom-color: #313333;
-                    border-bottom-width: 1px;
-                    padding-bottom: 3px;
-                }
-                100% {
-                    border-bottom-color: #ff4438;
-                    border-bottom-width: 2px;
-                    padding-bottom: 2px;
-                }
-            }
             :host {
                 display: block;
                 padding: 0 0.5rem;
@@ -325,13 +308,17 @@ class ShopCategoryMinmax extends ShopControl {
                 background-color: #dcdad6;
                 border-bottom: 1px solid #313333;
                 padding: 3px;
+                transition: border 0.1s ease, padding 0.1s ease;
+                overflow: hidden;
             }
             .input-min-max div:focus-within {
-                animation-name: inputfocus;
-                animation-duration: 0.3s;
                 border-bottom-color: #ff4438;
                 border-bottom-width: 2px;
                 padding-bottom: 2px;
+            }
+            .input-min-max div:after {
+                content: " ";
+                display: block;
             }
             input {
                 width: 100%;
@@ -483,7 +470,7 @@ class ShopCategoryMinmax extends ShopControl {
                                       step="0.0625"
                                       .value=${toImp(selection[0])}
                                   />
-                                  in
+                                  <span>in</span>
                               </div>
                               <span></span>
                               <div>
@@ -495,7 +482,7 @@ class ShopCategoryMinmax extends ShopControl {
                                       step="0.0625"
                                       .value=${toImp(selection[1])}
                                   />
-                                  in
+                                  <span>in</span>
                               </div>
                           </div>
                       </div>
