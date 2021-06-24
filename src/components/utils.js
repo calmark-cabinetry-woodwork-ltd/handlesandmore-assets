@@ -1,9 +1,12 @@
 ;(() => {
-    const tid = new URL(window.location).searchParams.get("tid")
+    const url = new URL(window.location)
+    const tid = url.searchParams.get("tid")
     if (tid) {
         const event_category = "tagview"
         const event_label = tid
         window.gtag("event", "tagview", { event_category, event_label })
+        url.searchParams.delete("tid")
+        history.pushState({}, document.title, `${url}`)
     }
 })()
 
