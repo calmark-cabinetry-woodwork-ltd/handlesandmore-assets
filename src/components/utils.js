@@ -1,3 +1,12 @@
+;(() => {
+    const tid = new URL(window.location).searchParams.get("tid")
+    if (tid) {
+        const event_category = "tagview"
+        const event_label = tid
+        window.gtag("event", "tagview", { event_category, event_label })
+    }
+})()
+
 export const didNavigate = () => {
     const e = new CustomEvent("didNavigate", { bubbles: true, composed: true })
     document.dispatchEvent(e)
