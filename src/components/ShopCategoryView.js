@@ -188,7 +188,7 @@ export class ShopCategoryView extends BaseElement {
                 return f
             })
 
-            console.log(resultId, this.resultId)
+            // console.log(resultId, this.resultId)
             if (resultId == this.resultId) {
                 Object.assign(this, {
                     page: data.page,
@@ -245,7 +245,7 @@ export class ShopCategoryView extends BaseElement {
             return f
         })
 
-        console.log(resultId, this.resultId)
+        // console.log(resultId, this.resultId)
         if (resultId == this.resultId) {
             Object.assign(this, {
                 page: data.page,
