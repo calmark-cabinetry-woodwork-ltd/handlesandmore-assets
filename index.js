@@ -1361,6 +1361,7 @@ main label {
                 color: #313333;
             }
             .product-image {
+                background-color: rgba(255, 253, 240, 0.3);
                 padding: 50%;
                 background-size: cover;
                 background-position: center;
