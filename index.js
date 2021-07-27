@@ -1397,7 +1397,7 @@ main label {
                   `}
             <a href="/${this.url}.html">
                 <div>${this.fulltitle}</div>
-                <div class="price">${this.price}${e?"":" +"}</div>
+                <div class="price">${this.price}${e?"":" ±"}</div>
             </a>
         `}}),customElements.define("shop-category-filter",class extends et{static get styles(){return Z`
             :host {
