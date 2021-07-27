@@ -91,7 +91,7 @@ export class ShopCategoryProduct extends BaseElement {
                   `}
             <a href="/${this.url}.html">
                 <div>${this.fulltitle}</div>
-                <div class="price">${this.price}</div>
+                <div class="price">${this.price}${singular ? "" : " +"}</div>
             </a>
         `
     }
