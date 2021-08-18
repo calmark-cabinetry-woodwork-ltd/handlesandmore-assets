@@ -1376,7 +1376,7 @@ main label {
                 color: #ff4438;
                 font-weight: 600;
             }
-        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){return`$${parseFloat(this.priceExcl).toFixed(2)}`}sized(t,e){if(!t)return"";const i=new URL(t),s=i.pathname.split("/"),r=s.pop(),n=`${e}x${e}x1`;return s.push(n),s.push(r),i.pathname=s.join("/"),i.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return V`
+        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){const t=parseFloat(this.priceExcl).toFixed(2);return"0.00"==t?"Call for pricing":`$${t}`}sized(t,e){if(!t)return"";const i=new URL(t),s=i.pathname.split("/"),r=s.pop(),n=`${e}x${e}x1`;return s.push(n),s.push(r),i.pathname=s.join("/"),i.toString()}render(){const t=this.sized(this.image_url,400),e=0==this.variants.length;return V`
             <a href="/${this.url}.html" title=${this.title}>
                 <div
                     class="product-image"
