@@ -44,7 +44,7 @@ export class ShopCategoryProduct extends BaseElement {
 
     get price() {
         const x = parseFloat(this.priceExcl).toFixed(2)
-        return `$${x}`
+        return x == "0.00" ? "Call for pricing" : `$${x}`
     }
 
     sized(url, size) {
