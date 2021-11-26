@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "build-nomodule": "rollup -c rollup.nomodule.config.js"
+    "build-nomodule": "rollup -c rollup.nomodule.config.js",
+    "hfont": "fontcustom compile icons --output=static/hfont --name hfont && rm .fontcustom-manifest.json"
   },
   "dependencies": {
     "@babel/core": "^7.12.10",
