@@ -1,3 +1,28 @@
+:root {
+    --icon-font-family: "hfont";
+    --icon-content-account: "\e001";
+    --icon-content-caret-down: "\e002";
+    --icon-content-caret-left: "\e003";
+    --icon-content-caret-right: "\e004";
+    --icon-content-caret-up: "\e005";
+    --icon-content-email: "\e006";
+    --icon-content-facebook: "\e007";
+    --icon-content-google: "\e008";
+    --icon-content-heart-o: "\e009";
+    --icon-content-heart: "\e00a";
+    --icon-content-instagram: "\e00b";
+    --icon-content-left-chevron: "\e00c";
+    --icon-content-linkedin: "\e00d";
+    --icon-content-logo-responsive: "\e00e";
+    --icon-content-logo: "\e00f";
+    --icon-content-phone1: "\e010";
+    --icon-content-right-chevron: "\e011";
+    --icon-content-search: "\e012";
+    --icon-content-shopping-cart: "\e013";
+    --icon-content-sort: "\e014";
+    --icon-content-star: "\e015";
+    --icon-content-up-chevron: "\e016";
+}
 @font-face {
     font-family: "hfont";
     src: url("./hfont.eot");
@@ -37,7 +62,6 @@
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
-    line-height: 1;
     text-decoration: inherit;
     text-rendering: optimizeLegibility;
     text-transform: none;

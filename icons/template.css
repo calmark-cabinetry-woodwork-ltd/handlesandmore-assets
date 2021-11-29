@@ -1,3 +1,7 @@
+:root {
+    --icon-font-family: "hfont";
+    /* ICON_VARS */
+}
 @font-face {
     font-family: "hfont";
     src: url("./hfont.eot");
@@ -37,7 +41,6 @@
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
-    line-height: 1;
     text-decoration: inherit;
     text-rendering: optimizeLegibility;
     text-transform: none;

@@ -59,16 +59,17 @@ function writeHtml(icons) {
 }
 
 function writeCss(icons) {
+    const cssCodepoint = i => "\\" + i.codepoint.toString(16)
+    const cssVars = icons
+        .map(i => `--icon-content-${i.name}: "${cssCodepoint(i)}";`)
+        .join("\n    ")
     const cssData = icons
-        .map(
-            i =>
-                `.icon-${i.name}:before { content: "\\${i.codepoint.toString(
-                    16
-                )}"}`
-        )
+        .map(i => `.icon-${i.name}:before { content: "${cssCodepoint(i)}"}`)
         .join("\n")
 
-    const cssOut = cssTemplate.replace("/* ICONS */", cssData)
+    const cssOut = cssTemplate
+        .replace("/* ICON_VARS */", cssVars)
+        .replace("/* ICONS */", cssData)
 
     fs.writeFileSync(path.join(targetDir, "hfont.css"), cssOut, {
         encoding
