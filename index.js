@@ -1582,9 +1582,9 @@ main label {
                           >
                       `:V``}
             </b-btn-group>
-        `}}),customElements.define("shop-wishlist",class extends et{static get styles(){return Z`
+        `}}),customElements.define("shop-wishlist",class extends et{static get properties(){return{accountid:{type:String},wishlist:{type:Object}}}static get styles(){return Z`
             :host {
                 display: none;
             }
-        `}async updateWishlist(){try{const t=await(await fetch("/account/wishlist/?format=json")).json();console.log({wishlist:t})}catch(t){console.log({err:t})}}render(){return V``}})}();
+        `}updateEvent(){const t=new CustomEvent("wishlist",{detail:this,bubbles:!0,composed:!0});document.querySelector("body").dispatchEvent(t)}async firstUpdated(){try{this.accountid?this.wishlist=await(await fetch("/account/wishlist/?format=json")).json():this.wishlist={},this.updateEvent()}catch(t){console.log({err:t})}}render(){return V``}})}();
 //# sourceMappingURL=index.js.map
