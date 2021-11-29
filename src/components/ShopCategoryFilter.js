@@ -52,12 +52,12 @@ export class ShopCategoryFilter extends BaseElement {
                 line-height: 1.5rem;
             }
             .toggle:before {
-                font-family: icomoon;
-                content: "\\e922";
+                font-family: hfont;
+                content: var(--icon-content-caret-right);
                 font-size: 10px;
             }
             .toggle.open:before {
-                content: "\\e920";
+                content: var(--icon-content-caret-down);
             }
             .preset-display-unit {
                 display: grid;

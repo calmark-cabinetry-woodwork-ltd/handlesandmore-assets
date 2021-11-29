@@ -28,8 +28,8 @@ export class ShopSubcategoryList extends BaseElement {
             }
 
             .breadcrumbs a + a:before {
-                font-family: icomoon;
-                content: "\\e92a";
+                font-family: hfont;
+                content: var(--icon-content-caret-right);
                 font-size: 0.6em;
                 margin: 0 0.25em;
                 position: relative;

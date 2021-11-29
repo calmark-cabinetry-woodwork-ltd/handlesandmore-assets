@@ -25,16 +25,16 @@ export class ShopCategoryPagination extends BaseElement {
                 border-radius: 5px;
             }
             b-btn:before {
-                font-family: icomoon !important;
+                font-family: hfont !important;
                 position: absolute;
                 top: 9px;
                 left: 9px;
             }
             b-btn.next:before {
-                content: "\\e922";
+                content: var(--icon-content-caret-right);
             }
             b-btn.prev:before {
-                content: "\\e921";
+                content: var(--icon-content-caret-left);
             }
         `
     }
