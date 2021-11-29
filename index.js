@@ -1178,8 +1178,8 @@ main label {
             }
 
             .breadcrumbs a + a:before {
-                font-family: icomoon;
-                content: "\\e92a";
+                font-family: hfont;
+                content: var(--icon-content-caret-right);
                 font-size: 0.6em;
                 margin: 0 0.25em;
                 position: relative;
@@ -1434,12 +1434,12 @@ main label {
                 line-height: 1.5rem;
             }
             .toggle:before {
-                font-family: icomoon;
-                content: "\\e922";
+                font-family: hfont;
+                content: var(--icon-content-caret-right);
                 font-size: 10px;
             }
             .toggle.open:before {
-                content: "\\e920";
+                content: var(--icon-content-caret-down);
             }
             .preset-display-unit {
                 display: grid;
@@ -1548,16 +1548,16 @@ main label {
                 border-radius: 5px;
             }
             b-btn:before {
-                font-family: icomoon !important;
+                font-family: hfont !important;
                 position: absolute;
                 top: 9px;
                 left: 9px;
             }
             b-btn.next:before {
-                content: "\\e922";
+                content: var(--icon-content-caret-right);
             }
             b-btn.prev:before {
-                content: "\\e921";
+                content: var(--icon-content-caret-left);
             }
         `}static get properties(){return{page:{type:Number},limit:{type:Number},count:{type:Number}}}get pageCount(){return Math.ceil(this.count/this.limit)}get pages(){const t={},e=[...new Array(this.pageCount)].map(((t,e)=>{const i=e+1;return{number:i,index:e,current:i==this.page,next:this.page+1==i,prev:this.page-1==i,showInPagination:[-2,-1,0,1,2].includes(this.page-i)}}));return this.pageCount>8?(t.limitStart=this.page>3,t.limitEnd=this.pageCount-this.page>2,t.limitPages=!0,t.entries=e.filter((t=>t.showInPagination))):(t.limitPages=!1,t.entries=e),t}render(){if(!this.page||!this.limit)return V``;const t=this.pages;if(1==t.length)return V``;const e=t.entries.find((t=>t.prev)),i=t.entries.find((t=>t.next)),s=t=>e=>{this.trigger("page",t)};return V`
             <b-btn-group>
