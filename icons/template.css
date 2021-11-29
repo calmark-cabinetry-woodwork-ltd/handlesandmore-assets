@@ -16,7 +16,8 @@
     }
 }
 
-[class^="icon"] {
+[class^="icon-"],
+[class*=" icon-"] {
     font-family: hfont !important;
     speak: never;
     font-style: normal;
@@ -29,7 +30,8 @@
 }
 
 [data-icon]:before,
-[class^="icon"]:before {
+[class^="icon"]:before,
+[class*=" icon-"]:before {
     display: inline-block;
     font-family: hfont;
     font-style: normal;
