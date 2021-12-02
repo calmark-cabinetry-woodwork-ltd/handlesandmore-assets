@@ -4,11 +4,11 @@
 }
 @font-face {
     font-family: "hfont";
-    src: url("./hfont.eot");
-    src: url("./hfont.eot?#iefix") format("embedded-opentype"),
-        url("./hfont.woff") format("woff"),
-        url("./hfont.ttf") format("truetype"),
-        url("./hfont.svg#hfont") format("svg");
+    src: url("./hfont.eot?v=__VERSION__");
+    src: url("./hfont.eot?v=__VERSION__#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=__VERSION__") format("woff"),
+        url("./hfont.ttf?v=__VERSION__") format("truetype"),
+        url("./hfont.svg?v=__VERSION__#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -16,7 +16,7 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
         font-family: "hfont";
-        src: url("./hfont.svg#hfont") format("svg");
+        src: url("./hfont.svg?v=__VERSION__#hfont") format("svg");
     }
 }
 

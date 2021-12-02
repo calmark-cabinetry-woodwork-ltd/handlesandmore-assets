@@ -27,11 +27,11 @@
 }
 @font-face {
     font-family: "hfont";
-    src: url("./hfont.eot?v=1");
-    src: url("./hfont.eot?v=1#iefix") format("embedded-opentype"),
-        url("./hfont.woff?v=1") format("woff"),
-        url("./hfont.ttf?v=1") format("truetype"),
-        url("./hfont.svg?v=1#hfont") format("svg");
+    src: url("./hfont.eot?v=61a946f889561cc760decc8a");
+    src: url("./hfont.eot?v=61a946f889561cc760decc8a#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=61a946f889561cc760decc8a") format("woff"),
+        url("./hfont.ttf?v=61a946f889561cc760decc8a") format("truetype"),
+        url("./hfont.svg?v=61a946f889561cc760decc8a#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -39,7 +39,7 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
         font-family: "hfont";
-        src: url("./hfont.svg?v=1#hfont") format("svg");
+        src: url("./hfont.svg?v=61a946f889561cc760decc8a#hfont") format("svg");
     }
 }
 
@@ -60,75 +60,27 @@
     content: attr(data-icon);
 }
 
-.icon-account:before {
-    content: "\e001";
-}
-.icon-add:before {
-    content: "\e002";
-}
-.icon-caret-down:before {
-    content: "\e003";
-}
-.icon-caret-left:before {
-    content: "\e004";
-}
-.icon-caret-right:before {
-    content: "\e005";
-}
-.icon-caret-up:before {
-    content: "\e006";
-}
-.icon-email:before {
-    content: "\e007";
-}
-.icon-facebook:before {
-    content: "\e008";
-}
-.icon-google:before {
-    content: "\e009";
-}
-.icon-heart-o:before {
-    content: "\e00a";
-}
-.icon-heart:before {
-    content: "\e00b";
-}
-.icon-instagram:before {
-    content: "\e00c";
-}
-.icon-left-chevron:before {
-    content: "\e00d";
-}
-.icon-linkedin:before {
-    content: "\e00e";
-}
-.icon-logo-responsive:before {
-    content: "\e00f";
-}
-.icon-logo:before {
-    content: "\e010";
-}
-.icon-phone1:before {
-    content: "\e011";
-}
-.icon-right-chevron:before {
-    content: "\e012";
-}
-.icon-search:before {
-    content: "\e013";
-}
-.icon-shopping-cart:before {
-    content: "\e014";
-}
-.icon-sort:before {
-    content: "\e015";
-}
-.icon-star:before {
-    content: "\e016";
-}
-.icon-subtract:before {
-    content: "\e017";
-}
-.icon-up-chevron:before {
-    content: "\e018";
-}
+.icon-account:before { content: "\e001"}
+.icon-add:before { content: "\e002"}
+.icon-caret-down:before { content: "\e003"}
+.icon-caret-left:before { content: "\e004"}
+.icon-caret-right:before { content: "\e005"}
+.icon-caret-up:before { content: "\e006"}
+.icon-email:before { content: "\e007"}
+.icon-facebook:before { content: "\e008"}
+.icon-google:before { content: "\e009"}
+.icon-heart-o:before { content: "\e00a"}
+.icon-heart:before { content: "\e00b"}
+.icon-instagram:before { content: "\e00c"}
+.icon-left-chevron:before { content: "\e00d"}
+.icon-linkedin:before { content: "\e00e"}
+.icon-logo-responsive:before { content: "\e00f"}
+.icon-logo:before { content: "\e010"}
+.icon-phone1:before { content: "\e011"}
+.icon-right-chevron:before { content: "\e012"}
+.icon-search:before { content: "\e013"}
+.icon-shopping-cart:before { content: "\e014"}
+.icon-sort:before { content: "\e015"}
+.icon-star:before { content: "\e016"}
+.icon-subtract:before { content: "\e017"}
+.icon-up-chevron:before { content: "\e018"}

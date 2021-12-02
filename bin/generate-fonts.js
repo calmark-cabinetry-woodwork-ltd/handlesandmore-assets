@@ -1,3 +1,4 @@
+import mongoid from "../src/mongoid.js"
 import SVGIcons2SVGFontStream from "svgicons2svgfont"
 import fs from "fs"
 import path from "path"
@@ -5,6 +6,7 @@ import path from "path"
 const svgDir = "./icons"
 const targetDir = "./static/hfont"
 const encoding = "utf-8"
+const VERSION = mongoid()
 const fontOptions = { fontName: "hfont", fontHeight: 1000 }
 const fontStream = new SVGIcons2SVGFontStream(fontOptions)
 
@@ -51,7 +53,9 @@ function writeHtml(icons) {
         .map(i => `<div class="box"><span class="icon-${i.name}"></span></div>`)
         .join("\n")
 
-    const htmlOut = htmlTemplate.replace("<!-- ICONS -->", htmlData)
+    const htmlOut = htmlTemplate
+        .replace("<!-- ICONS -->", htmlData)
+        .replace(/__VERSION__/gm, VERSION)
 
     fs.writeFileSync(path.join(targetDir, "index.html"), htmlOut, {
         encoding
@@ -70,6 +74,7 @@ function writeCss(icons) {
     const cssOut = cssTemplate
         .replace("/* ICON_VARS */", cssVars)
         .replace("/* ICONS */", cssData)
+        .replace(/__VERSION__/gm, VERSION)
 
     fs.writeFileSync(path.join(targetDir, "hfont.css"), cssOut, {
         encoding
