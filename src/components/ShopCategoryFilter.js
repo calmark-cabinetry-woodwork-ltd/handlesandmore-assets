@@ -585,7 +585,7 @@ class ShopCategoryPresets extends BaseElement {
             // if active unset, else set
             const selection = isActive(preset) == "active" ? [] : preset.values
             if (selection.length && this.mcat)
-                clickTrack("measurement", this.mcat)
+                clickTrack("filter-click", this.mcat)
             this.trigger("selection", { key: this.key, selection })
         }
         return html`

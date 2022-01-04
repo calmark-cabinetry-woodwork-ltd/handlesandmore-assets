@@ -24,9 +24,9 @@ export const didNavigate = () => {
     }
 }
 
-export const clickTrack = (event_category, event_label, value = null) => {
-    if (window && window.gtag) {
-        window.gtag("event", "click", { event_category, event_label, value })
+export const clickTrack = (category, label) => {
+    if (window && window.dataLayer) {
+        dataLayer.push({ event: "click", category, label })
     }
 }
 
