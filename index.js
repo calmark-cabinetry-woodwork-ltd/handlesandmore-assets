@@ -1385,7 +1385,7 @@ main label {
             </a>
             ${e?V``:V`
                       <div class="variants">
-                          ${this.variants.slice(0,5).map((t=>{const e=this.sized(t.image_url,80);return V`
+                          ${this.variants.slice(0,5).map((t=>{const e=rt(t.image_url,80);return V`
                                   <a href="/${t.url}.html" title=${t.title}>
                                       <div
                                           class="product-image"
