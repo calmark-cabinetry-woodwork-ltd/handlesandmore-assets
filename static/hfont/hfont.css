@@ -27,11 +27,12 @@
 }
 @font-face {
     font-family: "hfont";
-    src: url("./hfont.eot?v=61a946f889561cc760decc8a");
-    src: url("./hfont.eot?v=61a946f889561cc760decc8a#iefix") format("embedded-opentype"),
-        url("./hfont.woff?v=61a946f889561cc760decc8a") format("woff"),
-        url("./hfont.ttf?v=61a946f889561cc760decc8a") format("truetype"),
-        url("./hfont.svg?v=61a946f889561cc760decc8a#hfont") format("svg");
+    font-display: swap;
+    src: url("./hfont.eot?v=61ddf20618be36c9905618c0");
+    src: url("./hfont.eot?v=61ddf20618be36c9905618c0#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=61ddf20618be36c9905618c0") format("woff"),
+        url("./hfont.ttf?v=61ddf20618be36c9905618c0") format("truetype"),
+        url("./hfont.svg?v=61ddf20618be36c9905618c0#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -39,7 +40,8 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
         font-family: "hfont";
-        src: url("./hfont.svg?v=61a946f889561cc760decc8a#hfont") format("svg");
+        font-display: swap;
+        src: url("./hfont.svg?v=61ddf20618be36c9905618c0#hfont") format("svg");
     }
 }
 

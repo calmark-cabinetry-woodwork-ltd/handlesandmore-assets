@@ -4,6 +4,7 @@
 }
 @font-face {
     font-family: "hfont";
+    font-display: swap;
     src: url("./hfont.eot?v=__VERSION__");
     src: url("./hfont.eot?v=__VERSION__#iefix") format("embedded-opentype"),
         url("./hfont.woff?v=__VERSION__") format("woff"),
@@ -16,6 +17,7 @@
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
         font-family: "hfont";
+        font-display: swap;
         src: url("./hfont.svg?v=__VERSION__#hfont") format("svg");
     }
 }
