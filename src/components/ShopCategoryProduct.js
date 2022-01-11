@@ -65,7 +65,7 @@ export class ShopCategoryProduct extends BaseElement {
                 : html`
                       <div class="variants">
                           ${this.variants.slice(0, 5).map(v => {
-                              const img = this.sized(v.image_url, 80)
+                              const img = sizeImage(v.image_url, 80)
 
                               return html`
                                   <a href="/${v.url}.html" title=${v.title}>
