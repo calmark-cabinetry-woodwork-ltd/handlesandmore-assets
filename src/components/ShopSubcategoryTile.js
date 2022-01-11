@@ -1,5 +1,5 @@
 import { BaseElement, html, css } from "./BaseElement.js"
-import { didNavigate } from "./utils.js"
+import { didNavigate, sizeImage } from "./utils.js"
 
 export class ShopSubcategoryTile extends BaseElement {
     static get properties() {
@@ -73,11 +73,13 @@ export class ShopSubcategoryTile extends BaseElement {
             didNavigate()
         }
 
+        const image = sizeImage(this.image, 400)
+
         return html`
             <a @click=${nav} class="tile">
                 <header>${this.title}</header>
                 <main>
-                    <img src=${this.image || this.defaultImageBase64} />
+                    <img src=${image || this.defaultImageBase64} />
                 </main>
                 <footer></footer>
             </a>

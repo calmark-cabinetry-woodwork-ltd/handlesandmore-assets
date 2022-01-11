@@ -63,3 +63,20 @@ export const aFetch = (request, opts = {}) => {
         ready: fetch(request, { ...opts, signal })
     }
 }
+
+export const sizeImage = (url, size) => {
+    try {
+        if (!url) return ""
+        const u = new URL(url)
+        const components = u.pathname.split("/")
+        const filename = components.pop()
+        const sz = `${size}x${size}x1`
+        components.push(sz)
+        components.push(filename)
+        u.pathname = components.join("/")
+        return u.toString()
+    } catch (error) {
+        console.log({ error })
+        return ""
+    }
+}

@@ -1,4 +1,5 @@
 import { BaseElement, html, css } from "./BaseElement.js"
+import { sizeImage } from "./utils.js"
 
 export class ShopCategoryProduct extends BaseElement {
     static get styles() {
@@ -47,20 +48,8 @@ export class ShopCategoryProduct extends BaseElement {
         return x == "0.00" ? "Call for pricing" : `$${x}`
     }
 
-    sized(url, size) {
-        if (!url) return ""
-        const u = new URL(url)
-        const components = u.pathname.split("/")
-        const filename = components.pop()
-        const sz = `${size}x${size}x1`
-        components.push(sz)
-        components.push(filename)
-        u.pathname = components.join("/")
-        return u.toString()
-    }
-
     render() {
-        const img = this.sized(this.image_url, 400)
+        const img = sizeImage(this.image_url, 400)
 
         const singular = this.variants.length == 0
 
