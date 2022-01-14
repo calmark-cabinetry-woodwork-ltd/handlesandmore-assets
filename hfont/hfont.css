@@ -8,31 +8,34 @@
     --icon-content-caret-up: "\e006";
     --icon-content-email: "\e007";
     --icon-content-facebook: "\e008";
-    --icon-content-google: "\e009";
-    --icon-content-heart-o: "\e00a";
-    --icon-content-heart: "\e00b";
-    --icon-content-instagram: "\e00c";
-    --icon-content-left-chevron: "\e00d";
-    --icon-content-linkedin: "\e00e";
-    --icon-content-logo-responsive: "\e00f";
-    --icon-content-logo: "\e010";
-    --icon-content-phone1: "\e011";
-    --icon-content-right-chevron: "\e012";
-    --icon-content-search: "\e013";
-    --icon-content-shopping-cart: "\e014";
-    --icon-content-sort: "\e015";
-    --icon-content-star: "\e016";
-    --icon-content-subtract: "\e017";
-    --icon-content-up-chevron: "\e018";
+    --icon-content-google-inverted: "\e009";
+    --icon-content-google: "\e00a";
+    --icon-content-heart-o: "\e00b";
+    --icon-content-heart: "\e00c";
+    --icon-content-instagram-inverted: "\e00d";
+    --icon-content-instagram: "\e00e";
+    --icon-content-left-chevron: "\e00f";
+    --icon-content-linkedin: "\e010";
+    --icon-content-logo-responsive: "\e011";
+    --icon-content-logo: "\e012";
+    --icon-content-phone1: "\e013";
+    --icon-content-pinterest: "\e014";
+    --icon-content-right-chevron: "\e015";
+    --icon-content-search: "\e016";
+    --icon-content-shopping-cart: "\e017";
+    --icon-content-sort: "\e018";
+    --icon-content-star: "\e019";
+    --icon-content-subtract: "\e01a";
+    --icon-content-up-chevron: "\e01b";
 }
 @font-face {
     font-family: "hfont";
     font-display: swap;
-    src: url("./hfont.eot?v=61ddf20618be36c9905618c0");
-    src: url("./hfont.eot?v=61ddf20618be36c9905618c0#iefix") format("embedded-opentype"),
-        url("./hfont.woff?v=61ddf20618be36c9905618c0") format("woff"),
-        url("./hfont.ttf?v=61ddf20618be36c9905618c0") format("truetype"),
-        url("./hfont.svg?v=61ddf20618be36c9905618c0#hfont") format("svg");
+    src: url("./hfont.eot?v=61e1e9b53171e54ebe4f0de6");
+    src: url("./hfont.eot?v=61e1e9b53171e54ebe4f0de6#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=61e1e9b53171e54ebe4f0de6") format("woff"),
+        url("./hfont.ttf?v=61e1e9b53171e54ebe4f0de6") format("truetype"),
+        url("./hfont.svg?v=61e1e9b53171e54ebe4f0de6#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -41,7 +44,7 @@
     @font-face {
         font-family: "hfont";
         font-display: swap;
-        src: url("./hfont.svg?v=61ddf20618be36c9905618c0#hfont") format("svg");
+        src: url("./hfont.svg?v=61e1e9b53171e54ebe4f0de6#hfont") format("svg");
     }
 }
 
@@ -70,19 +73,22 @@
 .icon-caret-up:before { content: "\e006"}
 .icon-email:before { content: "\e007"}
 .icon-facebook:before { content: "\e008"}
-.icon-google:before { content: "\e009"}
-.icon-heart-o:before { content: "\e00a"}
-.icon-heart:before { content: "\e00b"}
-.icon-instagram:before { content: "\e00c"}
-.icon-left-chevron:before { content: "\e00d"}
-.icon-linkedin:before { content: "\e00e"}
-.icon-logo-responsive:before { content: "\e00f"}
-.icon-logo:before { content: "\e010"}
-.icon-phone1:before { content: "\e011"}
-.icon-right-chevron:before { content: "\e012"}
-.icon-search:before { content: "\e013"}
-.icon-shopping-cart:before { content: "\e014"}
-.icon-sort:before { content: "\e015"}
-.icon-star:before { content: "\e016"}
-.icon-subtract:before { content: "\e017"}
-.icon-up-chevron:before { content: "\e018"}
+.icon-google-inverted:before { content: "\e009"}
+.icon-google:before { content: "\e00a"}
+.icon-heart-o:before { content: "\e00b"}
+.icon-heart:before { content: "\e00c"}
+.icon-instagram-inverted:before { content: "\e00d"}
+.icon-instagram:before { content: "\e00e"}
+.icon-left-chevron:before { content: "\e00f"}
+.icon-linkedin:before { content: "\e010"}
+.icon-logo-responsive:before { content: "\e011"}
+.icon-logo:before { content: "\e012"}
+.icon-phone1:before { content: "\e013"}
+.icon-pinterest:before { content: "\e014"}
+.icon-right-chevron:before { content: "\e015"}
+.icon-search:before { content: "\e016"}
+.icon-shopping-cart:before { content: "\e017"}
+.icon-sort:before { content: "\e018"}
+.icon-star:before { content: "\e019"}
+.icon-subtract:before { content: "\e01a"}
+.icon-up-chevron:before { content: "\e01b"}
