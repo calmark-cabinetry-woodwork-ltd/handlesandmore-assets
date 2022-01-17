@@ -15,6 +15,7 @@ jobs:
             - name: Install and Build 🔧
               run: |
                   yarn install
+                  yarn run hfont
                   yarn run build-nomodule
                   yarn run build
 
