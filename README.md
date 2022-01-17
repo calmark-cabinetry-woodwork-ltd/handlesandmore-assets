@@ -1,8 +1,19 @@
 # handlesandmore-assets
 
-    # Run rollup/dev server/livereload
-    yarn run build --watch
+These are the frontend assets (icons, images, scripts) hosted at <https://assets.handlesandmore.ca/>
 
-    # Build icon font from files in `./icons/*.svg`
-    # Requires `fontcustom` to be installed <//github.com/FontCustom/fontcustom>
-    yarn run hfont
+-   Scripts and icons are compiled/compressed automatically in a [Github Action](/main/.github/workflows/push.yml)
+
+### Icons
+
+Icons are compiled to an icon font from the files in the [icons directory](/icons).
+
+-   Icon should be in a 32x32 pixel container named with an id using `lower-case-and-dashes` format
+-   Most icons are centered in their container with about 3px padding on all sides (~26px)
+-   Make sure any new icon svg files have an id, eg: `<g id="account">...</g>`
+
+A hosted preview of the icon set is available here: <https://assets.handlesandmore.ca/hfont/>
+
+### Web Components
+
+See [component directory](/src/components)
