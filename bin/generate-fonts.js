@@ -17,6 +17,7 @@ const cssTemplate = fs.readFileSync(cssTemplatePath, { encoding })
 const htmlTemplate = fs.readFileSync(htmlTemplatePath, { encoding })
 
 const main = () => {
+    fs.mkdirSync(targetDir, { recursive: true })
     const fontWS = fs.createWriteStream(path.join(targetDir, "hfont.svg"))
     const fsPipe = fontStream.pipe(fontWS)
     fsPipe.on("error", err => console.log(err))
