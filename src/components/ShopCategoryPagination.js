@@ -94,6 +94,7 @@ export class ShopCategoryPagination extends BaseElement {
                           <b-btn class="prev" @click=${nav(prev.number)}
                               >&nbsp;</b-btn
                           >
+                          <a href="?page=${prev.number}" style="display: none">Previous Page</a>
                       `
                     : html``}
                 ${pages.limitPages && pages.limitStart
@@ -118,6 +119,7 @@ export class ShopCategoryPagination extends BaseElement {
                           <b-btn class="next" @click=${nav(next.number)}
                               >&nbsp;</b-btn
                           >
+                          <a href="?page=${next.number}" style="display: none">Next Page</a>
                       `
                     : html``}
             </b-btn-group>
