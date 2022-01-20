@@ -1565,6 +1565,7 @@ main label {
                           <b-btn class="prev" @click=${s(e.number)}
                               >&nbsp;</b-btn
                           >
+                          <a href="?page=${e.number}" style="display: none">Previous Page</a>
                       `:V``}
                 ${t.limitPages&&t.limitStart?V` <b-btn>&hellip;</b-btn> `:V``}
                 ${t.entries.map((t=>V`
@@ -1580,6 +1581,7 @@ main label {
                           <b-btn class="next" @click=${s(i.number)}
                               >&nbsp;</b-btn
                           >
+                          <a href="?page=${i.number}" style="display: none">Next Page</a>
                       `:V``}
             </b-btn-group>
         `}}),customElements.define("shop-wishlist",class extends et{static get properties(){return{accountid:{type:String},wishlist:{type:Object}}}static get styles(){return Z`
