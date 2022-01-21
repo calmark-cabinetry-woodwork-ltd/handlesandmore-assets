@@ -1475,6 +1475,17 @@ main label {
                     top: 0;
                 }
             }
+            select {
+                font-size: 0.8rem;
+                box-sizing: border-box;
+                padding: 0.25rem;
+                color: #555;
+                background-color: #dcdad6;
+                border: 1px solid rgb(183, 182, 181);
+                border-radius: 5px;
+                box-shadow: rgb(0 0 0 / 5%) 0px 3px 5px;
+                width: 100%;
+            }
         `}static get properties(){return{open:{type:Boolean},key:{type:String},display_name:{type:String},type:{type:String},values:{type:Array},selection:{type:Array},unit:{type:String},presets:{type:Array}}}get filterid(){return this.key.replace(/.*\[(.*)\].*/,"$1")}constructor(){super(),this.open=window.innerWidth>767}render(){const{filterid:t}=this,e=`${t}-unit`,i=(et.getOption(e)||this.unit)==this.unit,s=this.open?"open":"",r=this.open?"toggle open":"toggle",n=this.selection.length?"selected":"",o=(this.presets||[]).filter((t=>/\d+\s*in$/i.exec(t.name))),a=(this.presets||[]).filter((t=>/\d+\s*mm$/i.exec(t.name))),l=o.length+a.length>0,c=i?"unit-mm":"unit-in",h=t=>i=>{et.setOption(e,t),this.unit="alt"==t?"in":"mm",this.requestUpdate()};return V`
             <header class=${n} @click=${()=>this.open=!this.open}>
                 ${this.display_name}
