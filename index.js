@@ -1481,14 +1481,23 @@ main label {
                 <span class=${r}></span>
             </header>
             <main class=${s}>
-                ${"Text"==this.type?V`
-                          <shop-category-toggles
-                              .key=${this.key}
-                              .values=${this.values}
-                              .selection=${this.selection}
-                          ></shop-category-toggles>
-                      `:V``}
-                ${"MinMax"==this.type?V`
+            ${"Text"==this.type?V`
+                    <shop-category-toggles
+                        .key=${this.key}
+                        .values=${this.values}
+                        .selection=${this.selection}
+                    ></shop-category-toggles>
+                `:V``}
+            ${"Select"==this.type?V`
+                    <select @change=${t=>{const e=[t.target.value];this.trigger("selection",{key:this.key,selection:e})}}>
+                        ${this.values.map((t=>{return V`
+                            <option value="${t}" ?selected="${$v==$this.selection}">
+                                ${e=t,{popular:"Popular",price:"Price (Low to High)",price_1:"Price (High to Low)"}[e]||e}
+                            </option>
+                        `;var e}))}
+                    </select>
+                `:V``}
+            ${"MinMax"==this.type?V`
                           ${l?V`
                                     <div
                                         class="preset-display-unit ${c}"
