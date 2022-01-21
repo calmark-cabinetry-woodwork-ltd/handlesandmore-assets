@@ -180,7 +180,7 @@ export class ShopCategoryFilter extends BaseElement {
                 ? html`
                     <select @change=${handleSelect}>
                         ${this.values.map(v => html`
-                            <option value="${v}" ?selected="${$v == $this.selection}">
+                            <option value="${v}" ?selected="${v == (this.selection[0] || null)}">
                                 ${translateSelect(v)}
                             </option>
                         `)}
