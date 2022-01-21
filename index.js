@@ -1491,7 +1491,7 @@ main label {
             ${"Select"==this.type?V`
                     <select @change=${t=>{const e=[t.target.value];this.trigger("selection",{key:this.key,selection:e})}}>
                         ${this.values.map((t=>{return V`
-                            <option value="${t}" ?selected="${$v==$this.selection}">
+                            <option value="${t}" ?selected="${t==(this.selection[0]||null)}">
                                 ${e=t,{popular:"Popular",price:"Price (Low to High)",price_1:"Price (High to Low)"}[e]||e}
                             </option>
                         `;var e}))}
