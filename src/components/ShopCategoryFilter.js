@@ -93,6 +93,17 @@ export class ShopCategoryFilter extends BaseElement {
                     top: 0;
                 }
             }
+            select {
+                font-size: 0.8rem;
+                box-sizing: border-box;
+                padding: 0.25rem;
+                color: #555;
+                background-color: #dcdad6;
+                border: 1px solid rgb(183, 182, 181);
+                border-radius: 5px;
+                box-shadow: rgb(0 0 0 / 5%) 0px 3px 5px;
+                width: 100%;
+            }
         `
     }
 
