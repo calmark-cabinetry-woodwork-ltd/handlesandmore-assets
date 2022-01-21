@@ -102,6 +102,7 @@ export class ShopCategoryFilter extends BaseElement {
                 border: 1px solid rgb(183, 182, 181);
                 border-radius: 5px;
                 box-shadow: rgb(0 0 0 / 5%) 0px 3px 5px;
+                outline: none;
                 width: 100%;
             }
         `
