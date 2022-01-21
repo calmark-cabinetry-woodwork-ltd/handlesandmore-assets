@@ -147,22 +147,47 @@ export class ShopCategoryFilter extends BaseElement {
             this.requestUpdate()
         }
 
+        const translateSelect = (value) => {
+            const displayNames = {
+                popular: "Popular",
+                price: "Price (Low to High)",
+                price_1: "Price (High to Low)"
+            }
+            return displayNames[value] || value
+        }
+
+        const handleSelect = ev => {
+            const selection = [ev.target.value]
+            this.trigger("selection", { key: this.key, selection })
+        }
+
         return html`
             <header class=${selectionClass} @click=${toggleOpen}>
                 ${this.display_name}
                 <span class=${toggleClass}></span>
             </header>
             <main class=${mainClass}>
-                ${this.type == "Text"
-                    ? html`
-                          <shop-category-toggles
-                              .key=${this.key}
-                              .values=${this.values}
-                              .selection=${this.selection}
-                          ></shop-category-toggles>
-                      `
-                    : html``}
-                ${this.type == "MinMax"
+            ${this.type == "Text"
+                ? html`
+                    <shop-category-toggles
+                        .key=${this.key}
+                        .values=${this.values}
+                        .selection=${this.selection}
+                    ></shop-category-toggles>
+                `
+                : html``}
+            ${this.type == "Select"
+                ? html`
+                    <select @change=${handleSelect}>
+                        ${this.values.map(v => html`
+                            <option value="${v}" ?selected="${$v == $this.selection}">
+                                ${translateSelect(v)}
+                            </option>
+                        `)}
+                    </select>
+                `
+                : html``}
+            ${this.type == "MinMax"
                     ? html`
                           ${showUnitPresets
                               ? html`
