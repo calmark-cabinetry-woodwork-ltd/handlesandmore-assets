@@ -21,21 +21,25 @@
     --icon-content-phone1: "\e013";
     --icon-content-pinterest: "\e014";
     --icon-content-right-chevron: "\e015";
-    --icon-content-search: "\e016";
-    --icon-content-shopping-cart: "\e017";
-    --icon-content-sort: "\e018";
-    --icon-content-star: "\e019";
-    --icon-content-subtract: "\e01a";
-    --icon-content-up-chevron: "\e01b";
+    --icon-content-sans-serif-closed-quote: "\e016";
+    --icon-content-sans-serif-open-quote: "\e017";
+    --icon-content-search: "\e018";
+    --icon-content-serif-closed-quote: "\e019";
+    --icon-content-serif-open-quote: "\e01a";
+    --icon-content-shopping-cart: "\e01b";
+    --icon-content-sort: "\e01c";
+    --icon-content-star: "\e01d";
+    --icon-content-subtract: "\e01e";
+    --icon-content-up-chevron: "\e01f";
 }
 @font-face {
     font-family: "hfont";
     font-display: swap;
-    src: url("./hfont.eot?v=61f448415f401b6ec44fa0a");
-    src: url("./hfont.eot?v=61f448415f401b6ec44fa0a#iefix") format("embedded-opentype"),
-        url("./hfont.woff?v=61f448415f401b6ec44fa0a") format("woff"),
-        url("./hfont.ttf?v=61f448415f401b6ec44fa0a") format("truetype"),
-        url("./hfont.svg?v=61f448415f401b6ec44fa0a#hfont") format("svg");
+    src: url("./hfont.eot?v=61fd55ef68406f6ae58160");
+    src: url("./hfont.eot?v=61fd55ef68406f6ae58160#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=61fd55ef68406f6ae58160") format("woff"),
+        url("./hfont.ttf?v=61fd55ef68406f6ae58160") format("truetype"),
+        url("./hfont.svg?v=61fd55ef68406f6ae58160#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -44,7 +48,7 @@
     @font-face {
         font-family: "hfont";
         font-display: swap;
-        src: url("./hfont.svg?v=61f448415f401b6ec44fa0a#hfont") format("svg");
+        src: url("./hfont.svg?v=61fd55ef68406f6ae58160#hfont") format("svg");
     }
 }
 
@@ -86,9 +90,13 @@
 .icon-phone1:before { content: "\e013"}
 .icon-pinterest:before { content: "\e014"}
 .icon-right-chevron:before { content: "\e015"}
-.icon-search:before { content: "\e016"}
-.icon-shopping-cart:before { content: "\e017"}
-.icon-sort:before { content: "\e018"}
-.icon-star:before { content: "\e019"}
-.icon-subtract:before { content: "\e01a"}
-.icon-up-chevron:before { content: "\e01b"}
+.icon-sans-serif-closed-quote:before { content: "\e016"}
+.icon-sans-serif-open-quote:before { content: "\e017"}
+.icon-search:before { content: "\e018"}
+.icon-serif-closed-quote:before { content: "\e019"}
+.icon-serif-open-quote:before { content: "\e01a"}
+.icon-shopping-cart:before { content: "\e01b"}
+.icon-sort:before { content: "\e01c"}
+.icon-star:before { content: "\e01d"}
+.icon-subtract:before { content: "\e01e"}
+.icon-up-chevron:before { content: "\e01f"}
