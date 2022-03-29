@@ -1376,7 +1376,7 @@ main label {
                 color: #ff4438;
                 font-weight: 600;
             }
-        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get price(){const t=parseFloat(this.priceExcl).toFixed(2);return"0.00"==t?"Call for pricing":`$${t}`}render(){const t=rt(this.image_url,400),e=0==this.variants.length;return V`
+        `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get prices(){return[this.priceExcl,...this.variants.map((t=>t.priceExcl))].map((t=>parseFloat(t)))}get price(){const t=this.prices;let e=t.reduce(((t,e)=>e>0&&e<t?e:t),0),i=t.reduce(((t,e)=>e>0&&e>t?e:t),0);return 0==e?"Call for pricing":e==i?`$${e}`:`From $${e}`}render(){const t=rt(this.image_url,400),e=0==this.variants.length;return V`
             <a href="/${this.url}.html" title=${this.title}>
                 <div
                     class="product-image"
@@ -1397,7 +1397,7 @@ main label {
                   `}
             <a href="/${this.url}.html">
                 <div>${this.fulltitle}</div>
-                <div class="price">${this.price}${e?"":" ±"}</div>
+                <div class="price">${this.price}</div>
             </a>
         `}}),customElements.define("shop-category-filter",class extends et{static get styles(){return Z`
             :host {

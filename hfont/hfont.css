@@ -35,11 +35,11 @@
 @font-face {
     font-family: "hfont";
     font-display: swap;
-    src: url("./hfont.eot?v=61fd55ef68406f6ae58160");
-    src: url("./hfont.eot?v=61fd55ef68406f6ae58160#iefix") format("embedded-opentype"),
-        url("./hfont.woff?v=61fd55ef68406f6ae58160") format("woff"),
-        url("./hfont.ttf?v=61fd55ef68406f6ae58160") format("truetype"),
-        url("./hfont.svg?v=61fd55ef68406f6ae58160#hfont") format("svg");
+    src: url("./hfont.eot?v=62426a46bfd01572ef067a");
+    src: url("./hfont.eot?v=62426a46bfd01572ef067a#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=62426a46bfd01572ef067a") format("woff"),
+        url("./hfont.ttf?v=62426a46bfd01572ef067a") format("truetype"),
+        url("./hfont.svg?v=62426a46bfd01572ef067a#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -48,7 +48,7 @@
     @font-face {
         font-family: "hfont";
         font-display: swap;
-        src: url("./hfont.svg?v=61fd55ef68406f6ae58160#hfont") format("svg");
+        src: url("./hfont.svg?v=62426a46bfd01572ef067a#hfont") format("svg");
     }
 }
 
