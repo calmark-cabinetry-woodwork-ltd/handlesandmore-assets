@@ -28,6 +28,13 @@ export class ShopCategoryProduct extends BaseElement {
                 color: #ff4438;
                 font-weight: 600;
             }
+            .call-for-pricing {}
+            .price-single {}
+            .price-from-number {}
+            .price-from-label {
+                color: #777;
+                font-weight: normal;
+            }
         `
     }
 
@@ -53,9 +60,13 @@ export class ShopCategoryProduct extends BaseElement {
         const lowest = (prev, current) => current > 0 && current < prev ? current: prev
         let minPrice = prices.reduce(lowest, this.priceExcl)
         let maxPrice = prices.reduce(highest, this.priceExcl)
-        if (minPrice == 0) return "Call for pricing"
-        if (minPrice == maxPrice) return `$${minPrice.toFixed(2)}`
-        return `From $${minPrice.toFixed(2)}`
+        if (minPrice == 0) {
+            return html`<span class="call-for-pricing">Call for pricing</span>`
+        }
+        if (minPrice == maxPrice) {
+            return html`<span class="price-single">$${minPrice.toFixed(2)}</span>`
+        }
+        return html`<span class="price-from-label">From </span><span class="price-from-number">$${minPrice.toFixed(2)}</span>`
     }
 
     render() {
