@@ -32,7 +32,7 @@ export class ShopCategoryProduct extends BaseElement {
             .price-single {}
             .price-from-number {}
             .price-from-label {
-                font-weight: normal;
+                font-weight: 700;
             }
         `
     }
