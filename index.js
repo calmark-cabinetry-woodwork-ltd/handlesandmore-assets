@@ -1380,7 +1380,6 @@ main label {
             .price-single {}
             .price-from-number {}
             .price-from-label {
-                color: #777;
                 font-weight: normal;
             }
         `}static get properties(){return{priceExcl:{type:String},url:{type:String},title:{type:String},fulltitle:{type:String},image_url:{type:String},product_set:{type:Object},variants:{type:Array}}}get prices(){return[this.priceExcl,...this.variants.map((t=>t.priceExcl))].map((t=>parseFloat(t)))}get price(){const t=this.prices;let e=t.reduce(((t,e)=>e>0&&e<t?e:t),this.priceExcl),i=t.reduce(((t,e)=>e>0&&e>t?e:t),this.priceExcl);return 0==e?V`<span class="call-for-pricing">Call for pricing</span>`:e==i?V`<span class="price-single">$${e.toFixed(2)}</span>`:V`<span class="price-from-label">From </span><span class="price-from-number">$${e.toFixed(2)}</span>`}render(){const t=rt(this.image_url,400),e=0==this.variants.length;return V`
