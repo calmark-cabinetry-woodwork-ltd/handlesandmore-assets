@@ -43,9 +43,19 @@ export class ShopCategoryProduct extends BaseElement {
         }
     }
 
+    get prices() {
+        return [this.priceExcl, ...this.variants.map(v => v.priceExcl)].map(p => parseFloat(p))
+    }
+
     get price() {
-        const x = parseFloat(this.priceExcl).toFixed(2)
-        return x == "0.00" ? "Call for pricing" : `$${x}`
+        const prices = this.prices
+        const highest = (prev, current) => current > 0 && current > prev ? current: prev
+        const lowest = (prev, current) => current > 0 && current < prev ? current: prev
+        let minPrice = prices.reduce(lowest, 0)
+        let maxPrice = prices.reduce(highest, 0)
+        if (minPrice == 0) return "Call for pricing"
+        if (minPrice == maxPrice) return `$${minPrice}`
+        return `From $${minPrice}`
     }
 
     render() {
@@ -80,7 +90,7 @@ export class ShopCategoryProduct extends BaseElement {
                   `}
             <a href="/${this.url}.html">
                 <div>${this.fulltitle}</div>
-                <div class="price">${this.price}${singular ? "" : " ±"}</div>
+                <div class="price">${this.price}</div>
             </a>
         `
     }
