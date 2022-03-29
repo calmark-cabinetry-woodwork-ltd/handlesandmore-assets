@@ -51,8 +51,8 @@ export class ShopCategoryProduct extends BaseElement {
         const prices = this.prices
         const highest = (prev, current) => current > 0 && current > prev ? current: prev
         const lowest = (prev, current) => current > 0 && current < prev ? current: prev
-        let minPrice = prices.reduce(lowest, 0)
-        let maxPrice = prices.reduce(highest, 0)
+        let minPrice = prices.reduce(lowest, this.priceExcl)
+        let maxPrice = prices.reduce(highest, this.priceExcl)
         if (minPrice == 0) return "Call for pricing"
         if (minPrice == maxPrice) return `$${minPrice}`
         return `From $${minPrice}`
