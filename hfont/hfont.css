@@ -31,15 +31,16 @@
     --icon-content-star: "\e01d";
     --icon-content-subtract: "\e01e";
     --icon-content-up-chevron: "\e01f";
+    --icon-content-youtube: "\e020";
 }
 @font-face {
     font-family: "hfont";
     font-display: swap;
-    src: url("./hfont.eot?v=62431f3c5412b66de7b847b");
-    src: url("./hfont.eot?v=62431f3c5412b66de7b847b#iefix") format("embedded-opentype"),
-        url("./hfont.woff?v=62431f3c5412b66de7b847b") format("woff"),
-        url("./hfont.ttf?v=62431f3c5412b66de7b847b") format("truetype"),
-        url("./hfont.svg?v=62431f3c5412b66de7b847b#hfont") format("svg");
+    src: url("./hfont.eot?v=6287b12c69fc4e68ed6af0d");
+    src: url("./hfont.eot?v=6287b12c69fc4e68ed6af0d#iefix") format("embedded-opentype"),
+        url("./hfont.woff?v=6287b12c69fc4e68ed6af0d") format("woff"),
+        url("./hfont.ttf?v=6287b12c69fc4e68ed6af0d") format("truetype"),
+        url("./hfont.svg?v=6287b12c69fc4e68ed6af0d#hfont") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -48,7 +49,7 @@
     @font-face {
         font-family: "hfont";
         font-display: swap;
-        src: url("./hfont.svg?v=62431f3c5412b66de7b847b#hfont") format("svg");
+        src: url("./hfont.svg?v=6287b12c69fc4e68ed6af0d#hfont") format("svg");
     }
 }
 
@@ -100,3 +101,4 @@
 .icon-star:before { content: "\e01d"}
 .icon-subtract:before { content: "\e01e"}
 .icon-up-chevron:before { content: "\e01f"}
+.icon-youtube:before { content: "\e020"}
